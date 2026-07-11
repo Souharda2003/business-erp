@@ -9,7 +9,7 @@ const authRoutes = require("./routes/authRoutes");
 
 app.use("/api/auth", authRoutes);
 app.get("/", (req, res) => {
-  res.send("Trade ERP API Running");
+  res.send("Business ERP API Running");
 });
 const PORT = 5000;
 
