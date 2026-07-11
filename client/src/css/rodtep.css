@@ -1,0 +1,707 @@
+/* ===========================
+   GLOBAL PAGE
+=========================== */
+
+.page {
+  padding: 24px;
+
+  background: #f3f6fb;
+
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 32px;
+
+  font-weight: 700;
+
+  color: #2563eb;
+
+  margin-bottom: 25px;
+
+  letter-spacing: 0.3px;
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+.form-container {
+  max-width: 900px;
+
+  margin: auto;
+
+  background: #ffffff;
+
+  padding: 30px;
+
+  border-radius: 14px;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+
+  padding: 12px 15px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.25);
+}
+
+.row {
+  display: flex;
+
+  gap: 15px;
+
+  margin-bottom: 18px;
+}
+
+.row input {
+  flex: 2;
+}
+
+.row select {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.form-group label {
+  font-weight: 600;
+
+  color: #374151;
+
+  margin-bottom: 8px;
+
+  font-size: 15px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.primary-btn {
+  width: 100%;
+
+  padding: 14px;
+
+  margin-top: 18px;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+  color: #ffffff;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.35);
+}
+
+.search-btn {
+  background: #2563eb;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 11px 22px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.search-btn:hover {
+  background: #1d4ed8;
+}
+
+.edit-btn {
+  background: #2563eb;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 8px 16px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #1d4ed8;
+}
+
+.delete-btn {
+  background: #dc2626;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 8px 16px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+/* ===========================
+   TABLE
+=========================== */
+
+.table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: #ffffff;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.table th {
+  background: #2563eb;
+
+  color: #ffffff;
+
+  padding: 14px;
+
+  text-align: center;
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+.table td {
+  padding: 12px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  text-align: center;
+
+  color: #374151;
+
+  font-size: 14px;
+}
+
+.table tbody tr {
+  transition: 0.3s;
+}
+
+.table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* ===========================
+   HISTORY FILTER
+=========================== */
+
+.history-button-row {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 25px;
+}
+
+.history-button-row select,
+.history-button-row input {
+  padding: 11px 14px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.history-button-row select:focus,
+.history-button-row input:focus {
+  border-color: #2563eb;
+}
+
+/* ===========================
+   TOTAL CARD
+=========================== */
+
+.total-card {
+  background: #ffffff;
+
+  padding: 25px;
+
+  border-radius: 14px;
+
+  text-align: center;
+
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  margin-top: 25px;
+}
+
+.total-card h2 {
+  color: #2563eb;
+
+  margin-bottom: 10px;
+}
+
+.total-card h1 {
+  color: #16a34a;
+
+  font-size: 42px;
+
+  font-weight: 700;
+}
+
+/* ===========================
+   RODTEP SUMMARY
+=========================== */
+
+.summary-card {
+  background: #ffffff;
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  margin-top: 25px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.summary-card h3 {
+  color: #2563eb;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
+}
+
+.summary-card p {
+  font-size: 12px;
+
+  margin: 8px 0;
+
+  color: #374151;
+
+  line-height: 1.8;
+}
+
+.summary-card b {
+  color: #111827;
+}
+
+.summary-card hr {
+  margin: 20px 0;
+
+  border: none;
+
+  border-top: 1px solid #d1d5db;
+}
+
+.summary-total {
+  font-size: 38px;
+
+  color: #16a34a;
+
+  font-weight: 700;
+}
+
+/* ===========================
+   GRAND TOTAL BOX
+=========================== */
+
+.purchase-total-box {
+  margin-top: 30px;
+
+  background: #e9f7ef;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  border: 1px solid #bbf7d0;
+}
+
+.purchase-total-box h2 {
+  color: #16a34a;
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.purchase-total-box p {
+  font-size: 28px;
+
+  font-weight: 600;
+
+  margin: 12px 0;
+}
+
+/* ===========================
+   COLORS
+=========================== */
+
+.blue {
+  color: #2563eb;
+}
+
+.green {
+  color: #16a34a;
+}
+
+.red {
+  color: #dc2626;
+}
+
+.orange {
+  color: #ea580c;
+}
+
+.purple {
+  color: #7c3aed;
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.action-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+.action-buttons button {
+  min-width: 70px;
+}
+/* ===========================
+   PRINT CARD
+=========================== */
+
+.print-card {
+  background: #ffffff;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  padding: 20px;
+
+  margin-top: 20px;
+}
+
+.print-card h3 {
+  color: #2563eb;
+
+  margin-bottom: 12px;
+}
+
+.print-card p {
+  margin: 8px 0;
+}
+
+.print-view {
+  display: none;
+}
+
+/* ===========================
+   RODTEP PRINT FORM
+=========================== */
+
+.rodtep-form-print {
+  width: 100%;
+
+  min-height: 270mm;
+
+  background: #ffffff;
+
+  padding: 25px;
+
+  box-sizing: border-box;
+
+  page-break-after: always;
+}
+
+.rodtep-form-print:last-child {
+  page-break-after: auto;
+}
+
+.rodtep-form-print .row {
+  display: flex;
+
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+.rodtep-form-print .form-group {
+  flex: 1;
+}
+
+.rodtep-form-print label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.rodtep-form-print input {
+  width: 100%;
+
+  padding: 10px;
+
+  border: 1px solid #9ca3af;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #000000;
+}
+
+/* ===========================
+   SUMMARY BOX
+=========================== */
+
+.rodtep-summary {
+  margin-top: 35px;
+
+  background: #eef5ff;
+
+  padding: 30px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.rodtep-summary h2 {
+  font-size: 34px;
+
+  font-weight: 700;
+
+  color: #2563eb;
+
+  margin-bottom: 20px;
+}
+
+.rodtep-summary h3 {
+  color: #16a34a;
+
+  font-size: 28px;
+
+  margin-bottom: 15px;
+}
+
+.rodtep-summary p {
+  font-size: 20px;
+
+  color: #374151;
+
+  line-height: 1.8;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 15px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .history-button-row {
+    flex-direction: column;
+  }
+
+  .table {
+    display: block;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+  }
+
+  .form-container {
+    padding: 18px;
+  }
+
+  .summary-card {
+    padding: 18px;
+  }
+
+  .summary-card h3 {
+    font-size: 22px;
+  }
+
+  .summary-card p {
+    font-size: 16px;
+  }
+
+  .total-card h1 {
+    font-size: 30px;
+  }
+
+  .purchase-total-box h2 {
+    font-size: 30px;
+  }
+
+  .purchase-total-box p {
+    font-size: 20px;
+  }
+
+  .rodtep-summary {
+    padding: 20px;
+  }
+}
+
+/* ===========================
+   PRINT
+=========================== */
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .page {
+    padding: 0;
+
+    background: #ffffff;
+  }
+
+  .search-btn,
+  .edit-btn,
+  .delete-btn,
+  .primary-btn {
+    display: none;
+  }
+
+  .table {
+    box-shadow: none;
+
+    border: 1px solid #000;
+  }
+
+  .summary-card {
+    page-break-inside: avoid;
+  }
+}
+.view-btn {
+  background: #16a34a;
+
+  color: #ffffff;
+
+  border: none;
+
+  padding: 8px 16px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.view-btn:hover {
+  background: #15803d;
+}
+
+.action-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}

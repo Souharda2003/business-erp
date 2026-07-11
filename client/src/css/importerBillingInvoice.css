@@ -1,0 +1,919 @@
+/* ===================================================
+   IMPORTER BILLING INVOICE
+   PART 1
+=================================================== */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+/* ===================================================
+   A4 PAGE
+=================================================== */
+
+.invoice-sheet {
+  position: relative;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 20px auto;
+  background: #ffffff;
+  overflow: hidden;
+  page-break-after: always;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===================================================
+   LETTER HEAD
+=================================================== */
+
+.invoice-letterhead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 210mm;
+  height: 297mm;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===================================================
+   OVERLAY CONTENT
+=================================================== */
+
+.invoice-overlay {
+  position: absolute;
+
+
+  top: 78mm;
+
+  left: 14mm;
+
+  right: 14mm;
+
+  z-index: 10;
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+/* ===================================================
+   HEADER
+=================================================== */
+
+.invoice-header-row {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 10px;
+
+}
+
+.invoice-left {
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+}
+
+.invoice-right {
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+}
+
+.invoice-left p,
+.invoice-right p {
+
+  margin: 0;
+
+}
+
+/* ===================================================
+   INFORMATION TABLE
+=================================================== */
+
+.invoice-info {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-bottom: 12px;
+
+}
+
+.invoice-info td {
+
+  border: 1px solid #000;
+
+  padding: 8px 10px;
+
+  font-size: 14px;
+
+}
+
+.invoice-info td:nth-child(1),
+.invoice-info td:nth-child(3) {
+
+  width: 18%;
+
+  background: #f5f5f5;
+
+  font-weight: bold;
+
+}
+
+.invoice-info td:nth-child(2),
+.invoice-info td:nth-child(4) {
+
+  width: 32%;
+
+}
+
+/* ===================================================
+   COMMON
+=================================================== */
+
+* {
+
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+
+  margin: 0;
+
+}
+
+p {
+
+  margin: 0;
+
+}
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+}
+
+.text-right {
+
+  text-align: right;
+
+}
+
+.text-center {
+
+  text-align: center;
+
+}
+
+/* ===================================================
+   PAGE BREAK
+=================================================== */
+
+.page-break {
+
+  page-break-after: always;
+
+  break-after: page;
+
+  height: 0;
+
+}
+
+/* ===================================================
+   PDF QUALITY
+=================================================== */
+
+.invoice-sheet,
+.invoice-sheet * {
+
+  -webkit-print-color-adjust: exact;
+
+  print-color-adjust: exact;
+
+}
+/* ===================================================
+   ITEM TABLE
+=================================================== */
+
+.invoice-item-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+
+  margin-top: 5px;
+
+}
+
+.invoice-item-table thead tr {
+
+  background: #efefef;
+
+}
+
+.invoice-item-table thead th {
+
+  border: 1px solid #000;
+
+  padding: 8px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+}
+
+.invoice-item-table tbody td {
+
+  border: 1px solid #000;
+
+  padding: 6px;
+
+  font-size: 13px;
+
+  text-align: center;
+
+  height: 28px;
+
+  vertical-align: middle;
+
+}
+
+.invoice-item-table th:nth-child(1),
+.invoice-item-table td:nth-child(1){
+
+    width:8%;
+
+}
+
+.invoice-item-table th:nth-child(2),
+.invoice-item-table td:nth-child(2){
+
+    width:18%;
+
+}
+
+.invoice-item-table th:nth-child(3),
+.invoice-item-table td:nth-child(3){
+
+    width:16%;
+
+}
+
+.invoice-item-table th:nth-child(4),
+.invoice-item-table td:nth-child(4){
+
+    width:16%;
+
+}
+
+.invoice-item-table th:nth-child(5),
+.invoice-item-table td:nth-child(5){
+
+    width:20%;
+
+}
+
+.invoice-item-table th:nth-child(6),
+.invoice-item-table td:nth-child(6){
+
+    width:22%;
+
+}
+
+/* ===================================================
+   BLANK ROW
+=================================================== */
+
+.invoice-item-table tbody tr{
+
+    page-break-inside: avoid;
+
+}
+
+.invoice-item-table tbody tr td{
+
+    background:#ffffff;
+
+}
+.invoice-total-section{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-top:15px;
+
+}
+
+.invoice-total-table{
+
+    width:340px;
+
+    border-collapse:collapse;
+
+}
+
+.invoice-total-table td{
+
+    border:1px solid #000;
+
+    padding:8px 10px;
+
+    font-size:14px;
+
+}
+
+.invoice-total-table td:first-child{
+
+    width:65%;
+
+    font-weight:bold;
+
+    background:#f5f5f5;
+
+}
+
+.invoice-total-table td:last-child{
+
+    width:35%;
+
+    text-align:right;
+
+    font-weight:600;
+
+}
+
+.grand-total-row{
+
+    background:#ececec;
+
+}
+
+.grand-total-row td{
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
+
+/* ===================================================
+   AMOUNT IN WORDS
+=================================================== */
+
+.amount-word-box{
+
+    width:100%;
+
+    border:1px solid #000;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    min-height:60px;
+
+    font-size:14px;
+
+    line-height:24px;
+
+    background:#ffffff;
+
+}
+
+/* ===================================================
+   TERMS
+=================================================== */
+
+.terms-box{
+
+    width:100%;
+
+    border:1px solid #000;
+
+    margin-top:12px;
+
+    padding:12px;
+
+    background:#ffffff;
+
+}
+
+.terms-box h4{
+
+    margin-bottom:8px;
+
+    font-size:15px;
+
+}
+
+.terms-box ul{
+
+    margin:0;
+
+    padding-left:18px;
+
+}
+
+.terms-box li{
+
+    margin-bottom:5px;
+
+    font-size:13px;
+
+}
+
+/* ===================================================
+   SIGNATURE
+=================================================== */
+
+.signature-wrapper{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+}
+
+.signature-wrapper div{
+
+    width:180px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+/* ===================================================
+   AUTO PAGE
+=================================================== */
+
+.invoice-sheet{
+
+    page-break-after:always;
+
+    break-after:page;
+
+}
+
+.invoice-item-table{
+
+    page-break-inside:auto;
+
+}
+
+.invoice-item-table tr{
+
+    page-break-inside:avoid;
+
+    break-inside:avoid;
+
+}
+
+.invoice-total-section{
+
+    page-break-inside:avoid;
+
+}
+
+.amount-word-box{
+
+    page-break-inside:avoid;
+
+}
+
+.terms-box{
+
+    page-break-inside:avoid;
+
+}
+
+.signature-wrapper{
+
+    page-break-inside:avoid;
+
+}
+/* ===================================================
+   IMPORTER BILLING INVOICE CSS
+   PART 3
+=================================================== */
+
+/* ================================================
+   DOWNLOAD BUTTON
+================================================ */
+
+.download-pdf-btn {
+
+  background: #2563eb;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 14px 35px;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  margin: 30px auto;
+
+  display: inline-block;
+
+}
+
+.download-pdf-btn:hover {
+
+  background: #1d4ed8;
+
+}
+
+.download-pdf-btn:active {
+
+  transform: scale(.98);
+
+}
+
+
+.invoice-sheet:last-child{
+
+    page-break-after:auto;
+
+    break-after:auto;
+
+}
+
+.invoice-sheet *{
+
+    -webkit-print-color-adjust:exact;
+
+    print-color-adjust:exact;
+
+}
+
+/* ================================================
+   LETTER HEAD
+================================================ */
+
+.invoice-letterhead{
+
+    width:210mm;
+
+    height:297mm;
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    object-fit:contain;
+
+    z-index:1;
+
+}
+
+.invoice-item-table{
+
+    width:100%;
+
+    table-layout:fixed;
+
+}
+
+.invoice-item-table tbody tr{
+
+    height:30px;
+
+}
+
+.invoice-item-table td{
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+/* ================================================
+   TOTAL FIX
+================================================ */
+
+.invoice-total-section{
+
+    margin-top:15px;
+
+}
+
+.invoice-total-table{
+
+    margin-left:auto;
+
+}
+
+/* ================================================
+   AMOUNT IN WORDS
+================================================ */
+
+.amount-word-box{
+
+    margin-top:12px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+/* ================================================
+   TERMS
+================================================ */
+
+.terms-box{
+
+    margin-top:10px;
+
+}
+
+.terms-box li{
+
+    line-height:20px;
+
+}
+
+/* ================================================
+   SIGNATURE
+================================================ */
+
+.signature-wrapper{
+
+    margin-top:45px;
+
+}
+
+.signature-wrapper div{
+
+    min-width:180px;
+
+}
+
+/* ================================================
+   PAGE BREAK
+================================================ */
+
+.page-break{
+
+    page-break-after:always;
+
+    break-after:page;
+
+}
+
+/* ================================================
+   PRINT
+================================================ */
+
+@media print{
+
+    body{
+
+        margin:0;
+
+        padding:0;
+
+        background:#ffffff;
+
+    }
+
+    .page{
+
+        background:#ffffff;
+
+        padding:0;
+
+    }
+
+    .download-pdf-btn{
+
+        display:none;
+
+    }
+
+}
+
+/* ================================================
+   A4
+================================================ */
+
+@page{
+
+    size:A4 portrait;
+
+    margin:0;
+
+}
+
+/* ================================================
+   RESPONSIVE
+================================================ */
+
+@media(max-width:900px){
+
+    .page{
+
+        padding:10px;
+
+    }
+
+    .invoice-sheet{
+
+        width:100%;
+
+        min-height:270mm;
+
+    }
+
+    .invoice-letterhead{
+
+        width:100%;
+
+        height:auto;
+
+        position:relative;
+
+    }
+
+    .invoice-overlay{
+
+        position:relative;
+
+        left:0;
+
+        top:0;
+
+        right:0;
+
+        bottom:0;
+
+        padding:15px;
+
+    }
+
+    .invoice-header-row{
+
+        flex-direction:column;
+
+        gap:10px;
+
+        align-items:flex-start;
+
+    }
+
+    .invoice-info td{
+
+        font-size:12px;
+
+    }
+
+    .invoice-item-table{
+
+        display:block;
+
+        overflow-x:auto;
+
+    }
+
+    .invoice-total-table{
+
+        width:100%;
+
+    }
+
+    .signature-wrapper{
+
+        flex-direction:column;
+
+        gap:40px;
+
+        align-items:center;
+
+    }
+
+}
+
+/* ================================================
+   PROFESSIONAL ALIGNMENT
+================================================ */
+
+.invoice-header-row{
+
+    margin-bottom:8px;
+
+}
+
+.invoice-info{
+
+    margin-bottom:10px;
+
+}
+
+.invoice-item-table{
+
+    margin-top:5px;
+
+}
+
+.invoice-total-section{
+
+    margin-top:15px;
+
+}
+
+.amount-word-box{
+
+    margin-top:10px;
+
+}
+
+.terms-box{
+
+    margin-top:10px;
+
+}
+
+.signature-wrapper{
+
+    margin-bottom:10px;
+
+}
+
+/* ================================================
+   AUTO MULTI PAGE
+
+   18 Rows Per Page
+
+   Same Letter Head Every Page
+
+================================================ */
+
+.invoice-sheet{
+
+    display:block;
+
+}
+
+.invoice-sheet:not(:last-child){
+
+    page-break-after:always;
+
+}

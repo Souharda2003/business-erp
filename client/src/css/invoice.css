@@ -1,0 +1,598 @@
+/* =====================================================
+   COMMON INVOICE CSS
+   Trade ERP
+   Global Layout
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eef2f7;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: #111827;
+}
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.invoice-page {
+  background: #eef2f7;
+
+  min-height: 100vh;
+
+  padding: 30px;
+}
+
+/* =====================================================
+   ACTION BUTTON AREA
+===================================================== */
+
+.invoice-action {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 25px;
+}
+
+.printButton {
+  background: #16a34a;
+
+  color: #ffffff;
+
+  border: none;
+
+  padding: 12px 28px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+
+}
+
+.printButton:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+}
+
+.invoice-action{
+
+width:210mm;
+
+display:flex;
+
+justify-content:flex-end;
+
+margin-bottom:15px;
+
+}
+.invoice {
+  width: 210mm;
+
+  min-height: 297mm;
+
+  margin: auto;
+
+  background: #ffffff;
+
+  padding: 12mm;
+
+  border: 1px solid #d1d5db;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.invoice-title {
+  text-align: center;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 15px;
+
+  color: #111827;
+
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.invoice-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 20px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 2px solid #000;
+
+  margin-bottom: 20px;
+}
+
+.invoice-top-left {
+  flex: 1;
+}
+
+.invoice-top-right {
+  width: 280px;
+
+  text-align: right;
+}
+
+.invoice-top h2 {
+  margin: 0;
+
+  font-size: 30px;
+
+  font-weight: 700;
+}
+
+.invoice-top p {
+  margin-top: 5px;
+
+  font-size: 13px;
+
+  color: #374151;
+}
+
+/* =====================================================
+   COMPANY BLOCK
+===================================================== */
+
+.company-details {
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #d1d5db;
+}
+
+.company-details h1 {
+  font-size: 32px;
+
+  margin-bottom: 8px;
+
+  color: #2563eb;
+}
+
+.company-details h2 {
+  font-size: 28px;
+
+  margin-bottom: 8px;
+
+  color: #2563eb;
+}
+
+.company-details h3 {
+  font-size: 18px;
+
+  margin-bottom: 8px;
+}
+
+.company-details p {
+  margin: 4px 0;
+
+  font-size: 14px;
+
+  color: #374151;
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.invoice-card {
+  border: 1px solid #d1d5db;
+
+  padding: 15px;
+
+  margin-bottom: 20px;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+}
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+  font-size: 18px;
+
+  font-weight: 700;
+
+  margin-bottom: 12px;
+
+  color: #2563eb;
+}
+
+/* =====================================================
+   FLEX ROW
+===================================================== */
+
+.flex-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 20px;
+}
+
+.flex-column {
+  flex: 1;
+}
+.invoice-info{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-bottom:25px;
+
+}
+
+.invoice-info td{
+
+    border:1px solid #d1d5db;
+
+    padding:12px 15px;
+
+    font-size:15px;
+
+    vertical-align:middle;
+
+    white-space:nowrap;
+
+}
+
+.invoice-info td:first-child{
+
+    width:180px;
+
+    background:#f8fafc;
+
+    font-weight:700;
+
+    text-align:center;
+
+}
+
+.invoice-info td:last-child{
+
+    width:220px;
+
+    text-align:center;
+
+}
+.common-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 20px;
+
+  margin-bottom: 20px;
+}
+
+.common-table th {
+  background: #2563eb;
+
+  color: #ffffff;
+
+  padding: 10px;
+
+  border: 1px solid #d1d5db;
+
+  font-size: 14px;
+
+  text-align: center;
+
+  font-weight: 700;
+}
+
+.common-table td {
+  border: 1px solid #d1d5db;
+
+  padding: 10px;
+
+  font-size: 14px;
+
+  text-align: center;
+
+  vertical-align: middle;
+}
+
+.common-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.common-table tbody tr:hover {
+  background: #eef4ff;
+}
+
+/* =====================================================
+   PRODUCT TABLE
+===================================================== */
+
+.product-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 20px;
+
+  margin-bottom: 20px;
+}
+
+.product-table th {
+  background: #1d4ed8;
+
+  color: #ffffff;
+
+  border: 1px solid #d1d5db;
+
+  padding: 11px;
+
+  font-size: 14px;
+
+  text-align: center;
+
+  font-weight: 700;
+}
+
+.product-table td {
+  border: 1px solid #d1d5db;
+
+  padding: 10px;
+
+  text-align: center;
+
+  font-size: 14px;
+}
+
+.product-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.product-table tfoot td {
+  font-weight: 700;
+
+  background: #eff6ff;
+}
+
+/* =====================================================
+   SUMMARY TABLE
+===================================================== */
+
+.summary-table {
+  width: 45%;
+
+  margin-left: auto;
+
+  margin-top: 20px;
+
+  border-collapse: collapse;
+}
+
+.summary-table td {
+  border: 1px solid #d1d5db;
+
+  padding: 10px;
+
+  font-size: 14px;
+}
+
+.summary-table tr:last-child td {
+  font-weight: 700;
+
+  background: #f3f4f6;
+}
+
+/* =====================================================
+   VALUE TABLE
+===================================================== */
+
+.value-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 20px;
+}
+
+.value-table th {
+  background: #e5e7eb;
+
+  color: #111827;
+
+  padding: 10px;
+
+  border: 1px solid #d1d5db;
+
+  text-align: center;
+
+  font-size: 14px;
+}
+
+.value-table td {
+  border: 1px solid #d1d5db;
+
+  padding: 10px;
+
+  text-align: center;
+
+  font-size: 14px;
+}
+
+/* =====================================================
+   AMOUNT TABLE
+===================================================== */
+
+.amount-table {
+  width: 40%;
+
+  margin-left: auto;
+
+  border-collapse: collapse;
+
+  margin-top: 20px;
+}
+
+.amount-table td {
+  border: 1px solid #d1d5db;
+
+  padding: 10px;
+
+  font-size: 14px;
+}
+
+.amount-table td:last-child {
+  text-align: right;
+
+  font-weight: 600;
+}
+
+.amount-table tr:last-child {
+  background: #dcfce7;
+
+  font-weight: 700;
+}
+
+/* =====================================================
+   ALIGNMENT
+===================================================== */
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+/* =====================================================
+   FONT WEIGHT
+===================================================== */
+
+.bold {
+  font-weight: 700;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+/* =====================================================
+   COLORS
+===================================================== */
+
+.primary-text {
+  color: #2563eb;
+}
+
+.success-text {
+  color: #16a34a;
+}
+
+.danger-text {
+  color: #dc2626;
+}
+
+.warning-text {
+  color: #ea580c;
+}
+.invoice-wrapper{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+width:100%;
+
+}
+
+.invoice-action{
+
+width:210mm;
+
+display:flex;
+
+justify-content:flex-end;
+
+margin-bottom:15px;
+
+}
+.pdfButton{
+
+margin-top:20px;
+
+padding:10px 25px;
+
+background:#16a34a;
+
+color:#fff;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:6px;
+
+font-size:16px;
+justify-content: flex-end;
+
+}
+@media print{
+
+.pdfButton{
+
+display:none;
+
+}}

@@ -1,0 +1,228 @@
+/* .navbar {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: white;
+
+  padding: 15px 25px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 20px;
+}
+
+.navbar-title {
+  font-size: 24px;
+
+  font-weight: 600;
+
+  color: #1976d2;
+}
+
+.navbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.navbar-right img {
+  width: 40px;
+
+  height: 40px;
+
+  border-radius: 50%;
+}
+
+.navbar-user {
+  font-weight: 600;
+}
+
+.logout-btn {
+  background: #d32f2f;
+
+  color: white;
+
+  padding: 8px 15px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #b71c1c;
+} */
+
+.navbar {
+  height: 70px;
+
+  background: #ffffff;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 30px;
+
+  border-bottom: 1px solid #ececec;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-left h2 {
+  font-size: 30px;
+
+  font-weight: 700;
+
+  color: #1d4ed8;
+}
+
+.navbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.financial-select {
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  border: 1px solid #d6d6d6;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  background: white;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.financial-select:hover {
+  border-color: #2563eb;
+}
+
+.apply-btn,
+.logout-btn {
+
+  padding: 10px 22px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+/* Apply Button */
+
+.apply-btn {
+
+  background: linear-gradient(135deg,#2563eb,#1d4ed8);
+
+  color: #fff;
+
+  box-shadow: 0 5px 15px rgba(37,99,235,.25);
+
+}
+
+.apply-btn:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 25px rgba(37,99,235,.35);
+
+}
+
+.apply-btn:active {
+
+  transform: scale(.95);
+
+}
+
+/* Logout Button */
+
+.logout-btn {
+
+  background: linear-gradient(135deg,#ef4444,#dc2626);
+
+  color: #fff;
+
+  box-shadow: 0 5px 15px rgba(220,38,38,.25);
+
+}
+
+.logout-btn:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 25px rgba(220,38,38,.35);
+
+}
+
+.logout-btn:active {
+
+  transform: scale(.95);
+
+}
+
+.logout-btn {
+
+  background: linear-gradient(135deg,#ef4444,#dc2626);
+
+  color: #fff;
+font-size: 12px;
+  box-shadow: 0 5px 15px rgba(220,38,38,.25);
+
+}
+.financial-select:focus {
+
+  border-color: #2563eb;
+font-size: 12px;
+  box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+
+
+}
+
+.company-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.company-link h2 {
+  cursor: pointer;
+  color: #2563eb;
+}
+
+.company-link h2:hover {
+  color: #1d4ed8;
+}

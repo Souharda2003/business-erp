@@ -1,0 +1,883 @@
+/* =========================================
+   GST INVOICE CSS
+   PART 1
+========================================= */
+
+.page {
+  min-height: 100vh;
+
+  background: #f5f7fb;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   MAIN INVOICE
+========================================= */
+
+.gst-invoice {
+  width: 210mm;
+
+  min-height: 297mm;
+
+  margin: auto;
+
+  background: #ffffff;
+
+  padding: 35px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+
+  border-radius: 8px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.gst-header {
+  text-align: center;
+
+  margin-bottom: 25px;
+}
+
+.gst-header h1 {
+  font-size: 32px;
+
+  color: #1f2937;
+
+  margin-bottom: 5px;
+
+  font-weight: bold;
+}
+
+.gst-header h2 {
+  font-size: 22px;
+
+  color: #2563eb;
+
+  margin-bottom: 15px;
+}
+
+.gst-header hr {
+  border: none;
+
+  border-top: 2px solid #2563eb;
+}
+
+/* =========================================
+   TOP DETAILS
+========================================= */
+
+.gst-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-top: 20px;
+}
+
+.gst-top div {
+  flex: 1;
+}
+
+.gst-top p {
+  margin: 8px 0;
+
+  font-size: 15px;
+
+  color: #374151;
+}
+
+.gst-top b {
+  color: #111827;
+}
+
+/* =========================================
+   GST DETAILS TABLE
+========================================= */
+
+.gst-details-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 20px;
+}
+
+.gst-details-table td {
+  border: 1px solid #d1d5db;
+
+  padding: 12px;
+
+  font-size: 15px;
+}
+
+.gst-details-table td:first-child {
+  width: 35%;
+
+  background: #f8fafc;
+
+  font-weight: bold;
+
+  color: #1f2937;
+}
+
+.gst-details-table td:last-child {
+  background: #ffffff;
+}
+
+/* =========================================
+   SUMMARY CARD
+========================================= */
+
+.gst-summary-card {
+  background: #f8fafc;
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 10px;
+
+  padding: 20px;
+}
+
+.gst-summary-card h2 {
+  color: #2563eb;
+
+  margin-bottom: 15px;
+}
+
+.gst-summary-card{
+
+padding:12px;
+
+margin-top:10px;
+
+}
+.summary-row span:last-child {
+  font-weight: bold;
+}
+
+/* =========================================
+   GST STATUS
+========================================= */
+
+.summary-row{
+
+margin:6px 0;
+
+font-size:14px;
+
+}
+.gst-status-box h2{
+
+font-size:22px;
+
+margin-bottom:8px;
+
+}
+.gst-status-box h3 {
+  margin: 15px 0;
+}
+
+.gst-status-box p {
+  color: #4b5563;
+
+  line-height: 24px;
+}
+
+/* =========================================
+   COMMON
+========================================= */
+
+hr {
+  border: none;
+
+  border-top: 1px solid #d1d5db;
+
+  margin: 12px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+/* =========================================
+   GST INVOICE CSS
+   PART 2
+========================================= */
+
+/* =========================================
+   AMOUNT IN WORDS
+========================================= */
+
+.amount-word-box {
+  background: #f8fafc;
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 10px;
+
+  padding: 10px;
+
+  margin-top: 10px;
+}
+
+.amount-word-box h3 {
+  color: #2563eb;
+
+  margin-bottom: 12px;
+
+  font-size: 20px;
+}
+
+.amount-word-box p {
+  font-size: 17px;
+
+  font-weight: bold;
+
+  color: #111827;
+
+  line-height: 28px;
+}
+
+/* =========================================
+   TERMS & CONDITIONS
+========================================= */
+
+.gst-terms {
+  margin-top: 25px;
+
+  background: #ffffff;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  padding: 20px;
+}
+
+.gst-terms h3 {
+  color: #2563eb;
+
+  margin-bottom: 12px;
+
+  font-size: 20px;
+}
+
+.gst-terms ul {
+  margin: 0;
+
+  padding-left: 20px;
+}
+
+.gst-terms li {
+  margin-bottom: 10px;
+
+  font-size: 15px;
+
+  color: #374151;
+
+  line-height: 24px;
+}
+
+/* =========================================
+   TOTAL AMOUNT BOX
+========================================= */
+
+.gst-total-box {
+  margin-top: 15px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #ecfdf5;
+
+  border: 2px solid #16a34a;
+
+  border-radius: 10px;
+
+  padding: 12px 20px;
+}
+
+.gst-total-box h3 {
+  margin: 0;
+
+  color: #166534;
+
+  font-size: 20px;
+}
+
+.gst-total-box h1 {
+  margin: 0;
+
+  font-size: 34px;
+
+  font-weight: bold;
+}
+
+/* =========================================
+   SIGNATURE SECTION
+========================================= */
+
+.signature-section {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+.signature-box {
+  flex: 1;
+
+  text-align: center;
+}
+
+.signature-line {
+  width: 100%;
+
+  border-top: 2px solid #000;
+
+  margin-bottom: 10px;
+}
+
+.signature-box p {
+  font-size: 15px;
+
+  font-weight: bold;
+
+  color: #374151;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.invoice-footer {
+  margin-top: 45px;
+
+  text-align: center;
+}
+
+.invoice-footer hr {
+  border: none;
+
+  border-top: 2px solid #d1d5db;
+
+  margin-bottom: 15px;
+}
+
+.invoice-footer p {
+  margin: 6px 0;
+
+  font-size: 14px;
+
+  color: #6b7280;
+}
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.button-group {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+
+  margin-top: 25px;
+}
+
+/* =========================================
+   DOWNLOAD BUTTON
+========================================= */
+
+.download-btn {
+  background: #16a34a;
+
+  color: #ffffff;
+
+  border: none;
+
+  padding: 12px 28px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #15803d;
+}
+
+/* =========================================
+   PRINT BUTTON
+========================================= */
+
+.search-btn {
+  background: #2563eb;
+
+  color: #ffffff;
+
+  border: none;
+
+  padding: 12px 28px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.search-btn:hover {
+  background: #1d4ed8;
+}
+
+/* =========================================
+   PDF SAFE AREA
+========================================= */
+
+.gst-invoice,
+.gst-details-table,
+.gst-summary-card,
+.amount-word-box,
+.gst-total-box,
+.gst-terms,
+.signature-section {
+  page-break-inside: avoid;
+
+  break-inside: avoid;
+}
+
+/* =========================================
+   HIGHLIGHT
+========================================= */
+
+.amount-highlight {
+  color: #16a34a;
+
+  font-size: 22px;
+
+  font-weight: bold;
+}
+
+.success-badge {
+  display: inline-block;
+
+  padding: 8px 18px;
+
+  border-radius: 20px;
+
+  background: #16a34a;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+/* =========================================
+   GST INVOICE CSS
+   PART 3
+   PDF + PRINT + RESPONSIVE
+========================================= */
+
+/* =========================================
+   A4 PAGE
+========================================= */
+
+@page {
+  size: A4 portrait;
+
+  margin: 8mm;
+}
+
+/* =========================================
+   PDF CONTAINER
+========================================= */
+
+.gst-invoice {
+  width: 210mm;
+
+  min-height: 297mm;
+
+  background: #ffffff;
+
+  color: #000;
+
+  overflow: hidden;
+
+  page-break-after: auto;
+
+  page-break-inside: avoid;
+
+  break-inside: avoid;
+}
+
+/* =========================================
+   PDF TABLE
+========================================= */
+
+.gst-details-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+}
+
+.gst-details-table thead {
+  display: table-header-group;
+}
+
+.gst-details-table tbody {
+  display: table-row-group;
+}
+
+.gst-details-table tr {
+  page-break-inside: avoid;
+
+  break-inside: avoid;
+}
+
+.gst-details-table td {
+  word-break: break-word;
+
+  white-space: normal;
+
+  vertical-align: middle;
+}
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.pdf-bottom{
+
+display:block;
+
+page-break-inside:avoid;
+
+break-inside:avoid;
+
+margin-top:20px;
+
+}
+@media print {
+  html,
+  body {
+    margin: 0;
+
+    padding: 0;
+
+    background: white;
+
+    width: 210mm;
+
+    height: auto;
+
+    -webkit-print-color-adjust: exact;
+
+    print-color-adjust: exact;
+  }
+
+  .page {
+    background: white;
+
+    padding: 0;
+
+    margin: 0;
+  }
+
+  .download-btn,
+  .search-btn,
+  button {
+    display: none !important;
+  }
+
+  .gst-invoice{
+
+width:210mm;
+
+background:#fff;
+
+padding:20px;
+
+min-height:270mm;
+
+box-sizing:border-box;
+
+}
+  .gst-header h1 {
+    font-size: 28px;
+  }
+
+  .gst-header h2 {
+    font-size: 20px;
+  }
+
+  .gst-details-table {
+    width: 100%;
+  }
+
+  .gst-details-table td {
+    padding: 10px;
+
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 1024px) {
+  .gst-invoice {
+    width: 100%;
+
+    min-height: 270mm;
+
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gst-top {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .summary-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+  }
+
+  .gst-total-box {
+    flex-direction: column;
+
+    gap: 15px;
+
+    text-align: center;
+  }
+
+  .signature-section {
+    flex-direction: column;
+
+    gap: 45px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gst-details-table {
+    display: block;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+  }
+
+  .gst-header h1 {
+    font-size: 24px;
+  }
+
+  .gst-header h2 {
+    font-size: 18px;
+  }
+}
+
+.gst-summary-card{
+
+padding:12px;
+
+margin-top:10px;
+
+}
+
+.gst-summary-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.gst-total-box {
+  transition: 0.3s;
+}
+
+.gst-total-box:hover {
+  transform: scale(1.01);
+}
+
+/* =========================================
+   WATERMARK (OPTIONAL)
+========================================= */
+
+.watermark {
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%) rotate(-30deg);
+
+  font-size: 80px;
+
+  font-weight: bold;
+
+  color: rgba(0, 0, 0, 0.04);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+/* =========================================
+   PDF QUALITY FIX
+========================================= */
+
+img {
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  page-break-inside: avoid;
+}
+
+td,
+th {
+  page-break-inside: avoid;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   UTILITY CLASS
+========================================= */
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.color-green {
+  color: #16a34a;
+}
+
+.color-blue {
+  color: #2563eb;
+}
+
+/* =========================================
+   PDF OPTIMIZATION
+========================================= */
+
+.gst-invoice * {
+  font-family: Arial, Helvetica, sans-serif;
+
+  image-rendering: auto;
+}
+
+.gst-invoice table {
+  border-collapse: collapse;
+}
+
+.gst-invoice table td,
+.gst-invoice table th {
+  white-space: normal;
+
+  overflow-wrap: break-word;
+}
+
+/* =========================================
+   END
+========================================= */

@@ -1,0 +1,813 @@
+/* ==========================================
+   RODTEP INVOICE
+   PART 1
+   Global + Page + Invoice + Header
+========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ececec;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: #000;
+
+  -webkit-print-color-adjust: exact;
+
+  print-color-adjust: exact;
+}
+
+/* ==========================================
+   PAGE
+========================================== */
+
+.rodtep-page {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding: 35px 0;
+}
+
+/* ==========================================
+   MAIN INVOICE
+========================================== */
+
+.rodtep-invoice {
+  width: 210mm;
+
+  min-height: 297mm;
+
+  background: #ffffff;
+
+  padding: 18mm;
+
+  border: 1px solid #000;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+
+  color: #000;
+
+  overflow: hidden;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.invoice-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  border-bottom: 2px solid #000;
+
+  padding-bottom: 12px;
+
+  margin-bottom: 18px;
+}
+
+.invoice-header div {
+  flex: 1;
+}
+
+.invoice-title {
+  text-align: center;
+
+  font-size: 19px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  text-decoration: underline;
+}
+
+.invoice-copy {
+  text-align: right;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  color: #c62828;
+
+  letter-spacing: 2px;
+}
+
+/* ==========================================
+   BILL DETAILS
+========================================== */
+
+.bill-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.bill-row b {
+  color: #000;
+}
+
+/* ==========================================
+   PARTY SECTION
+========================================== */
+
+.party-section {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 25px;
+
+  margin-bottom: 22px;
+}
+
+.party-left {
+  flex: 2;
+}
+
+.party-left h3 {
+  margin-bottom: 10px;
+
+  font-size: 18px;
+}
+
+.party-left p {
+  margin: 4px 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.party-right {
+  flex: 1;
+}
+
+.party-right table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.party-right td {
+  border: 1px solid #000;
+
+  padding: 7px;
+
+  font-size: 12px;
+}
+
+.party-right td:first-child {
+  font-weight: 700;
+
+  width: 55%;
+}
+/* ==========================================
+   PART 2
+   AMOUNT + AMOUNT WORDS + DESCRIPTION
+========================================== */
+
+/* ==========================================
+   AMOUNT HEADING
+========================================== */
+
+.amount-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  border: 1px solid #000;
+
+  border-bottom: none;
+
+  padding: 12px 15px;
+
+  margin-top: 18px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  background: #ffffff;
+}
+
+.amount-heading span:first-child {
+  color: #000;
+}
+
+.amount-number {
+  font-size: 28px;
+
+  font-weight: 700;
+
+  color: #0f766e;
+
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   AMOUNT IN WORDS
+========================================== */
+
+.amount-word-box {
+  border: 1px solid #000;
+
+  border-top: none;
+
+  padding: 12px 15px;
+
+  margin-bottom: 20px;
+
+  min-height: 55px;
+
+  background: #ffffff;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+.amount-word-box b {
+  color: #000;
+
+  margin-right: 5px;
+}
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.description-box {
+  border: 1px solid #000;
+
+  padding: 15px;
+
+  margin-bottom: 18px;
+
+  background: #ffffff;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  text-align: justify;
+}
+
+/* ==========================================
+   DESCRIPTION TITLE
+========================================== */
+
+.description-title {
+  font-size: 14px;
+
+  font-weight: 700;
+
+  margin-bottom: 8px;
+}
+
+/* ==========================================
+   HIGHLIGHT BOX
+========================================== */
+
+.highlight-box {
+  border: 1px dashed #555;
+
+  background: #fafafa;
+
+  padding: 10px;
+
+  margin-top: 10px;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+/* ==========================================
+   SECTION SPACING
+========================================== */
+
+.section-space {
+  margin-top: 15px;
+
+  margin-bottom: 15px;
+}
+
+/* ==========================================
+   TEXT HELPERS
+========================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-small {
+  font-size: 12px;
+}
+
+/* ==========================================
+   BORDER HELPERS
+========================================== */
+
+.border-top {
+  border-top: 1px solid #000;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #000;
+}
+
+/* ==========================================
+   PROFESSIONAL BILL LOOK
+========================================== */
+
+.invoice-block {
+  background: #ffffff;
+
+  border: 1px solid #000;
+
+  padding: 12px;
+
+  margin-top: 15px;
+}
+
+.invoice-block p {
+  margin: 5px 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+/* ==========================================
+   PART 3
+   MAIN TABLE + TOTAL TABLE
+========================================== */
+
+/* ==========================================
+   MAIN TABLE
+========================================== */
+
+.rodtep-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 15px;
+
+  margin-bottom: 20px;
+
+  background: #ffffff;
+}
+
+.rodtep-table th {
+  border: 1px solid #000;
+
+  background: #f3f4f6;
+
+  color: #000;
+
+  padding: 10px 8px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  vertical-align: middle;
+}
+
+.rodtep-table td {
+  border: 1px solid #000;
+
+  padding: 9px 8px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  color: #000;
+
+  vertical-align: middle;
+}
+
+.rodtep-table tbody tr:hover {
+  background: #fafafa;
+}
+
+/* COLUMN WIDTH */
+
+.rodtep-table th:nth-child(1),
+.rodtep-table td:nth-child(1) {
+  width: 7%;
+}
+
+.rodtep-table th:nth-child(2),
+.rodtep-table td:nth-child(2) {
+  width: 23%;
+}
+
+.rodtep-table th:nth-child(3),
+.rodtep-table td:nth-child(3) {
+  width: 15%;
+}
+
+.rodtep-table th:nth-child(4),
+.rodtep-table td:nth-child(4) {
+  width: 18%;
+}
+
+.rodtep-table th:nth-child(5),
+.rodtep-table td:nth-child(5) {
+  width: 12%;
+}
+
+.rodtep-table th:nth-child(6),
+.rodtep-table td:nth-child(6) {
+  width: 10%;
+}
+
+.rodtep-table th:nth-child(7),
+.rodtep-table td:nth-child(7) {
+  width: 15%;
+}
+
+/* ==========================================
+   TOTAL TABLE
+========================================== */
+
+.rodtep-total-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 10px;
+
+  margin-bottom: 20px;
+
+  background: #ffffff;
+}
+
+.rodtep-total-table td {
+  border: 1px solid #000;
+
+  padding: 10px;
+
+  font-size: 13px;
+
+  color: #000;
+
+  vertical-align: middle;
+}
+
+.rodtep-total-table td:first-child {
+  font-weight: 700;
+}
+
+/* ==========================================
+   TOTAL ROWS
+========================================== */
+
+.rodtep-total-table tr:nth-child(1) {
+  background: #f8fafc;
+
+  font-weight: 700;
+}
+
+.rodtep-total-table tr:nth-child(2) {
+  background: #fcfcfc;
+}
+
+.rodtep-total-table tr:nth-child(3) {
+  background: #fcfcfc;
+}
+
+.rodtep-total-table tr:nth-child(4) {
+  background: #fcfcfc;
+}
+
+/* ==========================================
+   GRAND TOTAL
+========================================== */
+
+.grand-total {
+  background: #e8f5e9 !important;
+
+  font-weight: 700;
+}
+
+.grand-total td {
+  font-size: 16px;
+
+  color: #166534;
+
+  font-weight: 700;
+}
+
+/* ==========================================
+   AMOUNT ALIGNMENT
+========================================== */
+
+.amount-cell {
+  text-align: right;
+
+  font-weight: 700;
+}
+
+.center-cell {
+  text-align: center;
+}
+
+.left-cell {
+  text-align: left;
+}
+
+/* ==========================================
+   BORDER HELPERS
+========================================== */
+
+.border-none {
+  border: none !important;
+}
+
+.border-top {
+  border-top: 1px solid #000 !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #000 !important;
+}
+
+/* ==========================================
+   TOTAL VALUE STYLE
+========================================== */
+
+.total-value {
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: #0f766e;
+}
+/* ==========================================
+   PART 4
+   FOOTER + SIGNATURE + DECLARATION
+========================================== */
+
+/* ==========================================
+   FOOTER SECTION
+========================================== */
+
+.rodtep-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+/* ==========================================
+   LEFT SIDE
+========================================== */
+
+.footer-left {
+  flex: 1;
+}
+
+.footer-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.footer-table td {
+  border: 1px solid #000;
+
+  padding: 8px 10px;
+
+  font-size: 13px;
+
+  color: #000;
+}
+
+.footer-table td:first-child {
+  width: 120px;
+
+  font-weight: 700;
+
+  background: #fafafa;
+}
+
+.footer-table td:nth-child(2) {
+  width: 20px;
+
+  text-align: center;
+}
+
+/* ==========================================
+   RIGHT SIDE
+========================================== */
+
+.footer-right {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+}
+
+/* ==========================================
+   E & O E
+========================================== */
+
+.eoe {
+  font-size: 18px;
+
+  font-weight: bold;
+
+  color: #000;
+
+  margin-bottom: 15px;
+}
+
+/* ==========================================
+   SIGNATURE
+========================================== */
+
+.signature-space {
+  width: 260px;
+
+  min-height: 150px;
+
+  border: 1px solid #000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  padding: 15px;
+}
+
+.signature-space h3 {
+  margin: 8px 0;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+.signature-space p {
+  margin: 4px 0;
+
+  font-size: 13px;
+}
+
+/* ==========================================
+   DECLARATION
+========================================== */
+
+.declaration-box {
+  margin-top: 30px;
+
+  border: 1px solid #000;
+
+  padding: 15px;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  text-align: justify;
+
+  background: #fcfcfc;
+}
+
+.declaration-box b {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 15px;
+}
+
+/* ==========================================
+   FOOT NOTE
+========================================== */
+
+.invoice-note {
+  margin-top: 25px;
+
+  border-top: 1px dashed #000;
+
+  padding-top: 10px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  color: #444;
+
+  line-height: 1.7;
+}
+
+/* ==========================================
+   COMPANY NAME
+========================================== */
+
+.company-highlight {
+  font-size: 20px;
+
+  font-weight: 700;
+
+  color: #000;
+
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   AUTHORISED SIGNATORY
+========================================== */
+
+.authorised-sign {
+  margin-top: 60px;
+
+  text-align: center;
+
+  font-weight: 700;
+
+  font-size: 14px;
+}
+
+/* ==========================================
+   WATERMARK SUPPORT
+========================================== */
+
+.watermark {
+  position: absolute;
+
+  top: 45%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%) rotate(-30deg);
+
+  font-size: 70px;
+
+  color: rgba(0, 0, 0, 0.04);
+
+  font-weight: bold;
+
+  pointer-events: none;
+}
+
+.invoice-note,
+.declaration-box,
+.footer-right,
+.signature-space {
+  page-break-inside: avoid;
+}

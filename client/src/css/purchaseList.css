@@ -1,0 +1,29 @@
+.table button{
+
+margin-right:8px;
+
+padding:6px 12px;
+
+border:none;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}
+
+.table button:first-child{
+
+background:#1976d2;
+
+color:white;
+
+}
+
+.table button:last-child{
+
+background:#e53935;
+
+color:white;
+
+}

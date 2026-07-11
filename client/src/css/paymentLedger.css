@@ -1,0 +1,835 @@
+/* =========================================
+   PAYMENT LEDGER CSS
+   PART 1
+========================================= */
+
+.page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 30px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   FILTER SECTION
+========================================= */
+
+.ledger-filter {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #374151;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.search-btn {
+
+  height: 42px;
+
+  min-width: 170px;
+
+  padding: 0 20px;
+
+  white-space: nowrap;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+}
+.search-btn:hover {
+  background: #1d4ed8;
+}
+
+.download-btn {
+  height: 42px;
+  padding: 0 25px;
+  border: none;
+  background: #16a34a;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #15803d;
+}
+
+/* =========================================
+   PDF CONTAINER
+========================================= */
+
+.ledger-pdf{
+    width:190mm;
+    min-height:277mm;
+    padding:10mm;
+    margin:auto;
+    overflow:hidden;
+    box-sizing:border-box;
+}
+/* =========================================
+   HEADER
+========================================= */
+
+.company-name {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 5px;
+}
+
+.ledger-title {
+  text-align: center;
+  font-size: 20px;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+.ledger-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #374151;
+}
+
+.ledger-header div {
+  padding: 6px 0;
+}
+
+/* =========================================
+   COMMON
+========================================= */
+
+hr {
+  border: none;
+  border-top: 1px solid #d1d5db;
+  margin: 15px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading-box {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+/* =========================================
+   EMPTY RECORD
+========================================= */
+
+.no-record {
+  text-align: center;
+  padding: 25px;
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}
+/* =========================================
+   PAYMENT LEDGER CSS
+   PART 2
+========================================= */
+
+/* =========================================
+   LEDGER TABLE
+========================================= */
+.ledger-table{
+    width:100%;
+    table-layout:auto;
+    font-size:12px;
+}
+.ledger-table thead tr {
+  background: #2563eb;
+}
+
+.ledger-table thead th {
+  color: #ffffff;
+  border: 1px solid #000;
+  padding: 10px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ledger-table tbody td {
+  border: 1px solid #000;
+  padding: 8px;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.ledger-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.ledger-table tbody tr:hover {
+  background: #eff6ff;
+}
+
+/* =========================================
+   COLUMN WIDTH
+========================================= */
+
+.ledger-table th:nth-child(1),
+.ledger-table td:nth-child(1) {
+  width: 90px;
+}
+
+.ledger-table th:nth-child(2),
+.ledger-table td:nth-child(2) {
+  width: 180px;
+}
+
+.ledger-table th:nth-child(3),
+.ledger-table td:nth-child(3) {
+  width: 120px;
+}
+
+.ledger-table th:nth-child(4),
+.ledger-table td:nth-child(4) {
+  width: 120px;
+}
+
+.ledger-table th:nth-child(5),
+.ledger-table td:nth-child(5) {
+  width: 110px;
+  text-align: right;
+}
+
+.ledger-table th:nth-child(6),
+.ledger-table td:nth-child(6) {
+  width: 110px;
+  text-align: right;
+}
+
+.ledger-table th:nth-child(7),
+.ledger-table td:nth-child(7) {
+  width: 130px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.ledger-table{
+
+display:table;
+
+max-width:100%;
+
+overflow:hidden;
+
+}
+/* =========================================
+   OPENING BALANCE
+========================================= */
+
+.opening-row {
+  background: #ecfeff !important;
+  font-weight: bold;
+}
+
+.opening-row td {
+  color: #0f766e;
+}
+
+/* =========================================
+   TOTAL DEBIT
+========================================= */
+
+.total-debit-row {
+  background: #fef2f2 !important;
+  font-weight: bold;
+}
+
+.total-debit-row td {
+  color: #b91c1c;
+}
+
+/* =========================================
+   TOTAL CREDIT
+========================================= */
+
+.total-credit-row {
+  background: #eff6ff !important;
+  font-weight: bold;
+}
+
+.total-credit-row td {
+  color: #1d4ed8;
+}
+
+/* =========================================
+   CLOSING BALANCE
+========================================= */
+
+.closing-row {
+  background: #ecfdf5 !important;
+  font-weight: bold;
+}
+
+.closing-row td {
+  color: #15803d;
+  font-size: 15px;
+}
+
+/* =========================================
+   SUMMARY SECTION
+========================================= */
+
+.ledger-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  gap: 20px;
+}
+
+.summary-box {
+  flex: 1;
+  background: #f8fafc;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.summary-box h3 {
+  margin-bottom: 12px;
+  color: #2563eb;
+  font-size: 18px;
+}
+
+.summary-box p {
+  margin: 8px 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* =========================================
+   SIGNATURE
+========================================= */
+
+.signature-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.signature-box {
+  width: 220px;
+  text-align: center;
+}
+
+.signature-line {
+  border-top: 2px solid #000;
+  margin-bottom: 8px;
+}
+
+.signature-box p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* =========================================
+   PDF FOOTER
+========================================= */
+
+.ledger-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+  border-top: 1px solid #d1d5db;
+  padding-top: 12px;
+}
+
+/* =========================================
+   FINANCIAL YEAR BADGE
+========================================= */
+
+.financial-badge {
+  display: inline-block;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* =========================================
+   TOTAL RECORDS BADGE
+========================================= */
+
+.record-badge {
+  display: inline-block;
+  background: #16a34a;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+/* =========================================
+   PAYMENT LEDGER CSS
+   PART 3
+   PRINT + PDF + RESPONSIVE
+========================================= */
+
+/* =========================================
+   PDF SAFE AREA
+========================================= */
+
+.ledger-pdf,
+.ledger-table,
+.ledger-summary,
+.signature-section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.ledger-table thead {
+  display: table-header-group;
+}
+
+.ledger-table tfoot {
+  display: table-footer-group;
+}
+
+.ledger-table tr {
+  page-break-inside: avoid;
+}
+
+/* =========================================
+   DOWNLOAD BUTTON
+========================================= */
+.ledger-filter {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  align-items: end;
+
+}
+.button-group {
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+}
+
+.button-group button {
+
+    min-width: 180px;
+
+    height: 46px;
+
+    white-space: nowrap;
+
+    border-radius: 8px;
+
+
+}
+.button-group {
+
+    min-width: auto;
+
+    flex: 0 0 auto;
+
+}
+.download-btn {
+
+  background: #16a34a;
+
+  color: #ffffff;
+
+  border: none;
+
+  padding: 12px 28px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+
+}
+
+.download-btn:hover {
+
+  background: #15803d;
+
+}
+
+.download-btn:active {
+
+  transform: scale(.98);
+
+}
+
+/* =========================================
+   PRINT STYLE
+========================================= */
+
+@media print {
+
+  body {
+
+    margin: 0;
+
+    padding: 0;
+
+    background: white;
+
+    -webkit-print-color-adjust: exact;
+
+    print-color-adjust: exact;
+
+  }
+
+  .page {
+
+    padding: 0;
+
+    background: white;
+
+  }
+
+  .ledger-filter {
+
+    display: none;
+
+  }
+
+  .search-btn {
+
+    display: none;
+
+  }
+
+  .download-btn {
+
+    display: none;
+
+  }
+
+  .ledger-pdf {
+
+    width: 210mm;
+
+    min-height: 297mm;
+
+    margin: 0;
+
+    padding: 15mm;
+
+    box-shadow: none;
+
+    border: none;
+
+  }
+
+  .ledger-table {
+
+    page-break-inside: auto;
+
+  }
+
+  .ledger-table tr {
+
+    page-break-inside: avoid;
+
+  }
+
+  .ledger-summary {
+
+    page-break-inside: avoid;
+
+  }
+
+  .signature-section {
+
+    page-break-inside: avoid;
+
+  }
+
+}
+
+/* =========================================
+   A4 PAGE
+========================================= */
+
+@page {
+
+  size: A4 portrait;
+
+  margin: 8mm;
+
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media screen and (max-width:1200px) {
+
+  .ledger-pdf {
+
+    width: 100%;
+
+    min-height:270mm;
+
+    padding: 20px;
+
+  }
+
+}
+
+@media screen and (max-width:900px) {
+
+  .ledger-filter {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+  .ledger-summary {
+
+    flex-direction: column;
+
+  }
+
+  .signature-section {
+
+    flex-direction: column;
+
+    gap: 50px;
+
+    align-items: center;
+
+  }
+
+  .ledger-header {
+
+    flex-direction: column;
+
+    gap: 8px;
+
+  }
+
+}
+
+@media screen and (max-width:768px) {
+
+  .ledger-table {
+
+    display: block;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+  }
+
+  .company-name {
+
+    font-size: 24px;
+
+  }
+
+  .ledger-title {
+
+    font-size: 18px;
+
+  }
+
+}
+
+/* =========================================
+   PDF QUALITY
+========================================= */
+
+.ledger-pdf {
+
+  image-rendering: auto;
+
+  color: #000;
+
+  background: #fff;
+
+}
+
+.ledger-table {
+
+  border-collapse: collapse;
+
+}
+
+.ledger-table th,
+.ledger-table td{
+
+padding:5px;
+
+font-size:11px;
+
+word-break:break-word;
+
+white-space:normal;
+
+}
+/* =========================================
+   PAGE NUMBER (OPTIONAL)
+========================================= */
+
+.page-footer {
+
+  width: 100%;
+
+  margin-top: 25px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  color: #555;
+
+}
+
+/* =========================================
+   WATERMARK (OPTIONAL)
+========================================= */
+
+.watermark {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%) rotate(-30deg);
+
+  font-size: 70px;
+
+  color: rgba(0,0,0,.05);
+
+  pointer-events: none;
+
+}
+
+/* =========================================
+   FINAL SPACING
+========================================= */
+
+.mt10{
+margin-top:10px;
+}
+
+.mt20{
+margin-top:20px;
+}
+
+.mt30{
+margin-top:30px;
+}
+
+.mb10{
+margin-bottom:10px;
+}
+
+.mb20{
+margin-bottom:20px;
+}
+
+.text-right{
+text-align:right;
+}
+
+.text-center{
+text-align:center;
+}
+
+.font-bold{
+font-weight:bold;
+}

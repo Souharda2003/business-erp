@@ -1,0 +1,607 @@
+.page {
+  padding: 30px;
+
+  background: #f3f4f6;
+
+  min-height: 100vh;
+}
+
+.gstfee-invoice {
+  width: 190mm;
+
+  min-height: 277mm;
+
+  margin: auto;
+
+  background: #fff;
+
+  padding: 12mm;
+
+  border: none;
+
+  box-shadow: none;
+
+  overflow: hidden;
+}
+.invoice-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 2px solid #444;
+}
+.header-left {
+  flex: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+}
+.header-left h1 {
+  font-size: 38px;
+
+  font-weight: bold;
+
+  color: #1d4ed8;
+
+  line-height: 1.05;
+
+  margin-bottom: 8px;
+}
+.header-left h3 {
+  font-size: 24px;
+
+  font-weight: bold;
+
+  color: #2563eb;
+
+  margin-bottom: 15px;
+}
+.header-left p {
+  margin: 5px 0;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.header-right {
+  flex: 1;
+
+  text-align: right;
+
+  background: #f9fafb;
+
+  padding: 18px;
+
+  border-radius: 8px;
+
+  border: 1px solid #d1d5db;
+}
+
+.header-right h3 {
+  margin: 0;
+
+  font-size: 22px;
+
+  color: #16a34a;
+}
+
+.header-right p {
+  margin: 8px 0;
+
+  font-size: 14px;
+}
+.bill-section {
+  display: flex;
+
+  gap: 15px;
+
+  align-items: stretch;
+
+  margin-top: 20px;
+
+  margin-bottom: 20px;
+}
+.bill-box {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  border: 1px solid #d9d9d9;
+
+  border-radius: 8px;
+
+  padding: 15px;
+
+  background: #fafafa;
+
+  min-height: 170px;
+}
+.bill-box h3 {
+  margin-top: 0;
+
+  margin-bottom: 15px;
+
+  font-size: 18px;
+
+  color: #2563eb;
+
+  border-bottom: 2px solid #2563eb;
+
+  padding-bottom: 8px;
+}
+
+.bill-box p {
+  margin: 7px 0;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.gstfee-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 20px;
+}
+
+.gstfee-table th {
+  background: #2563eb;
+
+  color: #ffffff;
+
+  padding: 12px;
+
+  font-size: 15px;
+
+  border: 1px solid #1d4ed8;
+
+  text-align: center;
+}
+
+.gstfee-table td {
+  padding: 12px;
+
+  border: 1px solid #d1d5db;
+
+  font-size: 14px;
+
+  text-align: center;
+
+  vertical-align: middle;
+}
+
+.gstfee-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.amount-box {
+  background: #ecfdf5;
+
+  border: 2px solid #16a34a;
+
+  border-radius: 10px;
+
+  padding: 25px;
+
+  text-align: center;
+
+  margin-top: 25px;
+}
+
+.amount-box h2 {
+  margin: 0;
+
+  color: #166534;
+
+  font-size: 24px;
+}
+
+.amount-box h1 {
+  margin-top: 15px;
+
+  font-size: 42px;
+
+  color: #16a34a;
+
+  font-weight: bold;
+}
+.summary-card {
+  background: #f8fafc;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  padding: 25px;
+
+  margin-top: 25px;
+
+  page-break-inside: avoid;
+}
+
+.summary-card h2 {
+  margin: 0;
+
+  margin-bottom: 15px;
+
+  color: #2563eb;
+
+  font-size: 24px;
+}
+
+.summary-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 12px 0;
+
+  font-size: 16px;
+
+  border-bottom: 1px dashed #d1d5db;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.amount-word-box {
+  margin-top: 25px;
+
+  padding: 20px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  page-break-inside: avoid;
+}
+
+.amount-word-box h3 {
+  margin: 0;
+
+  margin-bottom: 10px;
+
+  color: #2563eb;
+
+  font-size: 20px;
+}
+
+.amount-word-box p {
+  font-size: 18px;
+
+  font-weight: bold;
+
+  color: #374151;
+
+  line-height: 1.7;
+
+  margin-top: 15px;
+}
+
+.payment-details {
+  margin-top: 20px;
+
+  padding: 15px;
+
+  border: 1px solid #d9d9d9;
+
+  border-radius: 8px;
+
+  background: #fafafa;
+
+  width: 100%;
+
+  overflow: hidden;
+}
+.payment-details h2 {
+  margin: 0;
+
+  margin-bottom: 15px;
+
+  font-size: 24px;
+
+  color: #2563eb;
+}
+.payment-table {
+  width: 100%;
+
+  table-layout: fixed;
+
+  border-collapse: collapse;
+}
+.payment-table td {
+  padding: 10px;
+
+  border: 1px solid #444;
+
+  font-size: 14px;
+
+  text-align: center;
+
+  word-break: break-word;
+}
+.payment-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.invoice-note {
+  margin-top: 30px;
+
+  padding: 20px;
+
+  background: #eff6ff;
+
+  border-left: 5px solid #2563eb;
+
+  border-radius: 8px;
+
+  page-break-inside: avoid;
+}
+
+.invoice-note h3 {
+  margin: 0;
+
+  margin-bottom: 10px;
+
+  font-size: 22px;
+
+  color: #1d4ed8;
+}
+
+.invoice-note p {
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  text-align: justify;
+
+  color: #374151;
+}
+
+.download-btn {
+  background: #2563eb;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 12px 28px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
+}
+.signature-section {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 30px;
+
+  margin-top: 50px;
+
+  margin-bottom: 30px;
+
+  page-break-inside: avoid;
+}
+
+.signature-box {
+  flex: 1;
+
+  text-align: center;
+}
+
+.signature-line {
+  width: 100%;
+
+  border-top: 2px solid #000;
+
+  margin-bottom: 10px;
+
+  padding-top: 40px;
+}
+
+.signature-box p {
+  margin: 0;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  color: #374151;
+}
+
+.company-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 30px;
+
+  margin-top: 35px;
+
+  padding-top: 20px;
+
+  border-top: 2px solid #d1d5db;
+
+  page-break-inside: avoid;
+}
+
+.company-footer h3 {
+  margin: 0;
+
+  font-size: 24px;
+
+  color: #2563eb;
+
+  font-weight: bold;
+}
+
+.company-footer h4 {
+  margin: 0 0 10px 0;
+
+  font-size: 18px;
+
+  color: #1d4ed8;
+}
+
+.company-footer p {
+  margin: 5px 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: #374151;
+}
+
+hr {
+  border: none;
+
+  border-top: 1px solid #d1d5db;
+
+  margin: 15px 0;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  page-break-inside: auto;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tfoot {
+  display: table-footer-group;
+}
+
+tr {
+  page-break-inside: avoid;
+
+  page-break-after: auto;
+}
+
+td,
+th {
+  word-break: break-word;
+
+  vertical-align: middle;
+}
+
+img {
+  max-width: 100%;
+
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+
+  -webkit-print-color-adjust: exact;
+
+  print-color-adjust: exact;
+}
+@page {
+  size: A4 portrait;
+
+  margin: 6mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+
+    margin: 0;
+
+    padding: 0;
+
+    background: #fff;
+  }
+
+  .page {
+    padding: 0;
+
+    margin: 0;
+
+    background: #fff;
+  }
+
+  .gstfee-invoice {
+    width: 198mm;
+
+    padding: 8mm;
+
+    margin: auto;
+
+    border: none;
+
+    box-shadow: none;
+  }
+
+  button,
+  .download-btn {
+    display: none !important;
+  }
+
+  .bill-section,
+  .payment-details,
+  .summary-card,
+  .amount-word-box,
+  .invoice-note,
+  .signature-section,
+  .company-footer {
+    break-inside: avoid;
+
+    page-break-inside: avoid;
+  }
+}

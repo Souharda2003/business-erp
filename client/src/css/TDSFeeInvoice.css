@@ -1,0 +1,506 @@
+.invoice-page {
+  background: #f1f5f9;
+
+  min-height: 100vh;
+
+  padding: 30px;
+}
+
+.invoice-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+}
+
+.download-btn {
+  background: #2563eb;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 12px 25px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #1d4ed8;
+}
+
+.tds-invoice{
+
+    width:190mm;
+
+    min-height:270mm;
+
+    padding:18px;
+
+    margin:auto;
+
+    background:#fff;
+
+    box-sizing:border-box;
+
+}
+.invoice-header {
+  text-align: center;
+
+  border-bottom: 2px solid #1e3a8a;
+
+  padding-bottom: 12px;
+}
+
+.invoice-header h1 {
+  font-size: 28px;
+
+  margin: 0;
+
+  color: #1e3a8a;
+
+  font-weight: bold;
+}
+
+.invoice-header p {
+  margin: 4px 0;
+
+  font-size: 14px;
+}
+
+.invoice-title {
+  text-align: center;
+
+  margin: 25px 0;
+}
+
+.invoice-title h2 {
+  display: inline-block;
+
+  border: 2px solid #000;
+
+  padding: 8px 35px;
+
+  font-size: 22px;
+
+  letter-spacing: 2px;
+}
+
+.invoice-info {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 25px;
+}
+
+.invoice-info div {
+  flex: 1;
+}
+
+.invoice-info p {
+  margin: 8px 0;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+.invoice-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 20px;
+
+  margin-bottom: 25px;
+
+  page-break-inside: avoid;
+}
+
+.invoice-table th {
+  background: #1e40af;
+
+  color: #ffffff;
+
+  border: 1px solid #000;
+
+  padding: 10px;
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+.invoice-table td {
+  border: 1px solid #000;
+
+  padding: 10px;
+
+  font-size: 14px;
+
+  text-align: center;
+
+  word-break: break-word;
+}
+
+.summary-box {
+  width: 380px;
+
+  margin-left: auto;
+
+  margin-top: 12px;
+
+  border: 2px solid #2563eb;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  page-break-inside: avoid;
+}
+
+.summary-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 12px 18px;
+
+  border-bottom: 1px solid #d1d5db;
+
+  font-size: 15px;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.total-row {
+  background: #ecfdf5;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  color: #15803d;
+}
+
+.amount-word-box {
+  margin-top: 30px;
+
+  border: 2px solid #2563eb;
+
+  border-radius: 8px;
+
+  padding: 18px;
+
+  background: #f8fbff;
+
+  page-break-inside: avoid;
+}
+
+.amount-word-box h3 {
+  margin: 0 0 10px;
+
+  color: #1e40af;
+
+  font-size: 18px;
+}
+
+.amount-word-box p {
+  margin: 0;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  line-height: 1.7;
+}
+
+.remarks-box {
+  margin-top: 25px;
+
+  border: 1px solid #cbd5e1;
+
+  background: #fafafa;
+
+  border-radius: 8px;
+
+  padding: 18px;
+
+  page-break-inside: avoid;
+}
+
+.remarks-box h3 {
+  margin-top: 0;
+
+  color: #1e40af;
+
+  margin-bottom: 10px;
+}
+
+.remarks-box p {
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+.tds-payable-box {
+  margin-top: 30px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px 25px;
+
+  background: #ecfdf5;
+
+  border: 2px solid #16a34a;
+
+  border-radius: 8px;
+
+  page-break-inside: avoid;
+}
+
+.tds-payable-box h2 {
+  margin: 0;
+
+  color: #166534;
+
+  font-size: 22px;
+}
+
+.tds-payable-box h1 {
+  margin: 0;
+
+  color: #16a34a;
+
+  font-size: 34px;
+
+  font-weight: bold;
+}
+
+.terms-box {
+  margin-top: 30px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  padding: 18px;
+
+  background: #fafafa;
+
+  page-break-inside: avoid;
+}
+
+.terms-box h3 {
+  margin-top: 0;
+
+  margin-bottom: 12px;
+
+  color: #1e40af;
+}
+
+.terms-box ol {
+  margin: 0;
+
+  padding-left: 20px;
+}
+
+.terms-box li {
+  margin-bottom: 8px;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.signature-section {
+  margin-top: 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  page-break-inside: avoid;
+}
+
+.signature-box {
+  flex: 1;
+
+  text-align: center;
+}
+
+.signature-line {
+  border-top: 2px solid #000;
+
+  margin-bottom: 8px;
+
+  width: 100%;
+}
+
+.signature-box p {
+  margin: 0;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.invoice-footer {
+  margin-top: 15px;
+
+  text-align: center;
+
+  page-break-inside: avoid;
+}
+
+.invoice-footer hr {
+  margin-bottom: 15px;
+
+  border: none;
+
+  border-top: 1px solid #d1d5db;
+}
+
+.invoice-footer p {
+  margin: 4px 0;
+
+  font-size: 13px;
+
+  color: #555;
+}
+
+/* ---------------- PDF ---------------- */
+
+@page {
+  size: A4 portrait;
+
+  margin: 10mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+
+    height: 297mm;
+
+    margin: 0;
+
+    padding: 0;
+
+    background: #ffffff;
+  }
+
+  .invoice-page {
+    padding: 0;
+
+    background: #ffffff;
+  }
+
+  .invoice-top {
+    display: none;
+  }
+
+  .tds-invoice {
+    width: 100%;
+
+    min-height: 270mm;
+
+    margin: 0;
+
+    padding: 10mm;
+
+    border: none;
+
+    box-shadow: none;
+  }
+
+  .invoice-table,
+  .summary-box,
+  .amount-word-box,
+  .remarks-box,
+  .terms-box,
+  .tds-payable-box,
+  .signature-section,
+  .invoice-footer {
+    page-break-inside: avoid;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  tr,
+  td,
+  th {
+    page-break-inside: avoid;
+  }
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media screen and (max-width: 768px) {
+  .tds-invoice {
+    width: 100%;
+
+    padding: 20px;
+  }
+
+  .invoice-info {
+    flex-direction: column;
+  }
+
+  .summary-box {
+    width: 100%;
+  }
+
+  .tds-payable-box {
+    flex-direction: column;
+
+    gap: 15px;
+
+    text-align: center;
+  }
+
+  .signature-section {
+    flex-direction: column;
+
+    gap: 40px;
+  }
+
+  .invoice-table {
+    display: block;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+  }
+}

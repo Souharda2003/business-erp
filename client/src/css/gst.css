@@ -1,0 +1,189 @@
+.page {
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 28px;
+
+  color: #1976d2;
+
+  margin-bottom: 20px;
+}
+
+.form-container {
+  max-width: 700px;
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 6px;
+}
+
+.summary-box {
+  margin-top: 20px;
+
+  background: #f8f9fa;
+
+  padding: 20px;
+
+  border-radius: 8px;
+
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.summary-box h3 {
+  color: #1976d2;
+}
+
+.primary-btn {
+  width: 100%;
+
+  background: #1976d2;
+
+  color: white;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #1259a7;
+}
+.action-column {
+    width: 260px !important;
+    min-width: 260px !important;
+    text-align: center;
+}
+.action-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+.view-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    width:auto !important;
+
+}
+.edit-btn{
+
+    background:#16a34a;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    width:auto !important;
+
+}
+.delete-btn{
+
+    background:#dc2626;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    width:auto !important;
+
+}
+.view-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.edit-btn:hover{
+
+    background:#15803d;
+
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
+}
+.table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:auto;
+
+}
+.table th,
+.table td{
+
+    padding:14px;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+}

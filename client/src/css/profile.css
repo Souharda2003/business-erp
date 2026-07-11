@@ -1,0 +1,332 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    Segoe UI,
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+}
+
+/*========================
+Page
+=========================*/
+
+.profile-page {
+  background: #f5efe7;
+
+  min-height: 100vh;
+
+  padding: 35px;
+}
+
+/*========================
+Heading
+=========================*/
+
+.profileHeading {
+  font-size: 42px;
+
+  font-weight: 700;
+
+  color: #111;
+
+  margin-bottom: 30px;
+
+  letter-spacing: 0.5px;
+}
+
+/*========================
+Card
+=========================*/
+
+.profileCard {
+  background: #fff;
+
+  border: 1px solid #eadcc5;
+
+  border-radius: 24px;
+
+  padding: 35px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+
+  transition: 0.35s;
+}
+
+.profileCard:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+/*========================
+Profile Image
+=========================*/
+
+.profileImage {
+  display: flex;
+
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+.profileImage img {
+  width: 140px;
+
+  height: 140px;
+
+  border-radius: 50%;
+
+  border: 5px solid #c79a3b;
+
+  object-fit: cover;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/*========================
+View Mode
+=========================*/
+
+.profileItem {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.profileItem:last-child {
+  border-bottom: none;
+}
+
+.profileItem label {
+  font-size: 18px;
+
+  font-weight: 600;
+
+  color: #666;
+}
+
+.profileItem span {
+  font-size: 19px;
+
+  font-weight: 700;
+
+  color: #222;
+
+  text-align: right;
+
+  max-width: 60%;
+
+  word-break: break-word;
+}
+
+/*========================
+Edit Form
+=========================*/
+
+.profileGrid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #555;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  outline: none;
+
+  transition: 0.3s;
+
+  background: #fafafa;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: #c79a3b;
+
+  background: white;
+
+  box-shadow: 0 0 0 3px rgba(199, 154, 59, 0.12);
+}
+
+.fullWidth {
+  grid-column: 1/-1;
+}
+
+/*========================
+Buttons
+=========================*/
+
+.profileButtonGroup {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 15px;
+
+  flex-wrap: wrap;
+}
+
+.editBtn,
+.saveBtn {
+  background: #c79a3b;
+
+  color: white;
+
+  border: none;
+
+  padding: 14px 28px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.editBtn:hover,
+.saveBtn:hover {
+  background: #b48328;
+}
+
+.deleteBtn {
+  background: #d32f2f;
+
+  color: white;
+
+  border: none;
+
+  padding: 14px 28px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.deleteBtn:hover {
+  background: #b71c1c;
+}
+
+.cancelBtn {
+  background: #111;
+
+  color: white;
+
+  border: none;
+
+  padding: 14px 28px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.cancelBtn:hover {
+  background: #333;
+}
+
+/*========================
+Responsive
+=========================*/
+
+@media (max-width: 900px) {
+  .profileGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .profileItem {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  .profileItem span {
+    max-width: 100%;
+
+    text-align: left;
+  }
+
+  .profileHeading {
+    font-size: 34px;
+  }
+
+  .profileCard {
+    padding: 25px;
+  }
+
+  .profileButtonGroup {
+    flex-direction: column;
+  }
+
+  .editBtn,
+  .saveBtn,
+  .deleteBtn,
+  .cancelBtn {
+    width: 100%;
+  }
+
+  .profileImage img {
+    width: 110px;
+
+    height: 110px;
+  }
+}
