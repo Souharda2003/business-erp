@@ -3,12 +3,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const saveActivity = require("../utils/saveActivity");
 
-/*
-=========================================
-REGISTER
-=========================================
-*/
-
 exports.register = (req, res) => {
   const { name, mobile, email, password } = req.body;
 
@@ -77,8 +71,9 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  const { mobile, password } = req.body;
-
+  const { mobile, password, timezone } = req.body;
+  console.log("REQ BODY =", req.body);
+  console.log("TIMEZONE =", timezone);
   db.query(
     "SELECT * FROM users WHERE mobile=?",
 
@@ -103,10 +98,6 @@ exports.login = (req, res) => {
 
       const currentUser = result[0];
 
-      /*
-      Account Lock Check
-      */
-
       if (
         currentUser.account_locked == 1 &&
         currentUser.lock_until &&
@@ -124,10 +115,6 @@ exports.login = (req, res) => {
 
         currentUser.password,
       );
-
-      /*
-      Wrong Password
-      */
 
       if (!valid) {
         const failed = Number(currentUser.failed_login_attempt || 0) + 1;
@@ -172,32 +159,20 @@ exports.login = (req, res) => {
         });
       }
 
-      /*
-      Reset Failed Attempt
-      */
-
       db.query(
         `
-        UPDATE users
-        SET
-
-        failed_login_attempt=0,
-
-        account_locked=0,
-
-        lock_until=NULL,
-
-        last_login=NOW()
-
-        WHERE id=?
+       UPDATE users
+SET
+failed_login_attempt=0,
+account_locked=0,
+lock_until=NULL,
+last_login=NOW(),
+timezone=?
+WHERE id=?
         `,
 
-        [currentUser.id],
+        [timezone, currentUser.id],
       );
-
-      /*
-      Login History
-      */
 
       db.query(
         `
@@ -217,11 +192,6 @@ exports.login = (req, res) => {
 
         [currentUser.id],
       );
-
-      /*
-      JWT
-      */
-
       const token = jwt.sign(
         {
           id: currentUser.id,
@@ -259,18 +229,12 @@ exports.login = (req, res) => {
           mobile: currentUser.mobile,
 
           role: currentUser.role,
+          timezone: timezone
         },
       });
     },
   );
 };
-
-/*
-=========================================
-CHANGE PASSWORD
-=========================================
-*/
-
 exports.changePassword = (req, res) => {
   const userId = req.user.id;
 
@@ -413,13 +377,6 @@ WHERE id=?
     },
   );
 };
-
-/*
-=========================================
-LOGOUT
-=========================================
-*/
-
 exports.logout = (req, res) => {
   const userId = req.user.id;
 

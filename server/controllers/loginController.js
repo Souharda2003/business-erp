@@ -86,7 +86,7 @@ exports.login = (req, res) => {
 
           role: user.role,
 
-          status: user.status,
+          timezone: timezone
         },
       });
     },

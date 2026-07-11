@@ -9,35 +9,46 @@ const saveActivity = (
 ) => {
   return new Promise((resolve, reject) => {
     const sql = `
-      INSERT INTO activity_log
-      (
-        user_id,
-        user_name,
-        action,
-        module_name,
-        description
-      )
-      VALUES (?, ?, ?, ?, ?)
-    `;
+INSERT INTO activity_log
+(
+user_id,
+user_name,
+action,
+module_name,
+description
+)
+VALUES
+(
+?,
+?,
+?,
+?,
+?
+)
+`;
+db.query(
+  sql,
+  [
+    user_id || null,
+    user_name || "Unknown User",
+    action,
+    module_name,
+    description,
+  ],
+  (err, result) => {
 
-    db.query(
-      sql,
-      [
-        user_id || null,
-        user_name || "Unknown User",
-        action,
-        module_name,
-        description,
-      ],
-      (err, result) => {
-        if (err) {
-          console.error("Activity Log Error:", err.message);
-          return reject(err);
-        }
+    if (err) {
+      console.log("INSERT ERROR");
+      console.log(err);
+      return reject(err);
+    }
 
-        resolve(result);
-      }
-    );
+    console.log("INSERT SUCCESS");
+    console.log(result);
+
+    resolve(result);
+  }
+);
   });
 };
 

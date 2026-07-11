@@ -31,45 +31,47 @@ function Login() {
     navigate("/");
   };
   const handleLogin = async (e) => {
-    e.preventDefault();
-    const mobileRegex = /^[6-9]\d{9}$/;
+  e.preventDefault();
 
-    if (!mobileRegex.test(form.mobile)) {
-      alert("Enter Valid Mobile Number");
+  const mobileRegex = /^[6-9]\d{9}$/;
 
-      return;
+  if (!mobileRegex.test(form.mobile)) {
+    alert("Enter Valid Mobile Number");
+    return;
+  }
+
+  try {
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    console.log("Timezone:", timezone);
+
+    const res = await loginUser({
+      ...form,
+      timezone,
+    });
+
+    console.log(res.data);
+
+    if (res.data.success) {
+      localStorage.setItem("token", res.data.token);
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(res.data.user)
+      );
+
+      localStorage.setItem("role", res.data.user.role);
+
+      navigate("/dashboard");
+    } else {
+      alert(res.data.message);
     }
+  } catch (err) {
+    console.log(err);
 
-    try {
-      const res = await loginUser(form);
-      console.log(res.data);
-      if (res.data.success) {
-        localStorage.setItem(
-          "token",
-
-          res.data.token,
-        );
-
-        localStorage.setItem(
-          "user",
-
-          JSON.stringify(res.data.user),
-        );
-        localStorage.setItem(
-          "role",
-
-          res.data.user.role,
-        );
-        navigate("/dashboard");
-      } else {
-        alert(res.data.message);
-      }
-    } catch (err) {
-      console.log(err);
-
-      alert("Login Failed");
-    }
-  };
+    alert(err.response?.data?.message || "Login Failed");
+  }
+};
   return (
     <div className="login-container">
       <form className="login-card" onSubmit={handleLogin}>

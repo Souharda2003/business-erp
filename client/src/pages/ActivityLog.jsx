@@ -6,15 +6,14 @@ import "../css/activity.css";
 function ActivityLog() {
   const [logs, setLogs] = useState([]);
 
+  useEffect(() => {
+    loadData();
+  }, []);
   const loadData = async () => {
     const res = await getActivityLog();
 
     setLogs(res.data);
   };
-
-  useEffect(() => {
-    loadData();
-  }, []);
 
   return (
     <div className="page">
@@ -26,8 +25,11 @@ function ActivityLog() {
         {logs.length === 0 ? (
           <div className="emptyActivity">No Activity Found</div>
         ) : (
-          logs.map((item) => {
-            const created = new Date(item.created_at);
+          logs.map(item => {
+    console.log(item.created_at);
+    console.log(item.timezone);
+
+const date = new Date(item.created_at.replace(" ", "T") + "Z");
             const icon =
               item.action === "ADD"
                 ? "🟢"
@@ -64,18 +66,17 @@ function ActivityLog() {
                 </div>
 
 <div className="activity-time">
-    <div>
-        {created.toLocaleDateString("en-IN")}
-    </div>
+<div>
+  {date.toLocaleDateString("en-IN", {
+    timeZone: item.timezone || "Asia/Kolkata"
+  })}
+</div>
 
-    <div>
-        {created.toLocaleTimeString("en-IN", {
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: true,
-        })}
-    </div>
+<div>
+  {date.toLocaleTimeString("en-IN", {
+    timeZone: item.timezone || "Asia/Kolkata"
+  })}
+</div>
 </div>
               </div>
             );
