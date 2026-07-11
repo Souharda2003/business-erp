@@ -6,12 +6,8 @@ export const getAnalytics = async(year)=>{
     );
 
 };
-export const getBusinessAnalytics = async () => {
-
+export const getBusinessAnalytics = async (financialYear) => {
     return await api.get(
-
-        "/analytics/business"
-
+        `/analytics/business?financialYear=${financialYear}`
     );
-
 };

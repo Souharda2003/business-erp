@@ -17,7 +17,23 @@ function Dashboard() {
 
   const companyName = localStorage.getItem("company_name") || "Business ERP";
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const financialYear = localStorage.getItem("financialYear") || "2026-2027";
+  const getCurrentFinancialYear = () => {
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+
+    const month = today.getMonth() + 1;
+
+    return month >= 4
+      ? `${year}-${year + 1}`
+      : `${year - 1}-${year}`;
+
+};
+
+const [financialYear, setFinancialYear] = useState(
+    getCurrentFinancialYear()
+);
 
   const [dashboardData, setDashboardData] = useState({
     purchase: 0,
@@ -107,10 +123,16 @@ function Dashboard() {
 
   return (
     <div className="app">
-      <Sidebar sidebarOpen={sidebarOpen} />
-
+      <Sidebar
+  sidebarOpen={sidebarOpen}
+  toggleSidebar={toggleSidebar}
+/>
       <div className={sidebarOpen ? "main-content" : "main-content full-width"}>
-        <Navbar toggleSidebar={toggleSidebar} />
+      <Navbar
+    toggleSidebar={toggleSidebar}
+    financialYear={financialYear}
+    setFinancialYear={setFinancialYear}
+/>
 
         <div className="page">
           <div className="dashboard-header">

@@ -27,6 +27,7 @@ function ActivityLog() {
           <div className="emptyActivity">No Activity Found</div>
         ) : (
           logs.map((item) => {
+            const created = new Date(item.created_at);
             const icon =
               item.action === "ADD"
                 ? "🟢"
@@ -62,11 +63,20 @@ function ActivityLog() {
                   </div>
                 </div>
 
-                <div className="activity-time">
-                  <div>{new Date(item.created_at).toLocaleDateString()}</div>
+<div className="activity-time">
+    <div>
+        {created.toLocaleDateString("en-IN")}
+    </div>
 
-                  <div>{new Date(item.created_at).toLocaleTimeString()}</div>
-                </div>
+    <div>
+        {created.toLocaleTimeString("en-IN", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true,
+        })}
+    </div>
+</div>
               </div>
             );
           })

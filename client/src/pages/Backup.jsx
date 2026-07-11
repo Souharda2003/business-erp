@@ -19,7 +19,16 @@ import "../css/backup.css";
 
 function Backup() {
   const [loading, setLoading] = useState(false);
+const [financialYear, setFinancialYear] = useState("");
+const getCurrentFinancialYear = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
 
+  return month >= 4
+    ? `${year}-${year + 1}`
+    : `${year - 1}-${year}`;
+};
   const [restoreLoading, setRestoreLoading] = useState(false);
 
   const [backupHistory, setBackupHistory] = useState([]);
@@ -54,7 +63,7 @@ function Backup() {
     }, 30000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [financialYear]);
   // ===================================
   // Load Backup History
   // ===================================
@@ -70,11 +79,6 @@ function Backup() {
       console.log(error);
     }
   };
-
-  // ===================================
-  // Load Latest Backup
-  // ===================================
-
   const loadLatestBackup = async () => {
     try {
       const res = await api.get("/backup/latest");
@@ -313,11 +317,12 @@ function Backup() {
   };
   return (
     <div className="app">
-      <Sidebar />
-
-      <div className="main-content">
-        <Navbar />
-
+ 
+    <div className="main-content company-full">
+        <Navbar
+    financialYear={financialYear}
+    setFinancialYear={setFinancialYear}
+/>
         <div className="page">
           <BackButton />
 

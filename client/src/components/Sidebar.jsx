@@ -2,7 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import "../css/sidebar.css";
 
-function Sidebar({ sidebarOpen }) {
+function Sidebar({ sidebarOpen, toggleSidebar }) {
   const [tradeOpen, setTradeOpen] = useState(false);
   const [purchaseOpen, setPurchaseOpen] = useState(false);
   const [salesOpen, setSalesOpen] = useState(false);
@@ -24,8 +24,8 @@ function Sidebar({ sidebarOpen }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   return (
-    <aside className={sidebarOpen ? "sidebar" : "sidebar sidebar-close"}>
-      <div className="sidebar-logo">ERP</div>
+    <aside className={`sidebar ${sidebarOpen ? "" : "sidebar-close"}`}>
+      <div className="sidebar-logo" onClick={toggleSidebar}> ERP</div>
       <div className="sidebar-menu">
         <NavLink to="/dashboard">Dashboard</NavLink>
 

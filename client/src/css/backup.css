@@ -549,3 +549,12 @@
     padding: 15px;
   }
 }
+.company-full{
+   margin-left: 0 !important;
+    width: 100% !important;
+    padding: 30px;
+}
+.main-content.full-width {
+  margin-left: 0;
+  width: 100%;
+}

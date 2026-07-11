@@ -21,9 +21,20 @@ import "../css/reports.css";
 function Reports() {
   const navigate = useNavigate();
 
-  const currentYear = new Date().getFullYear();
+const getCurrentFinancialYear = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
 
-  const [financialYear] = useState(`${currentYear}-${currentYear + 1}`);
+  return month >= 4
+    ? `${year}-${year + 1}`
+    : `${year - 1}-${year}`;
+};
+
+const [financialYear, setFinancialYear] = useState(
+  getCurrentFinancialYear()
+);
+
 
   const [summary, setSummary] = useState({
     totalIncome: 0,
@@ -40,40 +51,39 @@ function Reports() {
 
   const [pieData, setPieData] = useState([]);
 
-  const loadAnalytics = async () => {
-    try {
-      const res = await getBusinessAnalytics();
+const loadAnalytics = async () => {
+  try {
+   const res = await getBusinessAnalytics(financialYear);
 
-      setSummary({
-        totalIncome: Number(res.data.summary.totalIncome || 0),
+console.log("Selected FY:", financialYear);
+console.log("Response:", res.data);
+    setSummary({
+      totalIncome: Number(res.data.summary.totalIncome || 0),
+      totalPurchase: Number(res.data.summary.totalPurchase || 0),
+      accountingCharge: Number(res.data.summary.accountingCharge || 0),
+      netProfit: Number(res.data.summary.netProfit || 0),
+    });
 
-        totalPurchase: Number(res.data.summary.totalPurchase || 0),
-
-        accountingCharge: Number(res.data.summary.accountingCharge || 0),
-
-        netProfit: Number(res.data.summary.netProfit || 0),
-      });
-
-      setLineData(res.data.lineChart);
-
-      setBarData(res.data.purchaseSalesChart);
-
-      setPieData(res.data.incomeDistribution);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    setLineData(res.data.lineChart);
+    setBarData(res.data.purchaseSalesChart);
+    setPieData(res.data.incomeDistribution);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
   useEffect(() => {
     loadAnalytics();
-  }, []);
+  }, [financialYear]);
 
   return (
     <div className="app">
-      <Sidebar />
 
-      <div className="main-content">
-        <Navbar />
+  <div className="main-content reports-full">
+     <Navbar
+  financialYear={financialYear}
+  setFinancialYear={setFinancialYear}
+/>
 
         <div className="reports-page">
           <div className="reports-header">

@@ -16,7 +16,16 @@ function CompanyProfile() {
   const [editMode, setEditMode] = useState(false);
 
   const [companyId, setCompanyId] = useState(null);
+const [financialYear, setFinancialYear] = useState("");
+const getCurrentFinancialYear = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
 
+  return month >= 4
+    ? `${year}-${year + 1}`
+    : `${year - 1}-${year}`;
+};
   const [form, setForm] = useState({
     company_name: "",
     owner_name: "",
@@ -36,7 +45,7 @@ function CompanyProfile() {
 
   useEffect(() => {
     loadCompany();
-  }, []);
+  }, [financialYear]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -147,10 +156,12 @@ function CompanyProfile() {
   if (!editMode && companyId) {
     return (
       <div className="app">
-        <Sidebar />
-
-        <div className="main-content">
-          <Navbar />
+ 
+    <div className="main-content company-full">
+        <Navbar
+    financialYear={financialYear}
+    setFinancialYear={setFinancialYear}
+/>
 
           <div className="settings-page">
             <BackButton />
@@ -251,10 +262,12 @@ function CompanyProfile() {
   }
   return (
     <div className="app">
-      <Sidebar />
 
-      <div className="main-content">
-        <Navbar />
+    <div className="main-content company-full">
+        <Navbar
+    financialYear={financialYear}
+    setFinancialYear={setFinancialYear}
+/>
 
         <div className="settings-page">
           <BackButton />

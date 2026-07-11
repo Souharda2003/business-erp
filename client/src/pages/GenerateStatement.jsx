@@ -33,6 +33,16 @@ function GenerateStatement() {
   const [previewData, setPreviewData] = useState([]);
 
   const [totalRecords, setTotalRecords] = useState(0);
+const getCurrentFinancialYear = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+
+  return month >= 4
+    ? `${year}-${year + 1}`
+    : `${year - 1}-${year}`;
+};
+
 
   const filteredData = previewData.filter((row) => {
     if (!search) {
@@ -242,10 +252,12 @@ useEffect(() => {
   };
   return (
     <div className="app">
-      <Sidebar />
-
-      <div className="main-content">
-        <Navbar />
+       <div className="main-content reports-full">
+     
+        <Navbar
+    financialYear={financialYear}
+    setFinancialYear={setFinancialYear}
+/>
         <div className="statement-page">
           <div className="statement-header">
             <div className="statement-title">

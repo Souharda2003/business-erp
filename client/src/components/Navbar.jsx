@@ -2,56 +2,68 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/navbar.css";
 
-function Navbar({ toggleSidebar }) {
+function Navbar({
+
+    toggleSidebar,
+
+    financialYear,
+
+    setFinancialYear
+
+}) {
   const navigate = useNavigate();
 
   const [companyName, setCompanyName] = useState("Business ERP");
-  const [financialYear, setFinancialYear] = useState("");
+  const getCurrentFinancialYear = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+
+  return month >= 4
+    ? `${year}-${year + 1}`
+    : `${year - 1}-${year}`;
+};
+
+
   const [customYear, setCustomYear] = useState(false);
+useEffect(() => {
+  const company =
+    localStorage.getItem("company_name") || "Business ERP";
 
-  useEffect(() => {
-    const company = localStorage.getItem("company_name") || "Business ERP";
+  setCompanyName(company);
 
-    setCompanyName(company);
+  if (!financialYear && typeof setFinancialYear === "function") {
+    setFinancialYear(getCurrentFinancialYear());
+  }
+}, []);
+const changeFinancialYear = (e) => {
+  if (e.target.value === "custom") {
+    setCustomYear(true);
+    return;
+  }
 
-    const savedYear = localStorage.getItem("financialYear");
+  setCustomYear(false);
+  setFinancialYear(e.target.value);
+};
+const handleCustomYear = () => {
+  const fy = financialYear.trim();
+const years = fy.split("-");
 
-    if (savedYear) {
-      setFinancialYear(savedYear);
-    } else {
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = today.getMonth() + 1;
+if (
+  years.length !== 2 ||
+  Number(years[1]) !== Number(years[0]) + 1
+) {
+  alert("Example: 2025-2026");
+  return;
+}
+  if (!/^\d{4}-\d{4}$/.test(fy)) {
+    alert("Financial Year Format: 2028-2029");
+    return;
+  }
 
-      const fy = month >= 4 ? `${year}-${year + 1}` : `${year - 1}-${year}`;
-
-      setFinancialYear(fy);
-      localStorage.setItem("financialYear", fy);
-    }
-  }, []);
-
-  const changeFinancialYear = (e) => {
-    if (e.target.value === "custom") {
-      setCustomYear(true);
-      return;
-    }
-
-    localStorage.setItem("financialYear", e.target.value);
-
-    window.location.reload();
-  };
-
-  const handleCustomYear = () => {
-    if (!financialYear.includes("-")) {
-      alert("Financial Year Format : 2026-2027");
-      return;
-    }
-
-    localStorage.setItem("financialYear", financialYear);
-
-    window.location.reload();
-  };
-
+  setFinancialYear(fy);
+  setCustomYear(false);
+};
   const logout = () => {
     localStorage.clear();
 
@@ -81,17 +93,19 @@ function Navbar({ toggleSidebar }) {
             </button>
           </>
         ) : (
-          <select
-            value={financialYear}
-            onChange={changeFinancialYear}
-            className="financial-select"
-          >
-            <option value="2028-2029">2028-2029</option>
-            <option value="2027-2028">2027-2028</option>
-            <option value="2026-2027">2026-2027</option>
-            <option value="2025-2026">2025-2026</option>
-            <option value="custom">Custom</option>
-          </select>
+<select
+  value={customYear ? "custom" : financialYear}
+  onChange={changeFinancialYear}
+  className="financial-select"
+>
+<option value={financialYear}>
+     {financialYear}
+</option>
+
+<option value="custom">
+    Custom Financial Year
+</option>
+</select>
         )}
 
         <button className="logout-btn" onClick={logout}>

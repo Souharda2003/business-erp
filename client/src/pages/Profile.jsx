@@ -9,7 +9,16 @@ import "../css/profile.css";
 
 function Profile() {
   const [editMode, setEditMode] = useState(false);
+const [financialYear, setFinancialYear] = useState("");
+const getCurrentFinancialYear = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
 
+  return month >= 4
+    ? `${year}-${year + 1}`
+    : `${year - 1}-${year}`;
+};
   const [loading, setLoading] = useState(true);
 
   const [form, setForm] = useState({
@@ -38,7 +47,7 @@ function Profile() {
 
   useEffect(() => {
     loadProfile();
-  }, []);
+  }, [financialYear]);
 
   const loadProfile = async () => {
     try {
@@ -136,10 +145,11 @@ function Profile() {
 
   return (
     <div className="app">
-      <Sidebar />
-
-      <div className="main-content">
-        <Navbar />
+      <div className="main-content company-full">
+        <Navbar
+          financialYear={financialYear}
+          setFinancialYear={setFinancialYear}
+        />
 
         <div className="profile-page">
           <BackButton />

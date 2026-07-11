@@ -7,13 +7,12 @@
 
   bottom: 0;
 
-  width: 250px;
+  width: 240px;
 
   background: linear-gradient(180deg, #1565c0, #0d47a1);
 
   overflow-y: auto;
-
-  transition: 0.35s;
+transition:transform .35s ease;
 
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
 
@@ -76,7 +75,7 @@
 }
 @media (max-width: 768px) {
   .sidebar {
-    width: 220px;
+    width: 190px;
   }
 }
 
@@ -259,16 +258,53 @@ idebar {
   transition: all 0.3s ease;
 }
 
-.sidebar-close {
-  width: 0;
-  overflow: hidden;
+.sidebar-close{
+    transform:translateX(-100%);
 }
-
 .main-content {
-  margin-left: 250px;
-  transition: all 0.3s ease;
+  margin-left: 240px;
+  transition: .35s;
 }
 
 .main-content.full-width {
   margin-left: 0;
+  width: 100%;
+}
+.menu-btn{
+
+font-size:28px;
+
+background:none;
+
+border:none;
+
+cursor:pointer;
+
+margin-right:15px;
+
+}
+@media(max-width:768px){
+
+.sidebar{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+bottom:0;
+
+z-index:999;
+
+}
+
+.main-content{
+
+margin-left:0;
+
+width:100%;
+
+}
+
 }
