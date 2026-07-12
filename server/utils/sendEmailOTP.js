@@ -1,24 +1,31 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: process.env.SMTP_HOST,
+
+    port: Number(process.env.SMTP_PORT),
+
+    secure: false,
 
     auth: {
-        user: process.env.EMAIL_USER,
-
-        pass: process.env.EMAIL_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
     },
 });
-
+transporter.verify((error, success) => {
+    if (error) {
+        console.error("SMTP Error:", error);
+    } else {
+        console.log("Brevo SMTP Connected Successfully");
+    }
+});
 const sendEmailOTP = async (email, otp) => {
-    console.log("================================");
 console.log("EMAIL USER :", process.env.EMAIL_USER);
 console.log("TO EMAIL :", email);
 console.log("OTP :", otp);
-console.log("================================");
     try {
         await transporter.sendMail({
-            from: `"Business ERP" <${process.env.EMAIL_USER}>`,
+            from: `"Business ERP" <${process.env.EMAIL_FROM}>`,
 
             to: email,
 
