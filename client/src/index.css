@@ -10,7 +10,7 @@
 
 /* Body */
 
-body {
+/* body {
 
     font-family: "Segoe UI", Arial, sans-serif;
 
@@ -20,7 +20,7 @@ body {
 
     overflow-x: hidden;
 
-}
+} */
 
 /* Root */
 
@@ -332,7 +332,7 @@ table td {
 
     button{
 
-        width:100%;
+        /* width:100%; */
 
     }
 

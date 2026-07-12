@@ -2,11 +2,10 @@
 
 .app {
 
-    display: flex;
-
-    min-height: 100vh;
-
-    background: #f4f6f9;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
 
 }
 
@@ -29,7 +28,7 @@
 
 .page {
 
-    background: white;
+    background: rgb(26, 25, 25);
 
     padding: 25px;
 

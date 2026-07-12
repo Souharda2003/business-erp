@@ -4,11 +4,9 @@
     "dev": "nodemon server.js",
     "backup": "node autoBackup.js"
   },
-
   "devDependencies": {
     "nodemon": "^3.1.14"
   },
-
   "dependencies": {
     "archiver": "^8.0.0",
     "axios": "^1.18.0",
@@ -28,7 +26,7 @@
     "mysql2": "^3.22.5",
     "mysqldump": "^3.2.0",
     "node-cron": "^4.2.1",
-    "nodemailer": "^8.0.10",
+    "nodemailer": "^8.0.11",
     "number-to-words": "^1.2.4",
     "otp-generator": "^4.0.1",
     "react-to-print": "^3.3.0",
