@@ -29,6 +29,7 @@
     "nodemailer": "^8.0.11",
     "number-to-words": "^1.2.4",
     "otp-generator": "^4.0.1",
+    "react-icons": "^5.7.0",
     "react-to-print": "^3.3.0",
     "recharts": "^3.8.1",
     "sib-api-v3-sdk": "^8.5.0"
