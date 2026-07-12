@@ -20,7 +20,7 @@ transporter.verify((error, success) => {
     }
 });
 const sendEmailOTP = async (email, otp) => {
-console.log("EMAIL USER :", process.env.EMAIL_USER);
+    console.log("SMTP USER :", process.env.SMTP_USER);
 console.log("TO EMAIL :", email);
 console.log("OTP :", otp);
     try {
