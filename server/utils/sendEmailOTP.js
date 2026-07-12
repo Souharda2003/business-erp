@@ -12,15 +12,13 @@ const apiInstance =
 
 const sendEmailOTP = async (email, otp) => {
   try {
-    console.log("================================");
     console.log("BREVO API");
     console.log("TO :", email);
     console.log("OTP :", otp);
     console.log("FROM :", process.env.EMAIL_FROM);
-    console.log("================================");
 
     const sender = {
-      name: "Business ERP",
+      name: " ERP MODULE",
       email: process.env.EMAIL_FROM,
     };
 
