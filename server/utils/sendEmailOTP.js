@@ -1,119 +1,143 @@
-const nodemailer = require("nodemailer");
+const SibApiV3Sdk = require("sib-api-v3-sdk");
 
-const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+const defaultClient = SibApiV3Sdk.ApiClient.instance;
 
-    port: Number(process.env.SMTP_PORT),
+const apiKey =
+  defaultClient.authentications["api-key"];
 
-    secure: false,
+apiKey.apiKey = process.env.BREVO_API_KEY;
 
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-    },
-});
-transporter.verify((error, success) => {
-    if (error) {
-        console.error("SMTP Error:", error);
-    } else {
-        console.log("Brevo SMTP Connected Successfully");
-    }
-});
+const apiInstance =
+  new SibApiV3Sdk.TransactionalEmailsApi();
+
 const sendEmailOTP = async (email, otp) => {
-    console.log("SMTP USER :", process.env.SMTP_USER);
-console.log("TO EMAIL :", email);
-console.log("OTP :", otp);
-    try {
-        await transporter.sendMail({
-            from: `"Business ERP" <${process.env.EMAIL_FROM}>`,
+  try {
+    console.log("================================");
+    console.log("BREVO API");
+    console.log("TO :", email);
+    console.log("OTP :", otp);
+    console.log("FROM :", process.env.EMAIL_FROM);
+    console.log("================================");
 
-            to: email,
+    const sender = {
+      name: "Business ERP",
+      email: process.env.EMAIL_FROM,
+    };
 
-            subject: "Business ERP - Password Reset OTP",
+    const receivers = [
+      {
+        email: email,
+      },
+    ];
 
-            html: `
+    const subject =
+      "Business ERP - Password Reset OTP";
+          const htmlContent = `
+    <div style="
+        max-width:600px;
+        margin:auto;
+        background:#ffffff;
+        border-radius:12px;
+        overflow:hidden;
+        border:1px solid #e5e7eb;
+        font-family:Arial,sans-serif;
+    ">
+
+        <div style="
+            background:#111827;
+            color:#FFD700;
+            padding:22px;
+            text-align:center;
+            font-size:28px;
+            font-weight:bold;
+        ">
+            Business ERP
+        </div>
+
+        <div style="padding:35px;">
+
+            <h2 style="margin-top:0;">
+                Password Reset OTP
+            </h2>
+
+            <p>Hello,</p>
+
+            <p>
+                We received a request to reset your Business ERP account password.
+            </p>
+
+            <p>Your verification code is:</p>
+
             <div style="
-                max-width:600px;
-                margin:auto;
-                font-family:Arial,sans-serif;
-                background:#ffffff;
+                text-align:center;
+                font-size:42px;
+                font-weight:bold;
+                letter-spacing:8px;
+                color:#111827;
+                background:#FFF8DC;
                 border-radius:10px;
-                overflow:hidden;
-                border:1px solid #ddd;
+                padding:20px;
+                margin:25px 0;
             ">
-
-                <div style="
-                    background:#111827;
-                    color:#FFD700;
-                    padding:20px;
-                    text-align:center;
-                    font-size:28px;
-                    font-weight:bold;
-                ">
-                    Business ERP
-                </div>
-
-                <div style="padding:30px;">
-
-                    <h2>Password Reset OTP</h2>
-
-                    <p>Hello,</p>
-
-                    <p>
-                        We received a request to reset your Business ERP account password.
-                    </p>
-
-                    <p>Your OTP is:</p>
-
-                    <div style="
-                        font-size:42px;
-                        font-weight:bold;
-                        color:#111827;
-                        letter-spacing:8px;
-                        text-align:center;
-                        background:#FFF8DC;
-                        padding:20px;
-                        border-radius:10px;
-                    ">
-                        ${otp}
-                    </div>
-
-                    <p style="margin-top:25px;">
-                        This OTP will expire in
-                        <b>5 Minutes</b>.
-                    </p>
-
-                    <p>
-                        If you didn't request this password reset,
-                        simply ignore this email.
-                    </p>
-
-                    <hr>
-
-                    <p style="color:gray;">
-                        © Business ERP
-                    </p>
-
-                </div>
-
+                ${otp}
             </div>
-            `,
-        });
 
-        console.log("OTP Email Sent");
+            <p>
+                This OTP will expire in
+                <b>5 Minutes</b>.
+            </p>
 
-        return true;
+            <p>
+                If you didn't request this password reset,
+                simply ignore this email.
+            </p>
 
-    } catch (err) {
-    console.error("EMAIL SEND FAILED");
+            <hr>
+
+            <p style="color:#666;">
+                © 2026 Business ERP
+            </p>
+
+        </div>
+
+    </div>
+    `;
+
+    const emailData =
+      new SibApiV3Sdk.SendSmtpEmail();
+
+    emailData.sender = sender;
+
+    emailData.to = receivers;
+
+    emailData.subject = subject;
+
+    emailData.htmlContent = htmlContent;
+
+    const response =
+      await apiInstance.sendTransacEmail(
+        emailData
+      );
+
+    console.log(
+      "BREVO EMAIL SENT SUCCESSFULLY"
+    );
+
+    console.log(response);
+
+    return true;
+
+  } catch (err) {
+
+    console.error(
+      "BREVO EMAIL FAILED"
+    );
+
     console.error(err);
 
-    if (err.response) {
-        console.error(err.response);
-    }
-
     return false;
-}
+
+  }
 };
 
 module.exports = sendEmailOTP;
