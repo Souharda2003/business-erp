@@ -145,10 +145,12 @@ function GovernmentFeeHistory() {
 
   return (
     <div className="app">
-      <Sidebar />
+  <div className="main-content reports-full">
+     <Navbar
+  financialYear={financialYear}
+  setFinancialYear={setFinancialYear}
+/>
 
-      <div className="main-content">
-        <Navbar />
 
         <div className="page">
           <div

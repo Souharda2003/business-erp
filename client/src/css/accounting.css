@@ -228,3 +228,8 @@ font-weight:600;
 background:#1d4ed8;
 
 }
+.reports-full {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 30px;
+}

@@ -125,10 +125,11 @@ function IncomeTaxFeeHistory() {
 
   return (
     <div className="app">
-      <Sidebar />
-
-      <div className="main-content">
-        <Navbar />
+  <div className="main-content reports-full">
+     <Navbar
+  financialYear={financialYear}
+  setFinancialYear={setFinancialYear}
+/>
 
         <div className="page">
           <div

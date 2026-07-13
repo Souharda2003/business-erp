@@ -22,8 +22,8 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
-    email: "",
     mobile: "",
+    email: "",
     password: "",
     confirmPassword: "",
   });

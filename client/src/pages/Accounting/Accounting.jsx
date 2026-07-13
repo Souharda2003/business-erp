@@ -88,12 +88,12 @@ const [financialYear, setFinancialYear] = useState(
   return (
 
     <div className="app">
+  <div className="main-content reports-full">
+     <Navbar
+  financialYear={financialYear}
+  setFinancialYear={setFinancialYear}
+/>
 
-      <Sidebar />
-
-      <div className="main-content">
-
-        <Navbar />
 
         <div className="page">
 

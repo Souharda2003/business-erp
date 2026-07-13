@@ -165,9 +165,6 @@ onSubmit={handleLogin}
           <p className="welcome">
             Welcome Back
           </p>
-
-          {/* Mobile */}
-
           <div className="input-box">
             <FaMobileAlt className="input-icon" />
 
@@ -210,9 +207,6 @@ onSubmit={handleLogin}
               )}
             </button>
           </div>
-
-          {/* Options */}
-
           <div className="options">
             <label>
               <input type="checkbox" />
@@ -223,9 +217,6 @@ onSubmit={handleLogin}
               Forgot Password?
             </Link>
           </div>
-
-          {/* Button */}
-
           <button
             className="login-btn"
             type="submit"
