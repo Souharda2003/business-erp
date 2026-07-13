@@ -174,19 +174,6 @@ function Register() {
             />
           </div>
 
-          <div className="input-box">
-            <FaEnvelope className="input-icon" />
-
-            <input
-              type="email"
-              name="email"
-              spellCheck={false}
-              placeholder="Email Address"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
 
           <div className="input-box">
             <FaPhone className="input-icon" />
@@ -201,6 +188,19 @@ function Register() {
                 e.target.value = e.target.value.replace(/\D/g, "");
               }}
               value={form.mobile}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="input-box">
+            <FaEnvelope className="input-icon" />
+
+            <input
+              type="email"
+              name="email"
+              spellCheck={false}
+              placeholder="Email Address"
+              value={form.email}
               onChange={handleChange}
               required
             />
