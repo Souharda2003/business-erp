@@ -179,9 +179,6 @@ onSubmit={handleLogin}
               onChange={handleChange}
             />
           </div>
-
-          {/* Password */}
-
           <div className="input-box">
             <FaLock className="input-icon" />
 
