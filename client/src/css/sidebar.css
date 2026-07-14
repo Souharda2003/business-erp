@@ -709,13 +709,11 @@
     justify-content: center;
   }
 }
-@media (max-width:1100px){
+@media (max-width:992px){
 
 .sidebar{
 
 transform:translateX(-100%);
-
-width:260px;
 
 }
 
