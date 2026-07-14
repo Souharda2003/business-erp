@@ -21,7 +21,7 @@
     0 20px 60px rgba(0, 0, 0, 0.55);
   overflow: visible;
 
-  transition: 0.4s;
+  transition: 0.35s;
 
   z-index: 999;
 
@@ -690,7 +690,7 @@
 }
 @media (max-width: 1024px) {
   .sidebar {
-    width: 220px;
+    width: 90px;
   }
 
   .logo-text h2 {
