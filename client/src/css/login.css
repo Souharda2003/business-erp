@@ -7,11 +7,9 @@
 
 html,
 body,
-#root{
-
-    width:100%;
-    min-height:100vh;
-
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 .login-page {
   position: fixed;
@@ -571,20 +569,20 @@ body,
 .options label {
   display: flex;
 
-  align-items:center;
+  align-items: center;
 
   white-space: nowrap;
 
   gap: 8px;
-cursor: pointer;
+  cursor: pointer;
   font-size: 15px;
 }
 
-.options input[type="checkbox"]{
-    margin: 0;
-    width: 16px;
-    height: 16px;
-    accent-color: #ffd84a;
+.options input[type="checkbox"] {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: #ffd84a;
 }
 .options a {
   color: #ffd84a;
@@ -674,18 +672,14 @@ cursor: pointer;
 
   text-decoration: none;
 }
-.register a{
-
-    transition:.35s;
-
+.register a {
+  transition: 0.35s;
 }
 
-.register a:hover{
+.register a:hover {
+  color: #fff;
 
-    color:#fff;
-
-    text-shadow:0 0 15px gold;
-
+  text-shadow: 0 0 15px gold;
 }
 .login-card::after {
   content: "";
@@ -812,44 +806,43 @@ cursor: pointer;
   background: #1a1a1a;
 }
 
-
-.login-left h1{
-    max-width:320px;
-    margin-top:35px;
+.login-left h1 {
+  max-width: 320px;
+  margin-top: 35px;
 }
-.login-btn svg{
-    margin-left:10px;
+.login-btn svg {
+  margin-left: 10px;
 }
-.register-card{
-    min-height:540px;
+.register-card {
+  min-height: 540px;
 }
-.register-card .input-box{
-    height:56px;
-    margin-bottom:12px;
+.register-card .input-box {
+  height: 56px;
+  margin-bottom: 12px;
 }
-.register-card h1{
-    margin-top:12px;
-    font-size:40px;
-    line-height:0.95;
+.register-card h1 {
+  margin-top: 12px;
+  font-size: 40px;
+  line-height: 0.95;
 }
-.register-card .login-left{
-    padding:25px 45px;
+.register-card .login-left {
+  padding: 25px 45px;
 }
-.register-card .welcome{
-    margin-top:12px;
-    margin-bottom:16px;
+.register-card .welcome {
+  margin-top: 12px;
+  margin-bottom: 16px;
 }
-.register-card .login-btn{
-    height:56px;
-    margin-top:8px;
+.register-card .login-btn {
+  height: 56px;
+  margin-top: 8px;
 }
-.register-card .register{
-    margin-top:16px;
+.register-card .register {
+  margin-top: 16px;
 }
-.register-card .login-right img{
-    width:560px;
+.register-card .login-right img {
+  width: 560px;
 }
-.login-btn:disabled{
-    opacity:.65;
-    cursor:not-allowed;
+.login-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
