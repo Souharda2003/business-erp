@@ -690,7 +690,7 @@
 }
 @media (max-width: 1024px) {
   .sidebar {
-    width: 90px;
+    width: 250px;
   }
 
   .logo-text h2 {
@@ -720,7 +720,7 @@
 }
 @media (max-width: 768px) {
   .sidebar {
-    width: 280px;
+    width: 250px;
 
     transform: translateX(-100%);
 
