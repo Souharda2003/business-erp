@@ -643,17 +643,18 @@ body {
 
   position: absolute;
 
-  right: -70px;
+  right: -40px;
 
-  top: -70px;
+  top: -40px;
 
-  width: 180px;
+  width: 120px;
 
-  height: 180px;
+  height: 120px;
 
   border-radius: 50%;
 
-  background: radial-gradient(rgb(212, 175, 55));
+  background: radial-gradient(rgba(212, 175, 55,18),);
+  
 }
 .analytics-preview-card::after {
   content: "";
@@ -853,7 +854,6 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
 @media (max-width: 992px) {
   .card-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -868,9 +868,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .analytics-grid {
-    grid-template-columns: 1fr;
-  }
+
   .main-content {
     margin-left: 0;
 
@@ -899,13 +897,13 @@ body {
   }
 
   .analytics-section {
-    padding: 20px;
+    padding: 15px;
   }
 
   .analytics-preview-card {
-    padding: 18px;
-
-    min-height: 320px;
+    padding: 16px;
+    height: 260px;
+    min-height: 260px;
   }
 
   .analytics-preview-card h3 {
@@ -921,7 +919,9 @@ body {
   .dashboard-bottom-card {
     padding: 20px;
   }
-
+.chart-container{
+  height: 180px;
+}
   .bottom-value {
     font-size: 30px;
   }
@@ -942,7 +942,10 @@ body {
   .dashboard-title p {
     font-size: 14px;
   }
-
+.sidebar{
+  width: 200px;
+max-width: 85vw;
+}
   .dashboard-card {
     border-radius: 18px;
 
@@ -957,7 +960,7 @@ body {
     border-radius: 18px;
   }
   .analytics-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:2fr 1fr;
   }
   .dashboard-bottom-card {
     border-radius: 18px;
