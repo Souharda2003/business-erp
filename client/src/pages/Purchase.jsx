@@ -102,298 +102,324 @@ function Purchase() {
   ).toFixed(2);
   const handleSubmit = async (e) => {
     e.preventDefault();
-      if (form.invoice_no.trim() === "") {
-        alert("Invoice Number is Required");
+    if (form.invoice_no.trim() === "") {
+      alert("Invoice Number is Required");
 
-        return;
-      }
+      return;
+    }
 
-      if (form.purchase_date === "") {
-        alert("Purchase Date is Required");
+    if (form.purchase_date === "") {
+      alert("Purchase Date is Required");
 
-        return;
-      }
+      return;
+    }
 
-      if (form.supplier.trim() === "") {
-        alert("Supplier Name is Required");
+    if (form.supplier.trim() === "") {
+      alert("Supplier Name is Required");
 
-        return;
-      }
+      return;
+    }
 
-      if (form.product_name.trim() === "") {
-        alert("Product Name is Required");
+    if (form.product_name.trim() === "") {
+      alert("Product Name is Required");
 
-        return;
-      }
+      return;
+    }
 
-      if (Number(form.quantity) <= 0) {
-        alert("Enter Valid Quantity");
+    if (Number(form.quantity) <= 0) {
+      alert("Enter Valid Quantity");
 
-        return;
-      }
+      return;
+    }
 
-      if (Number(form.unit_price) <= 0) {
-        alert("Enter Valid Unit Price");
+    if (Number(form.unit_price) <= 0) {
+      alert("Enter Valid Unit Price");
 
-        return;
-      }
-      const data = {
-        ...form,
-        
-        taxable_amount: taxableAmount,
-        
-        cgst_amount: cgstAmount,
-        
-        sgst_amount: sgstAmount,
-        
-        total_gst: totalGST,
-        
-        total_amount: totalAmount,
-      };
-      
-      try {
-        if (id) {
-          await updatePurchase(id, data);
-          
-          alert("Purchase Updated Successfully");
-        } else {
-          await savePurchase(data);
-          
-          alert("Purchase Saved Successfully");
-          
-          setForm({
-            purchase_date: "",
-            
-            invoice_no: "",
-            
-            supplier: "",
-            
-            product_name: "",
-            
-            quantity: "",
-            
-            unit: "TON",
-            
-            unit_price: "",
+      return;
+    }
+    const data = {
+      ...form,
 
-            cgst_percent: "",
+      taxable_amount: taxableAmount,
 
-            sgst_percent: "",
+      cgst_amount: cgstAmount,
 
-            round_off: 0,
-          });
-        }
-      } catch (err) {
-        console.log(err);
-        
-        alert("Operation Failed");
-      }
-    
+      sgst_amount: sgstAmount,
+
+      total_gst: totalGST,
+
+      total_amount: totalAmount,
     };
 
-    return (
-      <div className="page">
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "15px",
-            marginBottom: "20px",
-          }}
-        >
-          <BackButton />
+    try {
+      if (id) {
+        await updatePurchase(id, data);
 
-          <h1 className="page-title" style={{ margin: 0 }}>
-            Purchase Management
-          </h1>
+        alert("Purchase Updated Successfully");
+      } else {
+        await savePurchase(data);
+
+        alert("Purchase Saved Successfully");
+
+        setForm({
+          purchase_date: "",
+
+          invoice_no: "",
+
+          supplier: "",
+
+          product_name: "",
+
+          quantity: "",
+
+          unit: "TON",
+
+          unit_price: "",
+
+          cgst_percent: "",
+
+          sgst_percent: "",
+
+          round_off: 0,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+
+      alert("Operation Failed");
+    }
+  };
+  return (
+    <div className="page purchase-page">
+      <div className="purchase-header">
+        <BackButton />
+
+        <div className="purchase-heading">
+          <h1 className="page-title">Purchase Management</h1>
+
+          <p className="page-subtitle">Add Purchase Details</p>
+        </div>
+      </div>
+
+      <form className="purchase-form-card" onSubmit={handleSubmit}>
+        {/* Row 1 */}
+
+        <div className="row">
+          <div className="form-group">
+            <label>Invoice No</label>
+
+            <input
+              name="invoice_no"
+              placeholder="Invoice Number"
+              value={form.invoice_no}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Date</label>
+
+            <input
+              type="date"
+              name="purchase_date"
+              value={form.purchase_date ? form.purchase_date.split("T")[0] : ""}
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
-        <form className="form-container" onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="form-group">
-              <label>Invoice No</label>
+        {/* Row 2 */}
 
-              <input
-                name="invoice_no"
-                value={form.invoice_no}
-                placeholder="Invoice No"
-                onChange={handleChange}
-              />
-            </div>
+        <div className="row">
+          <div className="form-group">
+            <label>Supplier</label>
 
-            <div className="form-group">
-              <label>Date</label>
-
-              <input
-                type="date"
-                name="purchase_date"
-                value={
-                  form.purchase_date ? form.purchase_date.split("T")[0] : ""
-                }
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="form-group">
-              <label>Supplier</label>
-
-              <input
-                name="supplier"
-                value={form.supplier}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Product Name</label>
-
-              <input
-                name="product_name"
-                value={form.product_name}
-                onChange={handleChange}
-              />
-            </div>
+            <input
+              name="supplier"
+              placeholder="Supplier Name"
+              value={form.supplier}
+              onChange={handleChange}
+            />
           </div>
 
-          <div className="row">
+          <div className="form-group">
+            <label>Product Name</label>
+
+            <input
+              name="product_name"
+              placeholder="Product Name"
+              value={form.product_name}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        {/* Row 3 */}
+
+        <div className="row">
+          <div className="form-group quantity-box">
+            <label>Quantity</label>
+
             <input
               type="number"
               name="quantity"
+              placeholder="Enter Quantity"
               value={form.quantity}
-              placeholder="Quantity"
-              step="0.001"
               min="0"
+              step="0.001"
               onChange={handleChange}
               onWheel={preventScroll}
             />
+          </div>
+
+          <div className="form-group unit-box">
+            <label>Unit</label>
+
             <select name="unit" value={form.unit} onChange={handleChange}>
               <option value="KG">KG</option>
               <option value="TON">TON</option>
-
               <option value="GM">GM</option>
-
               <option value="MG">MG</option>
-
               <option value="MT">MT</option>
-
               <option value="QUINTAL">QUINTAL</option>
-
               <option value="BAG">BAG</option>
-
               <option value="PCS">PCS</option>
-
               <option value="BOX">BOX</option>
-
               <option value="CTN">CTN</option>
-
               <option value="DOZEN">DOZEN</option>
-
               <option value="LTR">LTR</option>
-
               <option value="ML">ML</option>
-
               <option value="ROLL">ROLL</option>
-
               <option value="SET">SET</option>
-
               <option value="PAIR">PAIR</option>
-
               <option value="NOS">NOS</option>
-
               <option value="METER">METER</option>
-
               <option value="CM">CM</option>
-
               <option value="MM">MM</option>
-
               <option value="FEET">FEET</option>
-
               <option value="INCH">INCH</option>
-
               <option value="PACK">PACK</option>
-
               <option value="BUNDLE">BUNDLE</option>
-
               <option value="CAN">CAN</option>
-
               <option value="JAR">JAR</option>
-
               <option value="DRUM">DRUM</option>
-
               <option value="SACK">SACK</option>
-
               <option value="TIN">TIN</option>
             </select>
           </div>
-          <div className="form-group">
-            <label>Unit Price</label>
+        </div>
 
-            <input
-              type="number"
-              name="unit_price"
-              value={form.unit_price}
-              min="0"
-              step="0.01"
-              onChange={handleChange}
-              onWheel={preventScroll}
-            />
-          </div>
+        {/* Unit Price */}
+
+        <div className="form-group">
+          <label>Unit Price</label>
+
+          <input
+            type="number"
+            name="unit_price"
+            placeholder="Enter Unit Price"
+            value={form.unit_price}
+            min="0"
+            step="0.01"
+            onChange={handleChange}
+            onWheel={preventScroll}
+          />
+        </div>
+
+        {/* Taxable */}
+
+        <div className="form-group">
           <label>Taxable Amount</label>
 
           <input value={taxableAmount} readOnly />
+        </div>
 
-          <div className="row">
+        {/* CGST */}
+
+        <div className="row">
+          <div className="form-group">
             <label>CGST (%)</label>
+
             <input
               type="number"
               name="cgst_percent"
-              value={form.cgst_percent}
               placeholder="CGST %"
+              value={form.cgst_percent}
               step="0.01"
               onChange={handleChange}
               onWheel={preventScroll}
             />
-
-            <input value={cgstAmount} placeholder="CGST Amount" readOnly />
           </div>
-          <div className="row">
+
+          <div className="form-group">
+            <label>CGST Amount</label>
+
+            <input value={cgstAmount} readOnly />
+          </div>
+        </div>
+
+        {/* SGST */}
+
+        <div className="row">
+          <div className="form-group">
             <label>SGST (%)</label>
+
             <input
               type="number"
               name="sgst_percent"
-              value={form.sgst_percent}
               placeholder="SGST %"
+              value={form.sgst_percent}
               step="0.01"
               onChange={handleChange}
               onWheel={preventScroll}
             />
-
-            <input value={sgstAmount} placeholder="SGST Amount" readOnly />
           </div>
+
+          <div className="form-group">
+            <label>SGST Amount</label>
+
+            <input value={sgstAmount} readOnly />
+          </div>
+        </div>
+
+        {/* Total GST */}
+
+        <div className="form-group">
           <label>Total GST</label>
 
           <input value={totalGST} readOnly />
+        </div>
+
+        {/* Round Off */}
+
+        <div className="form-group">
           <label>Round Off</label>
 
           <input
             type="number"
             name="round_off"
-            step="0.01"
-            value={form.round_off}
             placeholder="Round Off (+/-)"
+            value={form.round_off}
+            step="0.01"
             onChange={handleChange}
             onWheel={preventScroll}
           />
+        </div>
+
+        {/* Grand Total */}
+
+        <div className="form-group">
           <label>Grand Total</label>
 
           <input value={totalAmount} readOnly />
-          <button type="submit" className="primary-btn">
-            {id ? "Update Purchase" : "Save Purchase"}
-          </button>
-        </form>
-      </div>
-    );
-  };
+        </div>
+
+        <button type="submit" className="primary-btn">
+          {id ? "Update Purchase" : "Save Purchase"}
+        </button>
+      </form>
+    </div>
+  );
+}
 
 export default Purchase;

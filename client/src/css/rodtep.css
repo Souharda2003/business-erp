@@ -5,7 +5,13 @@
 .page {
   padding: 24px;
 
-  background: #f3f6fb;
+background:
+linear-gradient(
+180deg,
+#081425,
+#091a30,
+#0a1d34,
+#0b2139);
 
   min-height: 100vh;
 }
