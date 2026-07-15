@@ -128,255 +128,243 @@ function PurchaseHistory() {
 
     0,
   );
-
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-
-          alignItems: "center",
-
-          gap: "15px",
-
-          marginBottom: "20px",
-        }}
-      >
+    <div className="page purchase-page">
+      <div className="purchase-header">
         <BackButton />
 
-        <h1 style={{ margin: 0 }}>Purchase History</h1>
+        <div className="purchase-heading">
+          <h1 className="page-title">Purchase History</h1>
+
+          <p className="page-subtitle">View & Manage Purchase Records</p>
+        </div>
       </div>
+      <div className="purchase-form-card history-filter-card">
+        <div className="history-filter-row">
+          <div className="form-group">
+            <label>Search Type</label>
 
-      <div
-        style={{
-          display: "flex",
+            <select
+              value={searchType}
+              onChange={(e) => {
+                const type = e.target.value;
 
-          gap: "10px",
+                setSearchType(type);
 
-          flexWrap: "wrap",
-        }}
-      >
-        <select
-          value={searchType}
-          onChange={(e) => {
-            const type = e.target.value;
+                setCustomYear(false);
 
-            setSearchType(type);
+                if (type === "month") {
+                  setSearchValue(currentMonth);
+                } else {
+                  setSearchValue(currentYear);
+                }
+              }}
+            >
+              <option value="month">Month</option>
 
-            setCustomYear(false);
+              <option value="year">Year</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>
+              {searchType === "month" ? "Select Month" : "Select Year"}
+            </label>
 
-            if (type === "month") {
-              setSearchValue(currentMonth);
-            } else {
-              setSearchValue(currentYear);
-            }
-          }}
-        >
-          <option value="month">Month</option>
+            {searchType === "month" ? (
+              <select
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+              >
+                <option value="1">January</option>
 
-          <option value="year">Year</option>
-        </select>
-        {searchType === "month" ? (
-          <select
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          >
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
-        ) : customYear ? (
-          <input
-            type="number"
-            placeholder="Enter Year"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        ) : (
-          <select
-            value={searchValue}
-            onChange={(e) => {
-              if (e.target.value === "custom") {
-                setCustomYear(true);
+                <option value="2">February</option>
 
-                setSearchValue("");
-              } else {
-                setSearchValue(e.target.value);
-              }
-            }}
-          >
-            <option value="2024">2024</option>
+                <option value="3">March</option>
 
-            <option value="2025">2025</option>
+                <option value="4">April</option>
 
-            <option value="2026">2026</option>
+                <option value="5">May</option>
 
-            <option value="2027">2027</option>
+                <option value="6">June</option>
 
-            <option value="2028">2028</option>
+                <option value="7">July</option>
 
-            <option value="custom">Custom</option>
-          </select>
-        )}
+                <option value="8">August</option>
 
-        <button className="search-btn" onClick={handleSearch}>
-          Search
-        </button>
-      </div>
+                <option value="9">September</option>
 
-      <br />
+                <option value="10">October</option>
 
-      <h2
-        style={{
-          textAlign: "center",
-        }}
-      >
-        Purchase Report
-      </h2>
+                <option value="11">November</option>
 
-      <br />
+                <option value="12">December</option>
+              </select>
+            ) : customYear ? (
+              <input
+                type="number"
+                placeholder="Enter Year"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+              />
+            ) : (
+              <select
+                value={searchValue}
+                onChange={(e) => {
+                  if (e.target.value === "custom") {
+                    setCustomYear(true);
 
-      <p>
-        <b>Search By :</b>
-
-        {searchType === "month" ? " Month" : " Year"}
-      </p>
-
-      <br />
-
-      <p>
-        <b>Value :</b>
-
-        {searchType === "month" ? monthNames[Number(searchValue)] : searchValue}
-      </p>
-
-      <br />
-
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Invoice</th>
-
-            <th>Date</th>
-
-            <th>Supplier</th>
-
-            <th>Product</th>
-
-            <th>Quantity</th>
-
-            <th>Unit</th>
-
-            <th>Grand Total</th>
-
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {purchase.length === 0 ? (
-            <tr>
-              <td
-                colSpan="8"
-                style={{
-                  textAlign: "center",
-                  padding: "20px",
-                  color: "red",
-                  fontWeight: "bold",
+                    setSearchValue("");
+                  } else {
+                    setSearchValue(e.target.value);
+                  }
                 }}
               >
-                No Purchase Record Found
-              </td>
-            </tr>
-          ) : (
-            purchase.map((item) => (
-              <tr key={item.id}>
-                <td>{item.invoice_no}</td>
+                <option value="2024">2024</option>
 
-                <td>
-                  {item.purchase_date
-                    ? new Date(item.purchase_date).toLocaleDateString("en-GB")
-                    : ""}
-                </td>
+                <option value="2025">2025</option>
 
-                <td>{item.supplier}</td>
+                <option value="2026">2026</option>
 
-                <td>{item.product_name}</td>
+                <option value="2027">2027</option>
 
-                <td>{item.quantity}</td>
+                <option value="2028">2028</option>
 
-                <td>{item.unit}</td>
+                <option value="custom">Custom</option>
+              </select>
+            )}
+          </div>
 
-                <td>
-                  ₹{" "}
-                  {Number(item.total_amount || 0).toLocaleString("en-IN", {
-                    minimumFractionDigits: 2,
+          <div className="form-group search-btn-group">
+            <label>&nbsp;</label>
 
-                    maximumFractionDigits: 2,
-                  })}
-                </td>
-                    <div className="action-buttons">
-                      <button
-                        className="view-btn"
-                        onClick={() => navigate(`/purchase-invoice/${item.id}`)}
-                      >
-                        View
-                      </button>
+            <button
+              type="button"
+              className="primary-btn"
+              onClick={handleSearch}
+            >
+              Search Purchase
+            </button>
+          </div>
+        </div>
+      </div>
 
-                      <button
-                        className="edit-btn"
-                        onClick={() => navigate(`/purchase/edit/${item.id}`)}
-                      >
-                        Edit
-                      </button>
+      <div className="history-report-title">
+        <h2>Purchase Report</h2>
 
-                      <button
-                        className="delete-btn"
-                        onClick={() => handleDelete(item.id)}
-                      >
-                        Delete
-                      </button>
-                    </div>
+        <p>
+          <b>Search By :</b> {searchType === "month" ? "Month" : "Year"}
+        </p>
+
+        <p>
+          <b>Value :</b>{" "}
+          {searchType === "month"
+            ? monthNames[Number(searchValue)]
+            : searchValue}
+        </p>
+      </div>
+      <div className="purchase-form-card history-table-card">
+        <div className="history-table-header">
+          <h2>Purchase Records</h2>
+
+          <span>Total Records : {purchase.length}</span>
+        </div>
+
+        <div className="history-table-wrapper">
+          <table className="table history-table">
+            <thead>
+              <tr>
+                <th>Invoice</th>
+
+                <th>Date</th>
+
+                <th>Supplier</th>
+
+                <th>Product</th>
+
+                <th>Quantity</th>
+
+                <th>Unit</th>
+
+                <th>Grand Total</th>
+
+                <th>Action</th>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            </thead>
 
-      <br />
+            <tbody>
+              {purchase.length === 0 ? (
+                <tr>
+                  <td colSpan="8" className="history-empty">
+                    No Purchase Record Found
+                  </td>
+                </tr>
+              ) : (
+                purchase.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.invoice_no}</td>
 
-      <div
-        style={{
-          background: "#ffffff",
-          padding: "25px",
-          borderRadius: "12px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.10)",
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{
-            color: "#2563eb",
-          }}
-        >
-          Total Purchase Amount
-        </h2>
+                    <td>
+                      {item.purchase_date
+                        ? new Date(item.purchase_date).toLocaleDateString(
+                            "en-GB",
+                          )
+                        : ""}
+                    </td>
 
-        <h1
-          style={{
-            color: "#16a34a",
-            fontSize: "40px",
-          }}
-        >
+                    <td>{item.supplier}</td>
+
+                    <td>{item.product_name}</td>
+
+                    <td>{item.quantity}</td>
+
+                    <td>{item.unit}</td>
+
+                    <td className="amount-cell">
+                      ₹{" "}
+                      {Number(item.total_amount || 0).toLocaleString("en-IN", {
+                        minimumFractionDigits: 2,
+
+                        maximumFractionDigits: 2,
+                      })}
+                    </td>
+
+                    <td>
+                      <div className="history-action-buttons">
+                        <button
+                          className="view-btn"
+                          onClick={() =>
+                            navigate(`/purchase-invoice/${item.id}`)
+                          }
+                        >
+                          View
+                        </button>
+
+                        <button
+                          className="edit-btn"
+                          onClick={() => navigate(`/purchase/edit/${item.id}`)}
+                        >
+                          Edit
+                        </button>
+
+                        <button
+                          className="delete-btn"
+                          onClick={() => handleDelete(item.id)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="purchase-form-card purchase-total-card">
+        <h2>Total Purchase Amount</h2>
+
+        <h1>
           ₹{" "}
           {Number(totalPurchase).toLocaleString("en-IN", {
             minimumFractionDigits: 2,
@@ -385,171 +373,116 @@ function PurchaseHistory() {
           })}
         </h1>
       </div>
+      <div className="purchase-form-card purchase-summary-card">
+        <h2 className="summary-title">Purchase Summary</h2>
 
-      <br />
-      <div
-        style={{
-          background: "#f8fafc",
-          padding: "20px",
-          borderRadius: "10px",
-          marginTop: "30px",
-        }}
-      >
-        <h2
-          style={{
-            color: "#2563eb",
-            marginBottom: "20px",
-          }}
-        >
-          Purchase Summary
-        </h2>
         <hr />
+
         {purchase.length === 0 ? (
-          <p
-            style={{
-              textAlign: "center",
-              color: "red",
-              fontWeight: "bold",
-            }}
-          >
-            No Purchase Summary Found
-          </p>
+          <div className="summary-empty">No Purchase Summary Found</div>
         ) : (
           <>
             {purchase.map((item) => (
-              <div
-                key={item.id}
-                style={{
-                  background: "#ffffff",
-                  padding: "20px",
-                  marginTop: "20px",
-                  borderRadius: "10px",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                }}
-              >
-                <h3
-                  style={{
-                    color: "#16a34a",
-                    marginBottom: "15px",
-                  }}
-                >
-                  Purchase Entry
-                </h3>
+              <div key={item.id} className="summary-entry-card">
+                <h3>Purchase Entry</h3>
 
-                <p>
-                  <b>Invoice No :</b> {item.invoice_no}
-                </p>
+                <div className="summary-grid">
+                  <p>
+                    <b>Invoice :</b>
 
-                <p>
-                  <b>Date :</b>{" "}
-                  {item.purchase_date
-                    ? new Date(item.purchase_date).toLocaleDateString("en-GB")
-                    : ""}
-                </p>
+                    {item.invoice_no}
+                  </p>
 
-                <p>
-                  <b>Supplier Name :</b> {item.supplier}
-                </p>
+                  <p>
+                    <b>Date :</b>
 
-                <p>
-                  <b>Product Name :</b> {item.product_name}
-                </p>
+                    {item.purchase_date
+                      ? new Date(item.purchase_date).toLocaleDateString("en-GB")
+                      : ""}
+                  </p>
 
-                <p>
-                  <b>Quantity :</b> {item.quantity} {item.unit}
-                </p>
+                  <p>
+                    <b>Supplier :</b>
 
-                <p>
-                  <b>Unit Price :</b> ₹{Number(item.unit_price || 0).toFixed(2)}
-                </p>
+                    {item.supplier}
+                  </p>
 
-                <p>
-                  <b>Taxable Amount :</b> ₹
-                  {Number(item.taxable_amount || 0).toFixed(2)}
-                </p>
+                  <p>
+                    <b>Product :</b>
 
-                <p>
-                  <b>CGST :</b> {item.cgst_percent} %
-                </p>
+                    {item.product_name}
+                  </p>
 
-                <p>
-                  <b>CGST Amount :</b> ₹
-                  {Number(item.cgst_amount || 0).toFixed(2)}
-                </p>
+                  <p>
+                    <b>Quantity :</b>
+                    {item.quantity} {item.unit}
+                  </p>
 
-                <p>
-                  <b>SGST :</b> {item.sgst_percent} %
-                </p>
+                  <p>
+                    <b>Unit Price :</b>₹
+                    {Number(item.unit_price || 0).toFixed(2)}
+                  </p>
 
-                <p>
-                  <b>SGST Amount :</b> ₹
-                  {Number(item.sgst_amount || 0).toFixed(2)}
-                </p>
+                  <p>
+                    <b>Taxable :</b>₹
+                    {Number(item.taxable_amount || 0).toFixed(2)}
+                  </p>
 
-                <p>
-                  <b>Total GST :</b> ₹{Number(item.total_gst || 0).toFixed(2)}
-                </p>
+                  <p>
+                    <b>CGST :</b>
+                    {item.cgst_percent} %
+                  </p>
 
-                <p>
-                  <b>Round Off :</b> ₹{Number(item.round_off || 0).toFixed(2)}
-                </p>
+                  <p>
+                    <b>CGST Amount :</b>₹
+                    {Number(item.cgst_amount || 0).toFixed(2)}
+                  </p>
+
+                  <p>
+                    <b>SGST :</b>
+                    {item.sgst_percent} %
+                  </p>
+
+                  <p>
+                    <b>SGST Amount :</b>₹
+                    {Number(item.sgst_amount || 0).toFixed(2)}
+                  </p>
+
+                  <p>
+                    <b>Total GST :</b>₹{Number(item.total_gst || 0).toFixed(2)}
+                  </p>
+
+                  <p>
+                    <b>Round Off :</b>₹{Number(item.round_off || 0).toFixed(2)}
+                  </p>
+                </div>
 
                 <hr />
 
-                <h2
-                  style={{
-                    color: "#16a34a",
-                  }}
-                >
+                <div className="summary-grand-total">
                   Grand Total : ₹{Number(item.total_amount || 0).toFixed(2)}
-                </h2>
+                </div>
               </div>
             ))}
-
-            <div
-              style={{
-                background: "#ecfdf5",
-                padding: "20px",
-                borderRadius: "12px",
-                marginTop: "25px",
-              }}
-            >
-              <h2
-                style={{
-                  color: "#16a34a",
-                }}
-              >
+            <div className="summary-overall-card">
+              <h2>
                 Total Purchase : ₹{" "}
-                {Number(totalPurchase).toLocaleString("en-IN", {
-                  minimumFractionDigits: 2,
+                {Number(totalPurchase).toLocaleString(
+                  "en-IN",
 
-                  maximumFractionDigits: 2,
-                })}
+                  {
+                    minimumFractionDigits: 2,
+
+                    maximumFractionDigits: 2,
+                  },
+                )}
               </h2>
 
-              <h3
-                style={{
-                  color: "#2563eb",
-                }}
-              >
-                Total Taxable : ₹{Number(totalTaxable).toFixed(2)}
-              </h3>
+              <h3>Total Taxable : ₹{Number(totalTaxable).toFixed(2)}</h3>
 
-              <h3
-                style={{
-                  color: "#ea580c",
-                }}
-              >
-                Total GST : ₹{Number(totalGST).toFixed(2)}
-              </h3>
+              <h3>Total GST : ₹{Number(totalGST).toFixed(2)}</h3>
 
-              <h3
-                style={{
-                  color: "#dc2626",
-                }}
-              >
-                Total Round Off : ₹{Number(totalRoundOff).toFixed(2)}
-              </h3>
+              <h3>Total Round Off : ₹{Number(totalRoundOff).toFixed(2)}</h3>
             </div>
           </>
         )}
