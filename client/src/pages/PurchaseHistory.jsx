@@ -270,7 +270,7 @@ function PurchaseHistory() {
         </div>
 
         <div className="history-table-wrapper">
-          <table className="table history-table">
+          <table className="history-table">
             <thead>
               <tr>
                 <th>Invoice</th>
