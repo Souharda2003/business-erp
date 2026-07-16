@@ -8,9 +8,7 @@ import html2pdf from "html2pdf.js";
 import { useReactToPrint } from "react-to-print";
 import BackButton from "../components/BackButton";
 import { amountInWords } from "../utils/amountInWords";
-
-import "../css/salesinvoice.css";
-
+import "../css/invoice.css";
 function SalesInvoice() {
   const { id } = useParams();
 
@@ -18,8 +16,18 @@ function SalesInvoice() {
 
   const [sales, setSales] = useState({});
 
-  const [company, setCompany] = useState({});
-
+const [company, setCompany] = useState({
+  company_name: "",
+  owner_name: "",
+  address: "",
+  city: "",
+  state: "",
+  pincode: "",
+  phone: "",
+  email: "",
+  gst_number: "",
+  pan_number: "",
+});
   useEffect(() => {
     loadData();
   }, []);
@@ -49,7 +57,7 @@ function SalesInvoice() {
       .set({
         margin: 5,
 
-        filename: `Sales_Invoice${sales.invoice_no}.pdf`,
+        filename: `Sales_Invoice_${sales.invoice_no}.pdf`,
 
         html2canvas: {
           scale: 2,
@@ -75,14 +83,7 @@ function SalesInvoice() {
 
   return (
     <div className="invoice-page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+<div className="invoice-page-header">
         <BackButton />
 
         <h1 style={{ margin: 0 }}> Sales Invoice</h1>
@@ -99,22 +100,21 @@ function SalesInvoice() {
         </div>
 
         <div className="company-details">
-          <h2>{company.company_name}</h2>
+   <h2>{company.company_name || ""}</h2>
 
-          <p>{company.address}</p>
+<p>{company.address || ""}</p>
 
-          <p>
-            {company.city} {company.state} {company.pincode}
-          </p>
+<p>
+{company.city || ""}, {company.state || ""} - {company.pincode || ""}
+</p>
 
-          <p>Phone : {company.phone}</p>
+<p>Phone : {company.phone || ""}</p>
 
-          <p>Email : {company.email}</p>
+<p>Email : {company.email || ""}</p>
 
-          <p>GST : {company.gst_number}</p>
+<p>GST : {company.gst_number || ""}</p>
 
-          <p>PAN : {company.pan_number}</p>
-        </div>
+<p>PAN : {company.pan_number || ""}</p></div>
 
         <table className="invoice-info">
           <tbody>
@@ -220,11 +220,11 @@ function SalesInvoice() {
           </tbody>
         </table>
 
-        <div className="amount-word">
-          Amount In Words
-          <br />
-          <b>{amountInWords(total)}</b>
-        </div>
+     <div className="amount-word">
+<b>Amount In Words</b>
+<br />
+{amountInWords(total)}
+</div>
 
         <div className="footer-area">
           <div>
@@ -247,9 +247,14 @@ function SalesInvoice() {
 
         <div className="invoice-copy">ORIGINAL FOR CUSTOMER</div>
       </div>
-                  <button className="pdfButton" onClick={downloadPDF}>
-                     Download PDF
-                   </button>
+                  <div className="invoice-button-area">
+  <button
+    className="pdfButton"
+    onClick={downloadPDF}
+  >
+    Download PDF
+  </button>
+</div>
     </div>
   );
 }

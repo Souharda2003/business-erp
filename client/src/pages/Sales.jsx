@@ -131,23 +131,26 @@ bank_name:res.data.bank_name ||"",
   };
 
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+    <div className="sales-page">
+<div className="sales-header">
 
-        <h1 className="page-title" style={{ margin: 0 }}>
-          Sales Management
+    <BackButton />
+
+    <div>
+
+        <h1 className="page-title">
+            Sales Management
         </h1>
-      </div>
 
-      <form className="form-container" onSubmit={handleSubmit}>
+        <p className="page-subtitle">
+            Add Sales Details
+        </p>
+
+    </div>
+
+</div>
+      <form className="form-container sales-card" onSubmit={handleSubmit}>
+       <div className="form-group">
         <input
           type="date"
           name="sales_date"
@@ -175,6 +178,7 @@ bank_name:res.data.bank_name ||"",
           onChange={handleChange}
         />
         <div className="row">
+
           <input
             type="number"
             name="quantity"
@@ -184,7 +188,8 @@ bank_name:res.data.bank_name ||"",
             step="0.001"
             onChange={handleChange}
             onWheel={preventScroll}
-          />
+            />
+
           <select name="unit" value={form.unit} onChange={handleChange}>
             <option value="KG">KG</option>
             <option value="TON">TON</option>
@@ -216,6 +221,7 @@ bank_name:res.data.bank_name ||"",
             <option value="SACK">SACK</option>
             <option value="TIN">TIN</option>
           </select>
+
         </div>
         <input
           name="bank_name"
@@ -223,6 +229,8 @@ bank_name:res.data.bank_name ||"",
           value={form.bank_name || ""}
           onChange={handleChange}
         />
+        <div className="form-group">
+
         <input
           type="number"
           name="total_amount"
@@ -232,7 +240,10 @@ bank_name:res.data.bank_name ||"",
           step="0.01"
           onChange={handleChange}
           onWheel={preventScroll}
-        />
+          />
+          </div>
+          <div className="form-group">
+
         <input
           type="number"
           name="payment_received"
@@ -242,10 +253,12 @@ bank_name:res.data.bank_name ||"",
           step="0.01"
           onChange={handleChange}
           onWheel={preventScroll}
-        />
+          />
+          </div>
         <button type="submit" className="primary-btn">
           {id ? "Update Sales" : "Save Sales"}
         </button>
+    </div>
       </form>
     </div>
   );
