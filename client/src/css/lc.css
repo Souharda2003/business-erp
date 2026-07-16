@@ -116,10 +116,10 @@ color:#d4af37 !important;
 
 }
 
-.page input:-webkit-autofill,
-.page input:-webkit-autofill:hover,
-.page input:-webkit-autofill:focus,
-.page input:-webkit-autofill:active{
+.lc-page input:-webkit-autofill,
+.lc-page input:-webkit-autofill:hover,
+.lc-page input:-webkit-autofill:focus,
+.lc-page input:-webkit-autofill:active{
 
 -webkit-box-shadow:
 0 0 0 1000px #091b30 inset !important;
