@@ -31,7 +31,6 @@ function Drawback() {
     try {
       const res = await getProductList();
 
-      console.log("PRODUCTS =", res.data);
 
       setProductList(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
@@ -141,199 +140,250 @@ function Drawback() {
       alert("Operation Failed");
     }
   };
-  return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+return (
+  <div className="drawback-page">
 
-        <h1 className="page-title" style={{ margin: 0 }}>
+    <div className="drawback-header">
+
+      <BackButton />
+
+      <div>
+        <h1 className="page-title">
           Drawback Management
         </h1>
+
+        <p className="page-subtitle">
+          Add Export Drawback Details
+        </p>
       </div>
-      <form className="form-container" onSubmit={handleSubmit}>
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-          }}
-        >
-          <div className="form-group" style={{ flex: 2 }}>
-            <label>Shipping Bill</label>
 
-            <input
-              name="shipping_bill"
-              value={form.shipping_bill}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="form-group" style={{ flex: 1 }}>
-            <label>Shipping Bill Date</label>
-
-            <input
-              type="date"
-              name="shipping_bill_date"
-              value={form.shipping_bill_date || ""}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label>Invoice No</label>
-          <input
-            list="invoiceList"
-            name="invoice_no"
-            value={form.invoice_no}
-            onChange={handleChange}
-          />
-
-          <datalist id="invoiceList">
-            {invoiceList.map((item) => (
-              <option key={item.invoice_no} value={item.invoice_no} />
-            ))}
-          </datalist>
-        </div>
-        <div className="form-group">
-          <label>Product Name</label>
-          <input
-            list="productList"
-            name="product_name"
-            value={form.product_name}
-            onChange={handleChange}
-          />
-
-          <datalist id="productList">
-            {Array.isArray(productList) &&
-              productList.map((item) => (
-                <option key={item.product_name} value={item.product_name} />
-              ))}
-          </datalist>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-          }}
-        >
-          <div className="form-group" style={{ flex: 2 }}>
-            <label>Quantity</label>
-
-            <input
-              type="number"
-              name="quantity"
-              value={form.quantity}
-              min="0"
-              step="0.001"
-              onChange={handleChange}
-              onWheel={preventScroll}
-            />
-          </div>
-
-          <div className="form-group" style={{ flex: 1 }}>
-            <label>Unit</label>
-
-            <select name="unit" value={form.unit} onChange={handleChange}>
-              <option value="KG">KG</option>
-              <option value="TON">TON</option>
-              <option value="GM">GM</option>
-              <option value="MG">MG</option>
-              <option value="MT">MT</option>
-              <option value="QUINTAL">QUINTAL</option>
-              <option value="BAG">BAG</option>
-              <option value="PCS">PCS</option>
-              <option value="BOX">BOX</option>
-              <option value="CTN">CTN</option>
-              <option value="DOZEN">DOZEN</option>
-              <option value="LTR">LTR</option>
-              <option value="ML">ML</option>
-              <option value="ROLL">ROLL</option>
-              <option value="SET">SET</option>
-              <option value="PAIR">PAIR</option>
-              <option value="NOS">NOS</option>
-              <option value="METER">METER</option>
-              <option value="CM">CM</option>
-              <option value="MM">MM</option>
-              <option value="FEET">FEET</option>
-              <option value="INCH">INCH</option>
-              <option value="PACK">PACK</option>
-              <option value="BUNDLE">BUNDLE</option>
-              <option value="CAN">CAN</option>
-              <option value="JAR">JAR</option>
-              <option value="DRUM">DRUM</option>
-              <option value="SACK">SACK</option>
-              <option value="TIN">TIN</option>
-            </select>
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-          }}
-        >
-          <div className="form-group" style={{ flex: 1 }}>
-            <label>Dollar Rate</label>
-
-            <input
-              type="number"
-              name="dollar_rate"
-              value={form.dollar_rate}
-              onChange={handleChange}
-              onWheel={preventScroll}
-            />
-          </div>
-
-          <div className="form-group" style={{ flex: 1 }}>
-            <label>Drawback Rate (%)</label>
-
-            <input
-              type="number"
-              name="drawback_rate"
-              value={form.drawback_rate}
-              onChange={handleChange}
-              onWheel={preventScroll}
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label>Customs Location</label>
-
-          <input
-            name="customs_location"
-            value={form.customs_location}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Drawback Amount</label>
-          <input
-            value={Number(form.drawback_amount || 0).toFixed(2)}
-            readOnly
-          />
-        </div>
-        <div className="form-group">
-          <label>Export Date</label>
-
-          <input
-            type="date"
-            name="export_date"
-            value={form.export_date}
-            onChange={handleChange}
-          />
-        </div>
-        <button className="primary-btn" type="submit">
-          {id ? "Update Drawback" : "Save Drawback"}
-        </button>
-      </form>
     </div>
-  );
+
+    <form
+      className="form-container drawback-form-card"
+      onSubmit={handleSubmit}
+    >
+
+      <div className="card-glow"></div>
+
+      <div className="form-group">
+
+        <label>Shipping Bill</label>
+
+        <input
+          name="shipping_bill"
+          value={form.shipping_bill}
+          onChange={handleChange}
+          placeholder="Enter Shipping Bill Number"
+        />
+
+      </div>
+
+      <div className="form-group">
+
+        <label>Shipping Bill Date</label>
+
+        <input
+          type="date"
+          name="shipping_bill_date"
+          value={form.shipping_bill_date || ""}
+          onChange={handleChange}
+        />
+
+      </div>
+
+      <div className="form-group">
+
+        <label>Invoice No</label>
+
+        <input
+          list="invoiceList"
+          name="invoice_no"
+          value={form.invoice_no}
+          onChange={handleChange}
+          placeholder="Select Invoice Number"
+        />
+
+        <datalist id="invoiceList">
+          {invoiceList.map((item) => (
+            <option
+              key={item.invoice_no}
+              value={item.invoice_no}
+            />
+          ))}
+        </datalist>
+
+      </div>
+            <div className="form-group">
+
+        <label>Product Name</label>
+
+        <input
+          list="productList"
+          name="product_name"
+          value={form.product_name}
+          onChange={handleChange}
+          placeholder="Select Product Name"
+        />
+
+        <datalist id="productList">
+          {Array.isArray(productList) &&
+            productList.map((item) => (
+              <option
+                key={item.product_name}
+                value={item.product_name}
+              />
+            ))}
+        </datalist>
+
+      </div>
+
+      <div className="row">
+
+        <div className="form-group">
+
+          <label>Quantity</label>
+
+          <input
+            type="number"
+            name="quantity"
+            value={form.quantity}
+            min="0"
+            step="0.001"
+            onChange={handleChange}
+            onWheel={preventScroll}
+            placeholder="Enter Quantity"
+          />
+
+        </div>
+
+        <div className="form-group">
+
+          <label>Unit</label>
+
+          <select
+            name="unit"
+            value={form.unit}
+            onChange={handleChange}
+          >
+            <option value="KG">KG</option>
+            <option value="TON">TON</option>
+            <option value="GM">GM</option>
+            <option value="MG">MG</option>
+            <option value="MT">MT</option>
+            <option value="QUINTAL">QUINTAL</option>
+            <option value="BAG">BAG</option>
+            <option value="PCS">PCS</option>
+            <option value="BOX">BOX</option>
+            <option value="CTN">CTN</option>
+            <option value="DOZEN">DOZEN</option>
+            <option value="LTR">LTR</option>
+            <option value="ML">ML</option>
+            <option value="ROLL">ROLL</option>
+            <option value="SET">SET</option>
+            <option value="PAIR">PAIR</option>
+            <option value="NOS">NOS</option>
+            <option value="METER">METER</option>
+            <option value="CM">CM</option>
+            <option value="MM">MM</option>
+            <option value="FEET">FEET</option>
+            <option value="INCH">INCH</option>
+            <option value="PACK">PACK</option>
+            <option value="BUNDLE">BUNDLE</option>
+            <option value="CAN">CAN</option>
+            <option value="JAR">JAR</option>
+            <option value="DRUM">DRUM</option>
+            <option value="SACK">SACK</option>
+            <option value="TIN">TIN</option>
+          </select>
+
+        </div>
+
+      </div>
+
+      <div className="row">
+
+        <div className="form-group">
+
+          <label>Dollar Rate</label>
+
+          <input
+            type="number"
+            name="dollar_rate"
+            value={form.dollar_rate}
+            onChange={handleChange}
+            onWheel={preventScroll}
+            placeholder="Enter Dollar Rate"
+          />
+
+        </div>
+
+        <div className="form-group">
+
+          <label>Drawback Rate (%)</label>
+
+          <input
+            type="number"
+            name="drawback_rate"
+            value={form.drawback_rate}
+            onChange={handleChange}
+            onWheel={preventScroll}
+            placeholder="Enter Drawback Rate"
+          />
+
+        </div>
+
+      </div>
+
+      <div className="form-group">
+
+        <label>Customs Location</label>
+
+        <input
+          name="customs_location"
+          value={form.customs_location}
+          onChange={handleChange}
+          placeholder="Enter Customs Location"
+        />
+
+      </div>
+            <div className="form-group">
+
+        <label>Drawback Amount</label>
+
+        <input
+          value={Number(form.drawback_amount || 0).toFixed(2)}
+          readOnly
+          placeholder="Auto Calculated"
+        />
+
+      </div>
+
+      <div className="form-group">
+
+        <label>Export Date</label>
+
+        <input
+          type="date"
+          name="export_date"
+          value={form.export_date}
+          onChange={handleChange}
+        />
+
+      </div>
+
+      <button
+        className="primary-btn"
+        type="submit"
+      >
+        {id ? "Update Drawback" : "Save Drawback"}
+      </button>
+
+    </form>
+
+  </div>
+);
+
 }
 
 export default Drawback;

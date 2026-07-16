@@ -7,7 +7,6 @@ import html2pdf from "html2pdf.js";
 import { useReactToPrint } from "react-to-print";
 import BackButton from "../components/BackButton";
 import "../css/drawbackinvoice.css";
-import "../css/invoice.css";
 
 function DrawbackInvoice() {
   const { id } = useParams();
@@ -61,20 +60,13 @@ const handlePrint = useReactToPrint({
   };
   return (
     <div className="drawback-page">
-      <div className="invoice-wrapper">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+  <div className="invoice-page-header">
         <BackButton />
-
-        <h1 style={{ margin: 0 }}> DRAWBACK Invoice</h1>
+        <h1 style={{ margin: 0 }}> LC Invoice</h1>
       </div>
+      <div className="invoice-action">
 
+      </div>
       <div className="drawback-container" ref={invoiceRef}>
 
         <div className="custom-header">
@@ -125,11 +117,6 @@ const handlePrint = useReactToPrint({
             </table>
           </div>
         </div>
-
-        {/* ===========================
-            GREEN TITLE
-        =========================== */}
-
         <div className="station-name">
           LAND CUSTOMS STATION -{drawback.customs_location}
         </div>
@@ -170,10 +157,6 @@ const handlePrint = useReactToPrint({
             <p>Customs :{drawback.customs_location}</p>
           </div>
         </div>
-        {/* ===========================
-            ITEM DETAILS
-        =========================== */}
-
         <table className="item-table">
           <thead>
             <tr>
@@ -221,11 +204,6 @@ const handlePrint = useReactToPrint({
             </tr>
           </tbody>
         </table>
-
-        {/* ===========================
-            VALUE DETAILS
-        =========================== */}
-
         <table className="value-table">
           <tbody>
             <tr>
@@ -289,15 +267,7 @@ const handlePrint = useReactToPrint({
             </tr>
           </tbody>
         </table>
-
-        {/* ===========================
-            WATERMARK
-        =========================== */}
-
         <div className="watermark">EXPORT COPY</div>
-        {/* ===========================
-            DECLARATION
-        =========================== */}
 
         <div className="declaration-section">
           <div className="declaration-left">
@@ -324,13 +294,16 @@ const handlePrint = useReactToPrint({
           
         </div>
       </div>
-      <div className="invoice-action">
-      <button className="pdfButton" onClick={downloadPDF}>
-          Download PDF
-        </button>
+                  <div className="invoice-button-area">
+  <button
+    className="pdfButton"
+    onClick={downloadPDF}
+  >
+    Download PDF
+  </button>
+</div>
         </div>
-    </div>
-    </div>
+
   );
 }
 

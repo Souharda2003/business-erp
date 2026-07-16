@@ -767,3 +767,201 @@
     width: 100% !important;
     padding: 30px;
 }
+
+
+
+/*drawback.css */
+.drawback-total-card{
+
+margin-top:35px;
+
+text-align:center;
+
+border:1.5px solid rgba(235,90,11,.65);
+
+border-radius:24px;
+
+background:#071321;
+
+transition:.35s;
+
+}
+.drawback-total-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 20px 45px rgba(235,90,11,.45),
+
+0 0 35px rgba(235,90,11,.35);
+
+}
+.drawback-total-card h2{
+
+font-size:28px;
+
+color:#eb5a0b;
+
+margin-bottom:18px;
+
+}
+
+.drawback-total-card h1{
+
+font-size:52px;
+
+color:#6fffb5;
+
+}
+.drawback-summary-card{
+
+margin-top:35px;
+
+border:1.5px solid rgba(235,90,11,.65);
+
+border-radius:24px;
+
+padding:25px;
+
+background:#071321;
+
+transition:.35s;
+
+}
+.drawback-summary-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 20px 45px rgba(235,90,11,.45),
+
+0 0 35px rgba(235,90,11,.35);
+
+}
+.summary-title{
+
+font-size:34px;
+
+color:#fff;
+
+margin-bottom:20px;
+
+}
+
+.summary-empty{
+
+padding:35px;
+
+text-align:center;
+
+color:#ff6b6b;
+
+font-size:20px;
+
+font-weight:700;
+
+}
+
+.summary-entry-card{
+
+background:#081a2d;
+
+border:1.2px solid rgba(235,90,11,.60);
+border-radius:18px;
+
+padding:25px;
+
+margin-top:25px;
+
+transition:.35s;
+
+}
+
+.summary-entry-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 18px 40px rgba(235,90,11,.40);
+}
+
+.summary-entry-card h3{
+
+color:#6fffb5;
+
+margin-bottom:20px;
+
+}
+
+.summary-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:15px;
+
+}
+
+.summary-grid p{
+
+color:#dbe7ff;
+
+line-height:1.8;
+
+}
+
+.summary-grid b{
+
+color:#d4af37;
+
+}
+
+.summary-grand-total{
+
+margin-top:18px;
+
+font-size:28px;
+
+font-weight:700;
+
+color:#6fffb5;
+
+text-align:center;
+
+}
+
+.summary-overall-card{
+
+margin-top:35px;
+
+padding:25px;
+
+border-radius:18px;
+
+background:#071321;
+border:1px solid rgba(235,90,11,.60);
+text-align:center;
+
+}
+
+.summary-overall-card h2{
+
+color:#6fffb5;
+
+margin-bottom:18px;
+
+}
+
+.summary-overall-card h3{
+
+color:#dbe7ff;
+
+margin:12px 0;
+
+}

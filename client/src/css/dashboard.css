@@ -186,7 +186,7 @@ repeat(auto-fit,minmax(240px,1fr));
 
   width: 100%;
 
-  align-items: stretch;
+  align-items:start;
 }
 .dashboard-card {
   position: relative;
