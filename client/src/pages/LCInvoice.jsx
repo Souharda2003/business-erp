@@ -68,17 +68,9 @@ function LCInvoice() {
 
   return (
     <div className="invoice-page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+  <div className="invoice-page-header">
         <BackButton />
-
-        <h1 style={{ margin: 0 }}>LC Invoice</h1>
+        <h1 style={{ margin: 0 }}> LC Invoice</h1>
       </div>
       <div className="invoice-action">
 
@@ -246,9 +238,11 @@ function LCInvoice() {
           <div>Authorised Signatory</div>
         </div>
       </div>
-        <button className="pdfButton" onClick={downloadPDF}>
-          Download PDF
-        </button>
+            <div className="invoice-button-area">
+<button className="pdfButton">
+Download PDF
+</button>
+</div>
     </div>
   );
 }

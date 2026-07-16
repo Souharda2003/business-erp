@@ -196,23 +196,21 @@ payment_received: Number(
 };
 
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+    <div className="lc-page">
+<div className="lc-header">
+  <BackButton />
 
-        <h1 className="page-title" style={{ margin: 0 }}>
-          Letter Of Credit
-        </h1>
-      </div>
+  <div>
+    <h1 className="page-title">
+      Letter Of Credit
+    </h1>
 
-      <form className="form-container" onSubmit={handleSubmit}>
+    <p className="page-subtitle">
+      Add LC Details
+    </p>
+  </div>
+</div>
+      <form className="form-container lc-card" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>LC Number</label>
 
