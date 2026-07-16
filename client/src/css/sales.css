@@ -247,6 +247,17 @@ background-position:100% 50%;
 }
 
 }
+.sales-form-card input[type="date"] {
+  color: #ffffff;
+}
+
+.sales-form-card input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+
+  filter: invert(1);
+
+  opacity: 0.85;
+}
 .sales-page .form-container input,
 .sales-page .form-container select{
 
