@@ -4,7 +4,7 @@ import BackButton from "../components/BackButton";
 
 import { saveRODTEP, updateRODTEP, getRODTEPById } from "../services/rodtep";
 
-import "../css/purchase.css";
+import "../css/rodtep.css";
 
 function RODTEP() {
   const { id } = useParams();
@@ -140,24 +140,28 @@ res.data.date_of_issue
   };
 
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+<div className="page rodtep-page">
+<div className="rodtep-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 className="page-title" style={{ margin: 0 }}>
-          RODTEP Management
-        </h1>
+<h1 className="page-title">
+RODTEP Management
+</h1>
+
+<p className="page-subtitle">
+Manage RODTEP Credit Details
+</p>
+
+</div>
       </div>
 
-      <form className="form-container" onSubmit={handleSubmit}>
-        <div className="row">
+<form
+className="form-container rodtep-form-card rodtep-card"
+onSubmit={handleSubmit}
+>
+
+<div className="card-glow"></div><div className="row">
           <div className="form-group">
             <label>Bill No</label>
 

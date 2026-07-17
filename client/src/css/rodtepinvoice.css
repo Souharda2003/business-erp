@@ -1,69 +1,84 @@
-/* ==========================================
-   RODTEP INVOICE
-   PART 1
-   Global + Page + Invoice + Header
-========================================== */
+.rodtep-page{
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+width:100%;
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+padding:35px 20px;
+
+box-sizing:border-box;
+
 }
+.rodtep-header{
 
-body {
-  background: #ececec;
+width:100%;
 
-  font-family: Arial, Helvetica, sans-serif;
+max-width:210mm;
 
-  color: #000;
+display:flex;
 
-  -webkit-print-color-adjust: exact;
+align-items:center;
 
-  print-color-adjust: exact;
+gap:18px;
+
+margin-bottom:25px;
+
 }
+.rodtep-heading{
 
-/* ==========================================
-   PAGE
-========================================== */
+display:flex;
 
-.rodtep-page {
-  width: 100%;
+flex-direction:column;
 
-  display: flex;
-
-  justify-content: center;
-
-  align-items: flex-start;
-
-  padding: 35px 0;
 }
+.rodtep-invoice{
 
-/* ==========================================
-   MAIN INVOICE
-========================================== */
+width:100%;
 
-.rodtep-invoice {
-  width: 210mm;
+max-width:210mm;
 
-  min-height: 297mm;
+min-height:297mm;
 
-  background: #ffffff;
+background:white;
 
-  padding: 18mm;
+padding:18mm;
 
-  border: 1px solid #000;
+border:1px solid black;
 
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+box-shadow:
 
-  color: #000;
+0 8px 25px rgba(0,0,0,.25);
 
-  overflow: hidden;
+margin:0 auto;
+
+box-sizing:border-box;
+
 }
+.page-title{
 
-/* ==========================================
-   HEADER
-========================================== */
+margin:0;
 
+font-size:50px;
+
+color:white;
+
+font-weight:700;
+
+}.page-subtitle{
+
+margin-top:8px;
+
+font-size:16px;
+
+color:#16a3ff;
+
+}
 .invoice-header {
   display: flex;
 
@@ -106,10 +121,6 @@ body {
   letter-spacing: 2px;
 }
 
-/* ==========================================
-   BILL DETAILS
-========================================== */
-
 .bill-row {
   display: flex;
 
@@ -127,10 +138,6 @@ body {
 .bill-row b {
   color: #000;
 }
-
-/* ==========================================
-   PARTY SECTION
-========================================== */
 
 .party-section {
   display: flex;
@@ -185,15 +192,6 @@ body {
 
   width: 55%;
 }
-/* ==========================================
-   PART 2
-   AMOUNT + AMOUNT WORDS + DESCRIPTION
-========================================== */
-
-/* ==========================================
-   AMOUNT HEADING
-========================================== */
-
 .amount-heading {
   display: flex;
 
@@ -229,11 +227,6 @@ body {
 
   letter-spacing: 0.5px;
 }
-
-/* ==========================================
-   AMOUNT IN WORDS
-========================================== */
-
 .amount-word-box {
   border: 1px solid #000;
 
@@ -257,11 +250,6 @@ body {
 
   margin-right: 5px;
 }
-
-/* ==========================================
-   DESCRIPTION
-========================================== */
-
 .description-box {
   border: 1px solid #000;
 
@@ -277,11 +265,6 @@ body {
 
   text-align: justify;
 }
-
-/* ==========================================
-   DESCRIPTION TITLE
-========================================== */
-
 .description-title {
   font-size: 14px;
 
@@ -289,10 +272,6 @@ body {
 
   margin-bottom: 8px;
 }
-
-/* ==========================================
-   HIGHLIGHT BOX
-========================================== */
 
 .highlight-box {
   border: 1px dashed #555;
@@ -307,21 +286,11 @@ body {
 
   line-height: 1.6;
 }
-
-/* ==========================================
-   SECTION SPACING
-========================================== */
-
 .section-space {
   margin-top: 15px;
 
   margin-bottom: 15px;
 }
-
-/* ==========================================
-   TEXT HELPERS
-========================================== */
-
 .text-center {
   text-align: center;
 }
@@ -337,11 +306,6 @@ body {
 .text-small {
   font-size: 12px;
 }
-
-/* ==========================================
-   BORDER HELPERS
-========================================== */
-
 .border-top {
   border-top: 1px solid #000;
 }
@@ -349,11 +313,6 @@ body {
 .border-bottom {
   border-bottom: 1px solid #000;
 }
-
-/* ==========================================
-   PROFESSIONAL BILL LOOK
-========================================== */
-
 .invoice-block {
   background: #ffffff;
 
@@ -371,15 +330,6 @@ body {
 
   line-height: 1.6;
 }
-/* ==========================================
-   PART 3
-   MAIN TABLE + TOTAL TABLE
-========================================== */
-
-/* ==========================================
-   MAIN TABLE
-========================================== */
-
 .rodtep-table {
   width: 100%;
 
@@ -427,9 +377,6 @@ body {
 .rodtep-table tbody tr:hover {
   background: #fafafa;
 }
-
-/* COLUMN WIDTH */
-
 .rodtep-table th:nth-child(1),
 .rodtep-table td:nth-child(1) {
   width: 7%;
@@ -464,11 +411,6 @@ body {
 .rodtep-table td:nth-child(7) {
   width: 15%;
 }
-
-/* ==========================================
-   TOTAL TABLE
-========================================== */
-
 .rodtep-total-table {
   width: 100%;
 
@@ -496,11 +438,6 @@ body {
 .rodtep-total-table td:first-child {
   font-weight: 700;
 }
-
-/* ==========================================
-   TOTAL ROWS
-========================================== */
-
 .rodtep-total-table tr:nth-child(1) {
   background: #f8fafc;
 
@@ -519,10 +456,6 @@ body {
   background: #fcfcfc;
 }
 
-/* ==========================================
-   GRAND TOTAL
-========================================== */
-
 .grand-total {
   background: #e8f5e9 !important;
 
@@ -536,10 +469,6 @@ body {
 
   font-weight: 700;
 }
-
-/* ==========================================
-   AMOUNT ALIGNMENT
-========================================== */
 
 .amount-cell {
   text-align: right;
@@ -555,10 +484,6 @@ body {
   text-align: left;
 }
 
-/* ==========================================
-   BORDER HELPERS
-========================================== */
-
 .border-none {
   border: none !important;
 }
@@ -570,11 +495,6 @@ body {
 .border-bottom {
   border-bottom: 1px solid #000 !important;
 }
-
-/* ==========================================
-   TOTAL VALUE STYLE
-========================================== */
-
 .total-value {
   font-size: 15px;
 
@@ -582,14 +502,6 @@ body {
 
   color: #0f766e;
 }
-/* ==========================================
-   PART 4
-   FOOTER + SIGNATURE + DECLARATION
-========================================== */
-
-/* ==========================================
-   FOOTER SECTION
-========================================== */
 
 .rodtep-footer {
   display: flex;
@@ -602,10 +514,6 @@ body {
 
   margin-top: 30px;
 }
-
-/* ==========================================
-   LEFT SIDE
-========================================== */
 
 .footer-left {
   flex: 1;
@@ -641,10 +549,6 @@ body {
   text-align: center;
 }
 
-/* ==========================================
-   RIGHT SIDE
-========================================== */
-
 .footer-right {
   flex: 1;
 
@@ -657,10 +561,6 @@ body {
   align-items: flex-end;
 }
 
-/* ==========================================
-   E & O E
-========================================== */
-
 .eoe {
   font-size: 18px;
 
@@ -670,11 +570,6 @@ body {
 
   margin-bottom: 15px;
 }
-
-/* ==========================================
-   SIGNATURE
-========================================== */
-
 .signature-space {
   width: 260px;
 
@@ -707,10 +602,6 @@ body {
   font-size: 13px;
 }
 
-/* ==========================================
-   DECLARATION
-========================================== */
-
 .declaration-box {
   margin-top: 30px;
 
@@ -735,10 +626,6 @@ body {
   font-size: 15px;
 }
 
-/* ==========================================
-   FOOT NOTE
-========================================== */
-
 .invoice-note {
   margin-top: 25px;
 
@@ -755,10 +642,6 @@ body {
   line-height: 1.7;
 }
 
-/* ==========================================
-   COMPANY NAME
-========================================== */
-
 .company-highlight {
   font-size: 20px;
 
@@ -769,10 +652,6 @@ body {
   text-transform: uppercase;
 }
 
-/* ==========================================
-   AUTHORISED SIGNATORY
-========================================== */
-
 .authorised-sign {
   margin-top: 60px;
 
@@ -782,10 +661,6 @@ body {
 
   font-size: 14px;
 }
-
-/* ==========================================
-   WATERMARK SUPPORT
-========================================== */
 
 .watermark {
   position: absolute;
@@ -810,4 +685,61 @@ body {
 .footer-right,
 .signature-space {
   page-break-inside: avoid;
+}
+.download-btn{
+
+min-width:220px;
+
+height:54px;
+
+border-radius:16px;
+
+font-size:17px;
+
+font-weight:700;
+
+background:linear-gradient(180deg,#0b5ed7,#084298);
+
+color:#fff;
+
+border:none;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.download-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 15px 30px rgba(13,110,253,.35);
+
+}
+
+@media (max-width:900px){
+
+.rodtep-header{
+
+max-width:100%;
+
+}
+
+.rodtep-invoice{
+
+width:100%;
+
+max-width:100%;
+
+padding:12mm;
+
+}
+
+.invoice-actions{
+
+max-width:100%;
+
+}
+
 }

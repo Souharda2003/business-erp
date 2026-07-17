@@ -70,8 +70,18 @@ function LCInvoice() {
     <div className="invoice-page">
   <div className="invoice-page-header">
         <BackButton />
-        <h1 style={{ margin: 0 }}> LC Invoice</h1>
-      </div>
+<div className="rodtep-heading">
+
+<h1 className="page-title">
+LC Invoice
+</h1>
+
+<p className="page-subtitle">
+View & Download LC Invoice
+</p>
+
+</div>
+ </div>
       <div className="invoice-action">
 
       </div>

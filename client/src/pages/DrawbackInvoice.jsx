@@ -62,8 +62,18 @@ const handlePrint = useReactToPrint({
     <div className="drawback-page">
   <div className="invoice-page-header">
         <BackButton />
-        <h1 style={{ margin: 0 }}> LC Invoice</h1>
-      </div>
+<div className="rodtep-heading">
+
+<h1 className="page-title">
+Drawback Invoice
+</h1>
+
+<p className="page-subtitle">
+View & Download Drawback Invoice
+</p>
+
+</div>
+</div>
       <div className="invoice-action">
 
       </div>

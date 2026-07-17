@@ -140,339 +140,412 @@ function RODTEPHistory() {
 
     0,
   );
+return (
+  <div className="page rodtep-page">
 
-  return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
+    <div className="rodtep-header">
 
-          alignItems: "center",
+      <BackButton />
 
-          gap: "15px",
+      <div className="rodtep-heading">
 
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+        <h1 className="page-title">
+          RODTEP History
+        </h1>
 
-        <h1 style={{ margin: 0 }}>RODTEP History</h1>
+        <p className="page-subtitle">
+          View & Manage RODTEP Credit Records
+        </p>
+
       </div>
 
-      <br />
+    </div>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "10px",
-          flexWrap: "wrap",
-        }}
-      >
-        <select
-          value={searchType}
-          onChange={(e) => {
-            const type = e.target.value;
+    <div className="history-filter-card rodtep-card">
 
-            setSearchType(type);
+      <div className="card-glow"></div>
+    <div className="history-filter-inner">
 
-            setCustomYear(false);
+      <div className="history-filter-row">
 
-            if (type === "month") {
-              setSearchValue(currentMonth);
-            } else {
-              setSearchValue(currentYear);
-            }
-          }}
-        >
-          <option value="month">Month</option>
+        <div className="form-group">
 
-          <option value="year">Year</option>
-        </select>
+          <label>Search Type</label>
+
+          <select
+            value={searchType}
+            onChange={handleTypeChange}
+            >
+            <option value="month">
+              Month
+            </option>
+
+            <option value="year">
+              Year
+            </option>
+
+          </select>
+
+        </div>
+
         {searchType === "month" ? (
-          <select
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          >
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
+          
+          <div className="form-group">
+
+            <label>Month</label>
+
+            <select
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              >
+
+              <option value="1">January</option>
+
+              <option value="2">February</option>
+
+              <option value="3">March</option>
+
+              <option value="4">April</option>
+
+              <option value="5">May</option>
+
+              <option value="6">June</option>
+
+              <option value="7">July</option>
+
+              <option value="8">August</option>
+
+              <option value="9">September</option>
+
+              <option value="10">October</option>
+
+              <option value="11">November</option>
+
+              <option value="12">December</option>
+
+            </select>
+
+          </div>
+
         ) : customYear ? (
-          <input
-            type="number"
-            placeholder="Enter Year"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        ) : (
-          <select
-            value={searchValue}
-            onChange={(e) => {
-              if (e.target.value === "custom") {
-                setCustomYear(true);
 
-                setSearchValue("");
-              } else {
-                setSearchValue(e.target.value);
-              }
-            }}
+          <div className="form-group">
+
+            <label>Year</label>
+
+            <input
+              type="number"
+              placeholder="Enter Year"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+
+          </div>
+
+) : (
+  
+  <div className="form-group">
+
+            <label>Year</label>
+
+            <select
+              value={searchValue}
+              onChange={(e) => {
+
+                if (e.target.value === "custom") {
+
+                  setCustomYear(true);
+
+                  setSearchValue("");
+
+                } else {
+
+                  setSearchValue(e.target.value);
+
+                }
+                
+              }}
+            >
+
+              <option value="2024">2024</option>
+
+              <option value="2025">2025</option>
+
+              <option value="2026">2026</option>
+
+              <option value="2027">2027</option>
+
+              <option value="2028">2028</option>
+
+              <option value="custom">
+                Custom
+              </option>
+
+            </select>
+
+          </div>
+
+)}
+</div>  
+
+        <div className="search-btn-group">
+
+          <button
+            className="primary-btn"
+            onClick={handleFilter}
           >
-            <option value="2024">2024</option>
+            Search RODTEP
+          </button>
 
-            <option value="2025">2025</option>
+        </div>
 
-            <option value="2026">2026</option>
-
-            <option value="2027">2027</option>
-
-            <option value="2028">2028</option>
-
-            <option value="custom">Custom</option>
-          </select>
-        )}
-
-        <button className="search-btn" onClick={handleSearch}>
-          Search
-        </button>
       </div>
 
-      <br />
+    </div>
 
-      <h2
-        style={{
-          textAlign: "center",
-        }}
-      >
+    <div className="history-report-title">
+
+      <h2>
         RODTEP Report
       </h2>
 
-      <br />
-
       <p>
-        <b>Search By :</b>
 
-        {searchType === "month" ? " Month" : " Year"}
+        Search Type :
+
+        <b>
+
+          {searchType === "month"
+            ? " Monthly"
+            : " Yearly"}
+
+        </b>
+
       </p>
 
-      <br />
-
       <p>
-        <b>Value :</b>
 
-        {searchType === "month" ? monthNames[Number(searchValue)] : searchValue}
+        {searchType === "month"
+          ? `Month : ${monthNames[Number(searchValue)]}`
+          : `Year : ${searchValue}`}
+
       </p>
 
-      <br />
+    </div>
+        <div className="history-table-card rodtep-card">
 
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Bill No</th>
+      <div className="card-glow"></div>
 
-            <th>Date Of Issue</th>
+      <div className="history-table-header">
 
-            <th>Licence No</th>
-
-            <th>Total Credit</th>
-
-            <th>HSN</th>
-
-            <th>Rate %</th>
-
-            <th>GST %</th>
-
-            <th>TCS %</th>
-
-            <th>Round Off</th>
-
-            <th>Financial Year</th>
-
-            <th>Amount</th>
-
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {list.length === 0 ? (
-            <tr>
-              <td
-                colSpan="12"
-                style={{
-                  textAlign: "center",
-
-                  padding: "25px",
-
-                  fontSize: "20px",
-
-                  fontWeight: "bold",
-
-                  color: "red",
-                }}
-              >
-                No RODTEP Record Found
-              </td>
-            </tr>
-          ) : (
-            list.map((item) => (
-              <tr key={item.id}>
-                <td>{item.bill_no}</td>
-
-                <td>
-                  {item.date_of_issue
-                    ? new Date(item.date_of_issue).toLocaleDateString("en-GB")
-                    : ""}
-                </td>
-
-                <td>{item.licence_no}</td>
-
-                <td>{Number(item.total_credit || 0).toFixed(2)}</td>
-
-                <td>{item.hsn}</td>
-
-                <td>{Number(item.rate || 0).toFixed(2)}%</td>
-
-                <td>{Number(item.add_gst_rate || 0).toFixed(2)}%</td>
-
-                <td>{Number(item.tcs_rate || 0).toFixed(2)}%</td>
-
-                <td>{Number(item.round_off || 0).toFixed(2)}</td>
-
-                <td>{item.financial_year}</td>
-
-                <td
-                  style={{
-                    color: "#16a34a",
-                    fontWeight: "bold",
-                  }}
-                >
-                  ₹{Number(item.amount || 0).toFixed(2)}
-                </td>
-
-                <td>
-                  <div className="action-buttons">
-                    <button
-                      className="view-btn"
-                      onClick={() => navigate(`/rodtep-invoice/${item.id}`)}
-                      >
-                      View
-                    </button>
-
-                    <button
-                      className="edit-btn"
-                      onClick={() =>navigate(`/rodtep/edit/${item.id}`)}
-                      >
-                      Edit
-                    </button>
-
-                    <button
-                      className="delete-btn"
-                      onClick={() => handleDelete(item.id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))
-          )}
-        </tbody>
-      </table>
-
-      <br />
-
-      <div
-        style={{
-          background: "#ffffff",
-
-          padding: "25px",
-
-          borderRadius: "12px",
-
-          boxShadow: "0 2px 10px rgba(0,0,0,0.10)",
-
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{
-            color: "#2563eb",
-          }}
-        >
-          Total RODTEP Amount{" "}
+        <h2>
+          RODTEP Records
         </h2>
 
-        <h1
-          style={{
-            color: "#16a34a",
-            fontSize: "40px",
-          }}
-        >
-          {Number(totalAmount).toLocaleString("en-IN", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })}
-        </h1>
+        <span>
+          Total Records : {list.length}
+        </span>
+
       </div>
 
-      <br />
-      <div
-        style={{
-          background: "#f8fafc",
-          padding: "20px",
-          borderRadius: "10px",
-          marginTop: "30px",
-        }}
-      >
-        <h2
-          style={{
-            color: "#2563eb",
-            marginBottom: "20px",
-          }}
-        >
-          RODTEP Summary
-        </h2>
-        <hr />
-        {list.length === 0 ? (
-          <p
-            style={{
-              textAlign: "center",
-              color: "red",
-              fontWeight: "bold",
-            }}
-          >
-            No RODTEP Summary Found
-          </p>
-        ) : (
-          <>
-            {list.map((item) => (
-              <div
-                key={item.id}
-                style={{
-                  background: "#ffffff",
-                  padding: "20px",
-                  marginTop: "20px",
-                  borderRadius: "10px",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                }}
-              >
-                <h3
-                  style={{
-                    color: "#16a34a",
-                    marginBottom: "15px",
-                  }}
+      <div className="history-table-wrapper">
+
+        <table className="history-table">
+
+          <thead>
+
+            <tr>
+
+              <th>Bill No</th>
+
+              <th>Date Of Issue</th>
+
+              <th>Licence No</th>
+
+              <th>Total Credit</th>
+
+              <th>HSN</th>
+
+              <th>Rate %</th>
+
+              <th>GST %</th>
+
+              <th>TCS %</th>
+
+              <th>Round Off</th>
+
+              <th>Financial Year</th>
+
+              <th>Amount</th>
+
+              <th>Action</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            {list.length === 0 ? (
+
+              <tr>
+
+                <td
+                  colSpan="12"
+                  className="history-empty"
                 >
-                  RODTEP Entry
-                </h3>
+                  No RODTEP Record Found
+                </td>
+
+              </tr>
+
+            ) : (
+
+              list.map((item) => (
+
+                <tr key={item.id}>
+
+                  <td>{item.bill_no}</td>
+
+                  <td>
+                    {item.date_of_issue
+                      ? new Date(item.date_of_issue).toLocaleDateString("en-GB")
+                      : ""}
+                  </td>
+
+                  <td>{item.licence_no}</td>
+
+                  <td>
+                    {Number(item.total_credit || 0).toFixed(2)}
+                  </td>
+
+                  <td>{item.hsn}</td>
+
+                  <td>
+                    {Number(item.rate || 0).toFixed(2)}%
+                  </td>
+
+                  <td>
+                    {Number(item.add_gst_rate || 0).toFixed(2)}%
+                  </td>
+
+                  <td>
+                    {Number(item.tcs_rate || 0).toFixed(2)}%
+                  </td>
+
+                  <td>
+                    {Number(item.round_off || 0).toFixed(2)}
+                  </td>
+
+                  <td>
+                    {item.financial_year}
+                  </td>
+
+                  <td className="amount-cell">
+
+                    ₹
+                    {Number(item.amount || 0).toFixed(2)}
+
+                  </td>
+
+                  <td>
+
+                    <div className="history-action-buttons">
+
+                      <button
+                        className="view-btn"
+                        onClick={() =>
+                          navigate(`/rodtep-invoice/${item.id}`)
+                        }
+                      >
+                        View
+                      </button>
+
+                      <button
+                        className="edit-btn"
+                        onClick={() =>
+                          navigate(`/rodtep/edit/${item.id}`)
+                        }
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        className="delete-btn"
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        Delete
+                      </button>
+
+                    </div>
+
+                  </td>
+
+                </tr>
+
+              ))
+
+            )}
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+    <div className="purchase-total-card rodtep-card">
+
+      <div className="card-glow"></div>
+
+      <h2>
+        Total RODTEP Amount
+      </h2>
+
+      <h1>
+
+        ₹
+
+        {Number(totalAmount).toLocaleString("en-IN", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
+
+      </h1>
+
+    </div>
+
+    <div className="purchase-summary-card rodtep-card">
+
+      <div className="card-glow"></div>
+
+      <h2 className="summary-title">
+        RODTEP Summary
+      </h2>
+
+      {list.length === 0 ? (
+
+        <div className="summary-empty">
+          No RODTEP Summary Found
+        </div>
+
+      ) : (
+
+        <>
+
+          {list.map((item) => (
+
+            <div
+              className="summary-entry-card"
+              key={item.id}
+            >
+
+              <h3>
+                RODTEP Entry
+              </h3>
+
+              <div className="summary-grid">
+
                 <p>
                   <b>Bill No :</b> {item.bill_no}
                 </p>
@@ -502,66 +575,79 @@ function RODTEPHistory() {
                 </p>
 
                 <p>
-                  <b>Rate :</b> {Number(item.rate || 0).toFixed(2)} %
+                  <b>Rate :</b>{" "}
+                  {Number(item.rate || 0).toFixed(2)}%
                 </p>
 
                 <p>
-                  <b>GST Rate :</b> {Number(item.add_gst_rate || 0).toFixed(2)}{" "}
-                  %
+                  <b>GST Rate :</b>{" "}
+                  {Number(item.add_gst_rate || 0).toFixed(2)}%
                 </p>
 
                 <p>
-                  <b>TCS Rate :</b> {Number(item.tcs_rate || 0).toFixed(2)} %
+                  <b>TCS Rate :</b>{" "}
+                  {Number(item.tcs_rate || 0).toFixed(2)}%
                 </p>
 
                 <p>
-                  <b>Round Off :</b> {Number(item.round_off || 0).toFixed(2)}
+                  <b>Round Off :</b>{" "}
+                  {Number(item.round_off || 0).toFixed(2)}
                 </p>
 
-                <hr />
-
-                <h2
-                  style={{
-                    color: "#16a34a",
-                  }}
-                >
-                  Final Amount : ₹{Number(item.amount || 0).toFixed(2)}
-                </h2>
               </div>
-            ))}
 
-            <div
-              style={{
-                background: "#ecfdf5",
-                padding: "20px",
-                borderRadius: "12px",
-                marginTop: "25px",
-              }}
-            >
-              <h2
-                style={{
-                  color: "#16a34a",
-                }}
-              >
-                Total RODTEP Amount : {Number(totalAmount).toLocaleString("en-IN", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })}</h2>
+              <div className="summary-grand-total">
 
-              <h3
-                style={{
-                  color: "#2563eb",
-                  marginBottom: "10px",
-                }}
-              >
-                Total Records : {list.length}
-              </h3>
+                Final Amount :
+
+                ₹
+
+                {Number(item.amount || 0).toLocaleString("en-IN", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+
+              </div>
+
             </div>
-          </>
-        )}
-      </div>
+
+          ))}
+
+          <div className="summary-overall-card">
+
+            <h2>
+              Overall Summary
+            </h2>
+
+            <h3>
+              Total Records : {list.length}
+            </h3>
+
+            <h3>
+
+              Total Amount :
+
+              ₹
+
+              {Number(totalAmount).toLocaleString("en-IN", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+
+            </h3>
+
+          </div>
+
+        </>
+
+      )}
+
     </div>
-  );
+
+  </div>
+
+);
+
 }
 
 export default RODTEPHistory;

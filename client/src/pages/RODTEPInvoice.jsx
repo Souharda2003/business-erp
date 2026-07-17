@@ -96,22 +96,20 @@ const downloadPDF = () => {
 };
   return (
     <div className="rodtep-page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+<div className="rodtep-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 style={{ margin: 0 }}> RODTEP Invoice</h1>
-      </div>
+<h1 className="page-title">
+RODTEP Invoice
+</h1>
+
+<p className="page-subtitle">
+View & Download RODTEP Invoice
+</p>
+
+</div></div>
       <div className="rodtep-invoice" ref={invoiceRef}>
-        {/* ===========================
-            HEADER
-        ============================ */}
 
         <div className="invoice-header">
 
@@ -119,11 +117,6 @@ const downloadPDF = () => {
 
           <div className="invoice-copy">Original / Duplicate</div>
         </div>
-
-        {/* ===========================
-            BILL INFORMATION
-        ============================ */}
-
         <div className="bill-row">
           <div>
             <b>Bill No :</b> {rodtep.bill_no}
@@ -136,11 +129,6 @@ const downloadPDF = () => {
               : ""}
           </div>
         </div>
-
-        {/* ===========================
-            COMPANY DETAILS
-        ============================ */}
-
         <div className="party-section">
           <div className="party-left">
             <h3>TO,</h3>
@@ -194,16 +182,6 @@ const downloadPDF = () => {
             </table>
           </div>
         </div>
-
-        {/* ===========================
-            AMOUNT HEADING
-        ============================ */}
-
-
-        {/* ======================================
-    MAIN TABLE
-====================================== */}
-
         <table className="rodtep-table">
           <thead>
             <tr>
@@ -254,11 +232,6 @@ const downloadPDF = () => {
             </tr>
           </tbody>
         </table>
-
-        {/* ======================================
-    TOTAL TABLE
-====================================== */}
-
         <table className="rodtep-total-table">
           <tbody>
             <tr>
@@ -355,10 +328,7 @@ const downloadPDF = () => {
             </tr>
           </tbody>
         </table>
-        {/* ======================================
-    FOOTER DETAILS
-====================================== */}
-        <div className="amount-heading">
+<div className="amount-heading">
           <span>We have Debited your account with Rs.</span>
 
           <span className="amount-number">
@@ -373,24 +343,12 @@ const downloadPDF = () => {
           <b>Rupees :</b> 
           {amountInWords(totalAmount)} Only
         </div>
-        {/* ======================================
-    DESCRIPTION
-====================================== */}
-
         <div className="description-box">
           Being the amount of consideration due towards arranging
 transfer of RODTEP Licence / Authorisation in favour of
 the purchaser as per prevailing Foreign Trade Policy and
 applicable Government guidelines.
         </div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
         <div className="rodtep-footer">
           <div className="footer-left">
@@ -490,12 +448,11 @@ applicable Government guidelines.
               <div>Authorised Signatory</div>
             </div>
           </div>
-      <button
-        className="download-btn"
-        onClick={downloadPDF}
-      >
-        Download PDF
-      </button>
+       <div className="invoice-button-area">
+<button className="pdfButton">
+Download PDF
+</button>
+</div>
 
     </div>
 

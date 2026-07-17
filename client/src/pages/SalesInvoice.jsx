@@ -85,9 +85,18 @@ const [company, setCompany] = useState({
     <div className="invoice-page">
 <div className="invoice-page-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 style={{ margin: 0 }}> Sales Invoice</h1>
-      </div>
+<h1 className="page-title">
+Sales Invoice
+</h1>
+
+<p className="page-subtitle">
+View & Download Sales Invoice
+</p>
+
+</div>
+</div>
       <div className="invoice-action">
        
       </div>
