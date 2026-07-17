@@ -193,7 +193,7 @@ View & Download Purchase Invoice
         </div>
       </div>
        <div className="invoice-button-area">
-<button className="pdfButton">
+<button className="pdfButton" onClick={downloadPDF}>
 Download PDF
 </button>
 </div>

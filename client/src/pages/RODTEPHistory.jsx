@@ -162,8 +162,6 @@ return (
     </div>
 
     <div className="history-filter-card rodtep-card">
-
-      <div className="card-glow"></div>
     <div className="history-filter-inner">
 
       <div className="history-filter-row">

@@ -168,427 +168,237 @@ function OtherSalesInvoice() {
   }
 
   return (
-    <div className="invoice-page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+    <div className="other-sales-invoice-page">
+      <div className="invoice-page-header">
         <BackButton />
+        <div className="rodtep-heading">
+          <h1 className="page-title">Other Sales Invoice</h1>
 
-        <h1 style={{ margin: 0 }}>Other Sales Invoice</h1>
+          <p className="page-subtitle">View & Download Other Sales Invoice</p>
+        </div>
       </div>
 
-      <div className="invoice-container" ref={invoiceRef}>
-        {data.service_type === "Document Charge" && (
-          <div className="document-invoice">
-            <div className="doc-header">
-              <div className="doc-date">
-                Date :
-                {data.entry_date
-                  ? new Date(data.entry_date).toLocaleDateString("en-GB")
-                  : ""}
-              </div>
-              <h3>DOCUMENT CHARGE INVOICE</h3>
-              <h2>BILL</h2>
+      <div className="invoice-page">
+        <div className="invoice-container" ref={invoiceRef}>
+          {data.service_type === "Document Charge" && (
+            <div className="invoice-view-wrapper">
+              <div className="invoice-paper">
+                <div className="document-invoice">
+                  <div className="doc-header">
+                    <div className="doc-date">
+                      Date :
+                      {data.entry_date
+                        ? new Date(data.entry_date).toLocaleDateString("en-GB")
+                        : ""}
+                    </div>
+                                 <br />
 
-              <h3>BILL NO :{data.bill_no || data.invoice_no}</h3>
-            </div>
+                    <h3>DOCUMENT CHARGE INVOICE</h3>
 
-            <br />
 
-            <div className="doc-to">
-              <b>To,</b>
+                    <h3>BILL NO :{data.bill_no || data.invoice_no}</h3>
+                  </div>
 
-              <br />
+             <br />
 
-              <br />
+                  <div className="doc-to">
+                    <b>To,</b>
+                    <br />
 
-              <h3>{data.name}</h3>
+                    <h3>{data.name}</h3>
 
-              <p>{company.company_address}</p>
+                    <p>{company.company_address}</p>
 
-              <p>Phone : {company.phone}</p>
+                    <p>Phone : {company.phone}</p>
 
-              <p>Email : {company.email}</p>
-            </div>
+                    <p>Email : {company.email}</p>
+                  </div>
+             <br />
 
-            <br />
+                  <div className="doc-description">
+                    <p>
+                      Being the amount of Document Filing / DGFT / Other Charges
+                      as details follows :
+                    </p>
+                  </div>
 
-            <div className="doc-description">
-              <p>
-                Being the amount of Document Filing / DGFT / Other Charges as
-                details follows :
-              </p>
-            </div>
+                  <table className="doc-table">
+                    <tbody>
+                      <tr>
+                        <td>1. Document Filing Charges</td>
 
-            <br />
+                        <td className="right">
+                          ₹
+                          {Number(data.amount || 0).toLocaleString("en-IN", {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })}
+                        </td>
+                      </tr>
 
-            <table className="doc-table">
-              <tbody>
-                <tr>
-                  <td>1. Document Filing Charges</td>
+                      <tr>
+                        <td>2. Bill No </td>
 
-                  <td className="right">
-                    ₹
-                    {Number(data.amount || 0).toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </td>
-                </tr>
+                        <td>{data.bill_no}</td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-                <tr>
-                  <td>2. Bill No </td>
 
-                  <td>{data.bill_no}</td>
-                </tr>
-              </tbody>
-            </table>
+                  <table className="total-table">
+                    <tbody>
+                      <tr>
+                        <td>Sub Total</td>
 
-            <br />
+                        <td className="right">
+                          ₹
+                          {Number(data.amount || 0).toLocaleString("en-IN", {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })}
+                        </td>
+                      </tr>
 
-            <table className="total-table">
-              <tbody>
-                <tr>
-                  <td>Sub Total</td>
+                      <tr>
+                        <td>TDS</td>
 
-                  <td className="right">
-                    ₹
-                    {Number(data.amount || 0).toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </td>
-                </tr>
+                        <td className="right">
+                          ₹
+                          {Number(data.tds || 0).toLocaleString("en-IN", {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })}
+                        </td>
+                      </tr>
 
-                <tr>
-                  <td>TDS</td>
+                      <tr className="grand-total">
+                        <td>TOTAL AMOUNT</td>
 
-                  <td className="right">
-                    ₹
-                    {Number(data.tds || 0).toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </td>
-                </tr>
+                        <td className="right">
+                          ₹
+                          {Number(data.total_amount || 0).toLocaleString(
+                            "en-IN",
+                            {
+                              minimumFractionDigits: 2,
+                              maximumFractionDigits: 2,
+                            },
+                          )}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-                <tr className="grand-total">
-                  <td>TOTAL AMOUNT</td>
+                  <div className="amount-word">
+                    <b>Rupees :</b>
 
-                  <td className="right">
-                    ₹
-                    {Number(data.total_amount || 0).toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    {amountInWords(Number(data.total_amount || 0))}
+                  </div>
 
-            <br />
+                  <div className="invoice-footer">
+                    <div>Computer Generated LC Document</div>
 
-            <div className="amount-word">
-              <b>Rupees :</b>
+                    <div>Generated : {new Date().toLocaleString()}</div>
+                  </div>
 
-              {amountInWords(Number(data.total_amount || 0))}
-            </div>
+                  <div className="invoice-copy">ORIGINAL COPY</div>
 
-            <br />
+                  <div className="footer">
+                    <div>Receiver Signature</div>
 
-            <div className="invoice-footer">
-              <div>Computer Generated LC Document</div>
-
-              <div>Generated : {new Date().toLocaleString()}</div>
-            </div>
-
-            <div className="invoice-copy">ORIGINAL COPY</div>
-
-            <div className="footer">
-              <div>Receiver Signature</div>
-
-              <div>Authorised Signatory</div>
-            </div>
-          </div>
-        )}
-        {data.service_type === "Clearing Charge" && (
-          <div className="gst-invoice">
-            <div className="gst-header">
-              <div className="company-left">
-                <h3>CLEARING CHARGE INVOICE</h3>
-                <h2>{company.company_name}</h2>
-
-                <p>{company.company_address}</p>
-
-                <p>Phone : {company.phone}</p>
-
-                <p>Email : {company.email}</p>
-              </div>
-
-              <div className="company-right">
-                <table className="gst-info-table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <b>Invoice No</b>
-                      </td>
-
-                      <td>{data.invoice_no}</td>
-                    </tr>
-
-                    <tr>
-                      <td>
-                        <b>Date</b>
-                      </td>
-
-                      <td>
-                        {data.entry_date
-                          ? new Date(data.entry_date).toLocaleDateString(
-                              "en-GB",
-                            )
-                          : ""}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                    <div>Authorised Signatory</div>
+                  </div>
+                </div>
               </div>
             </div>
+          )}
+          {data.service_type === "Clearing Charge" && (
+            <div className="gst-invoice">
+              <div className="gst-header">
+                <div className="company-left">
+                  <h3>CLEARING CHARGE INVOICE</h3>
+                  <h2>{company.company_name}</h2>
 
-            <div className="divider"></div>
+                  <p>{company.company_address}</p>
 
-            <div className="customer-section">
-              <p>
-                <b>Clearing Agent :</b> {data.name}
-              </p>
+                  <p>Phone : {company.phone}</p>
 
-              <p>
-                <b>Invoice No :</b> {data.invoice_no}
-              </p>
+                  <p>Email : {company.email}</p>
+                </div>
 
-              <p>
-                <b>Date :</b>
+                <div className="company-right">
+                  <table className="gst-info-table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <b>Invoice No</b>
+                        </td>
 
-                {new Date(data.entry_date).toLocaleDateString("en-GB")}
-              </p>
-            </div>
+                        <td>{data.invoice_no}</td>
+                      </tr>
 
-            <table className="gst-table">
-              <thead>
-                <tr>
-                  <th>Sl</th>
+                      <tr>
+                        <td>
+                          <b>Date</b>
+                        </td>
 
-                  <th>Description</th>
+                        <td>
+                          {data.entry_date
+                            ? new Date(data.entry_date).toLocaleDateString(
+                                "en-GB",
+                              )
+                            : ""}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
 
-                  <th>HSN/SAC</th>
+              <div className="divider"></div>
 
-                  <th>GST %</th>
-
-                  <th>Amount</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>1</td>
-
-                  <td>Clearing & Forwarding Charge</td>
-
-                  <td>996713</td>
-
-                  <td>
-                    {Number(data.cgst_percent || 0) +
-                      Number(data.sgst_percent || 0)}
-                    %
-                  </td>
-
-                  <td>
-                    ₹
-                    {Number(data.amount || 0).toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td colSpan="4">CGST</td>
-
-                  <td>
-                    ₹
-                    {(
-                      (Number(data.amount || 0) *
-                        Number(data.cgst_percent || 0)) /
-                      100
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td colSpan="4">SGST</td>
-
-                  <td>
-                    ₹
-                    {(
-                      (Number(data.amount || 0) *
-                        Number(data.sgst_percent || 0)) /
-                      100
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td
-                    colSpan="4"
-                    style={{
-                      textAlign: "right",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Total GST
-                  </td>
-
-                  <td>
-                    ₹
-                    {Number(data.total_gst || 0).toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td
-                    colSpan="4"
-                    style={{
-                      textAlign: "right",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Grand Total
-                  </td>
-
-                  <td>
-                    ₹
-                    {Number(data.total_amount || 0).toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-
-
-            <div className="amount-word">
-              <b>Amount In Words :</b>
-
-              <br />
-
-              {amountInWords(Number(data.total_amount || 0))}
-            </div>
-
-            <div className="bank-details">
-              <h3>Company Bank Details</h3>
-              <p>Bank :{company.bank_name}</p>
-
-              <p>Account No :{company.bank_account_no}</p>
-
-              <p>IFSC :{company.ifsc_code}</p>
-            </div>
-            <div className="invoice-footer">
-              <div>Computer Generated LC Document</div>
-
-              <div>Generated : {new Date().toLocaleString()}</div>
-            </div>
-
-            <div className="invoice-copy">ORIGINAL COPY</div>
-
-            <div className="footer">
-              <div>Receiver Signature</div>
-
-              <div>Authorised Signatory</div>
-            </div>
-          </div>
-        )}
-        {data.service_type === "Transport Charge" && (
-          <div className="transport-invoice">
-            <div className="transport-header">
-              <div>
-                <h3>TRANSPORT CHARGE INVOICE</h3>
-                <h2>{company.company_name}</h2>
-
-                <p>{company.company_address}</p>
-
-                <p>Phone : {company.phone}</p>
+              <div className="customer-section">
                 <p>
-                  Invoice No :<b> {data.invoice_no}</b>
+                  <b>Clearing Agent :</b> {data.name}
+                </p>
+
+                <p>
+                  <b>Invoice No :</b> {data.invoice_no}
+                </p>
+
+                <p>
+                  <b>Date :</b>
+
+                  {new Date(data.entry_date).toLocaleDateString("en-GB")}
                 </p>
               </div>
 
-              <div>
-                <p>
-                  Date :
-                  {data.entry_date
-                    ? new Date(data.entry_date).toLocaleDateString("en-GB")
-                    : ""}
-                </p>
-              </div>
-            </div>
+              <table className="gst-table">
+                <thead>
+                  <tr>
+                    <th>Sl</th>
 
-            <hr />
+                    <th>Description</th>
 
-            <div className="transport-body">
-              <table className="transport-table">
+                    <th>HSN/SAC</th>
+
+                    <th>GST %</th>
+
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+
                 <tbody>
                   <tr>
+                    <td>1</td>
+
+                    <td>Clearing & Forwarding Charge</td>
+
+                    <td>996713</td>
+
                     <td>
-                      <b>Customer Name</b>
-                    </td>
-
-                    <td>{data.name}</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <b>Vehicle Number</b>
-                    </td>
-
-                    <td>{data.vehicle_number}</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <b>Challan Number</b>
-                    </td>
-
-                    <td>{data.challan_no}</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <b>From Location</b>
-                    </td>
-
-                    <td>{data.from_location}</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <b>To Location</b>
-                    </td>
-
-                    <td>{data.to_location}</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <b>Transport Charge</b>
+                      {Number(data.cgst_percent || 0) +
+                        Number(data.sgst_percent || 0)}
+                      %
                     </td>
 
                     <td>
@@ -599,61 +409,247 @@ function OtherSalesInvoice() {
                       })}
                     </td>
                   </tr>
+
+                  <tr>
+                    <td colSpan="4">CGST</td>
+
+                    <td>
+                      ₹
+                      {(
+                        (Number(data.amount || 0) *
+                          Number(data.cgst_percent || 0)) /
+                        100
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td colSpan="4">SGST</td>
+
+                    <td>
+                      ₹
+                      {(
+                        (Number(data.amount || 0) *
+                          Number(data.sgst_percent || 0)) /
+                        100
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td
+                      colSpan="4"
+                      style={{
+                        textAlign: "right",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Total GST
+                    </td>
+
+                    <td>
+                      ₹
+                      {Number(data.total_gst || 0).toLocaleString("en-IN", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td
+                      colSpan="4"
+                      style={{
+                        textAlign: "right",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Grand Total
+                    </td>
+
+                    <td>
+                      ₹
+                      {Number(data.total_amount || 0).toLocaleString("en-IN", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </td>
+                  </tr>
                 </tbody>
               </table>
+  <br/>
+              <div className="amount-word">
+                <b>Amount In Words :</b>
+
+                <br />
+
+                {amountInWords(Number(data.total_amount || 0))}
+              </div>
+  <br/>  <br/>
+              <div className="bank-details">
+                <h3>Company Bank Details</h3>
+                <p>Bank :{company.bank_name}</p>
+
+                <p>Account No :{company.bank_account_no}</p>
+
+                <p>IFSC :{company.ifsc_code}</p>
+              </div>  <br/>
+              <div className="invoice-footer">
+                <div>Computer Generated LC Document</div>
+
+                <div>Generated : {new Date().toLocaleString()}</div>
+              </div>
+
+              <div className="invoice-copy">ORIGINAL COPY</div>
+
+              <div className="footer">
+                <div>Receiver Signature</div>
+
+                <div>Authorised Signatory</div>
+              </div>
             </div>
+          )}
+          {data.service_type === "Transport Charge" && (
+            <div className="invoice-view-wrapper">
+              <div className="invoice-paper">
+                <div className="transport-invoice">
+                  <div className="transport-header">
+                    <div>
+                      <h3>TRANSPORT CHARGE INVOICE</h3>             <br />
 
-            <br />
+                      <h2>{company.company_name}</h2>
 
-            <div className="transport-total">
-              <h2>
-                Grand Total : ₹
-                {Number(data.total_amount || data.amount || 0).toLocaleString(
-                  "en-IN",
-                  {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  },
-                )}
-              </h2>
+                      <p>{company.company_address}</p>
+
+                      <p>Phone : {company.phone}</p>
+                      <p>
+                        Invoice No :<b> {data.invoice_no}</b>
+                      </p>
+                    </div>
+             <br />
+
+                    <div>
+                      <p>
+                        Date :
+                        {data.entry_date
+                          ? new Date(data.entry_date).toLocaleDateString(
+                              "en-GB",
+                            )
+                          : ""}
+                      </p>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div className="transport-body">
+                    <table className="transport-table">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <b>Customer Name</b>
+                          </td>
+
+                          <td>{data.name}</td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <b>Vehicle Number</b>
+                          </td>
+
+                          <td>{data.vehicle_number}</td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <b>Challan Number</b>
+                          </td>
+
+                          <td>{data.challan_no}</td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <b>From Location</b>
+                          </td>
+
+                          <td>{data.from_location}</td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <b>To Location</b>
+                          </td>
+
+                          <td>{data.to_location}</td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <b>Transport Charge</b>
+                          </td>
+
+                          <td>
+                            ₹
+                            {Number(data.amount || 0).toLocaleString("en-IN", {
+                              minimumFractionDigits: 2,
+                              maximumFractionDigits: 2,
+                            })}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <br />
+
+                  <div className="transport-total">
+                    <h2>
+                      Grand Total : ₹
+                      {Number(
+                        data.total_amount || data.amount || 0,
+                      ).toLocaleString("en-IN", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </h2>
+                  </div>
+
+                  <br />
+
+                  <div className="amount-word">
+                    <b>Amount In Words :</b>
+
+                    {amountInWords(
+                      Number(data.total_amount || data.amount || 0),
+                    )}
+                  </div>
+
+                  <br />
+                  <div className="invoice-footer">
+                    <div>Computer Generated Other Sales Document</div>
+
+                    <div>Generated : {new Date().toLocaleString()}</div>
+                  </div>
+
+                  <div className="invoice-copy">ORIGINAL COPY</div>
+
+                  <div className="footer">
+                    <div>Receiver Signature</div>
+
+                    <div>Authorised Signatory</div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <br />
-
-            <div className="amount-word">
-              <b>Amount In Words :</b>
-
-              {amountInWords(Number(data.total_amount || data.amount || 0))}
-            </div>
-
-            <br />
-            <div className="invoice-footer">
-              <div>Computer Generated Other Sales Document</div>
-
-              <div>Generated : {new Date().toLocaleString()}</div>
-            </div>
-
-            <div className="invoice-copy">ORIGINAL COPY</div>
-
-            <div className="footer">
-              <div>Receiver Signature</div>
-
-              <div>Authorised Signatory</div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: "30px",
-          marginBottom: "40px",
-        }}
-      >
-        <button className="download-btn" onClick={downloadPDF}>
-          Download PDF
-        </button>
+          )}
+        </div>
+        <div className="invoice-button-area">
+          <button className="pdfButton" onClick={downloadPDF}>
+            Download PDF
+          </button>
+        </div>
       </div>
     </div>
   );

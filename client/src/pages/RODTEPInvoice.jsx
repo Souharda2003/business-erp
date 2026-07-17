@@ -151,7 +151,7 @@ View & Download RODTEP Invoice
               <b>GST NO :</b> {company.gst_number}
             </p>
           </div>
-
+  <br/>  <br/>
           <div className="party-right">
             <table>
               <tbody>
@@ -232,6 +232,7 @@ View & Download RODTEP Invoice
             </tr>
           </tbody>
         </table>
+          <br/>  <br/>
         <table className="rodtep-total-table">
           <tbody>
             <tr>
@@ -328,28 +329,19 @@ View & Download RODTEP Invoice
             </tr>
           </tbody>
         </table>
-<div className="amount-heading">
-          <span>We have Debited your account with Rs.</span>
-
-          <span className="amount-number">
-            ₹
-            {totalAmount.toLocaleString("en-IN", {
-              minimumFractionDigits: 2,
-            })}
-          </span>
-        </div>
-
+  <br/>  <br/>
         <div className="amount-word-box">
-          <b>Rupees :</b> 
+          <b>We have Debited your account with Rupees :</b> 
           {amountInWords(totalAmount)} Only
         </div>
+        <br/>  <br/>
         <div className="description-box">
           Being the amount of consideration due towards arranging
 transfer of RODTEP Licence / Authorisation in favour of
 the purchaser as per prevailing Foreign Trade Policy and
 applicable Government guidelines.
         </div>
-
+  <br/>  <br/>  <br/>  <br/>
         <div className="rodtep-footer">
           <div className="footer-left">
             <table className="footer-table">
@@ -449,7 +441,7 @@ applicable Government guidelines.
             </div>
           </div>
        <div className="invoice-button-area">
-<button className="pdfButton">
+<button className="pdfButton" onClick={downloadPDF}>
 Download PDF
 </button>
 </div>

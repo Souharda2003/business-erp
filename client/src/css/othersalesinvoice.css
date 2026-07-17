@@ -3,7 +3,7 @@ body {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
-.invoice-page{
+.other-sales-invoice-page.invoice-page{
 
 background:#eef2f7;
 
@@ -12,7 +12,7 @@ padding:40px 0;
 min-height:100vh;
 
 }
-.invoice-container{
+.other-sales-invoice-page.invoice-container{
 
 width:190mm;
 
@@ -29,30 +29,30 @@ box-shadow:0 5px 18px rgba(0,0,0,.15);
 border-radius:8px;
 
 }
-.doc-table,
-.total-table,
-.gst-table,
-.transport-table,
-.gst-info-table{
+.other-sales-invoice-page.doc-table,
+.other-sales-invoice-page.total-table,
+.other-sales-invoice-page.gst-table,
+.other-sales-invoice-page.transport-table,
+.other-sales-invoice-page.gst-info-table{
 
 table-layout:fixed;
 
 word-break:break-word;
 
 }
-.doc-table td,
-.total-table td,
-.gst-table td,
-.gst-table th,
-.transport-table td,
-.gst-info-table td {
+.other-sales-invoice-page.doc-table td,
+.other-sales-invoice-page.total-table td,
+.other-sales-invoice-page.gst-table td,
+.other-sales-invoice-page.gst-table th,
+.other-sales-invoice-page.transport-table td,
+.other-sales-invoice-page.gst-info-table td {
 
     border:1px solid #cbd5e1;
 
     padding:10px;
 
 }
-.gst-table th{
+.other-sales-invoice-page.gst-table th{
 
     background:#2563eb;
 
@@ -61,14 +61,14 @@ word-break:break-word;
     font-size:15px;
 
 }
-.grand-total{
+.other-sales-invoice-page.grand-total{
 
     background:#eff6ff;
 
     font-weight:bold;
 
 }
-.amount-word{
+.other-sales-invoice-page.amount-word{
 
 margin-top:15px;
 
@@ -81,15 +81,15 @@ background:#fafafa;
 line-height:28px;
 
 }
-.bank-details {
+.other-sales-invoice-page.bank-details {
 
     page-break-inside: avoid;
 
     break-inside: avoid;
 
 }
-.signature-section,
-.invoice-footer{
+.other-sales-invoice-page.signature-section,
+.other-sales-invoice-page.invoice-footer{
 
 margin-top:30px;
 
@@ -98,7 +98,7 @@ padding-top:20px;
 border-top:1px dashed #bbb;
 
 }
-.download-btn{
+.other-sales-invoice-page.download-btn{
 
 display:inline-flex;
 
@@ -111,58 +111,20 @@ min-width:180px;
 height:48px;
 
 }
-.download-btn:hover{
+.other-sales-invoice-page.download-btn:hover{
 
     background:#1d4ed8;
 
 }
-@media print{
-
-body{
-
-background:white;
-
-}
-
-.page{
-
-background:white;
-
-padding:0;
-
-}
-
-.download-btn,
-
-.back-btn{
-
-display:none;
-
-}
-
-.invoice-container{
-
-box-shadow:none;
-
-border:none;
-
-margin:0;
-
-padding:20px;
-
-width:100%;
-
-}
-}
 @media(max-width:768px){
 
-.page{
+.other-sales-invoice-page.page{
 
 padding:15px;
 
 }
 
-.invoice-container{
+.other-sales-invoice-page.invoice-container{
 
 width:100%;
 
@@ -174,13 +136,13 @@ box-sizing:border-box;
 
 }
 
-.gst-header,
+.other-sales-invoice-page.gst-header,
 
-.transport-header,
+.other-sales-invoice-page.transport-header,
 
-.invoice-footer,
+.other-sales-invoice-page.invoice-footer,
 
-.signature-section{
+.other-sales-invoice-page.signature-section{
 
 flex-direction:column;
 
@@ -189,9 +151,9 @@ gap:20px;
 }
 
 }
-.document-invoice,
-.gst-invoice,
-.transport-invoice{
+.other-sales-invoice-page.document-invoice,
+.other-sales-invoice-page.gst-invoice,
+.other-sales-invoice-page.transport-invoice{
 
 display:block;
 
@@ -200,13 +162,13 @@ page-break-inside:auto;
 break-inside:auto;
 
 }
-.divider{
+.other-sales-invoice-page.divider{
     width:100%;
     height:1px;
     background:#dcdcdc;
     margin:20px 0;
 }
-.gst-header{
+.other-sales-invoice-page.gst-header{
 
 display:flex;
 
@@ -220,7 +182,7 @@ margin-bottom:20px;
 
 }
 
-.company-left{
+.other-sales-invoice-page.company-left{
 
 flex:1;
 
@@ -228,14 +190,14 @@ text-align:center;
 
 }
 
-.company-right{
+.other-sales-invoice-page.company-right{
 
 width:230px;
 
 flex-shrink:0;
 
 }
-.gst-table{
+.other-sales-invoice-page.gst-table{
 
 width:100%;
 
@@ -247,8 +209,8 @@ table-layout:fixed;
 
 }
 
-.gst-table th,
-.gst-table td{
+.other-sales-invoice-page.gst-table th,
+.other-sales-invoice-page.gst-table td{
 
 border:1px solid #d5d5d5;
 
@@ -260,14 +222,14 @@ text-align:center;
 
 }
 
-.gst-table td:last-child{
+.other-sales-invoice-page.gst-table td:last-child{
 
 text-align:right;
 
 padding-right:15px;
 
 }
-.amount-word{
+.other-sales-invoice-page.amount-word{
 
 margin-top:18px;
 
@@ -283,7 +245,7 @@ page-break-inside:avoid;
 
 }
 
-.bank-details{
+.other-sales-invoice-page.bank-details{
 
 margin-top:18px;
 
@@ -297,18 +259,18 @@ break-inside:avoid;
 
 }
 
-.bank-details h3{
+.other-sales-invoice-page.bank-details h3{
 
 margin:0 0 10px 0;
 
 }
 
-.bank-details p{
+.other-sales-invoice-page.bank-details p{
 
 margin:5px 0;
 
 }
-.invoice-footer{
+.other-sales-invoice-page.invoice-footer{
 
 display:flex;
 
@@ -326,7 +288,7 @@ font-size:14px;
 
 }
 
-.invoice-copy{
+.other-sales-invoice-page.invoice-copy{
 
 text-align:right;
 
@@ -342,7 +304,7 @@ color:#d33;
 
 }
 
-.footer{
+.other-sales-invoice-page.footer{
 
 display:flex;
 
@@ -351,5 +313,245 @@ justify-content:space-between;
 margin-top:40px;
 
 font-weight:bold;
+
+}
+.other-sales-invoice-page .document-invoice{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+  color:black;
+    gap:20px;
+
+}
+.other-sales-invoice-page .doc-header{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.other-sales-invoice-page .doc-header h2{
+
+    margin:12px 0;
+
+    color:black;
+
+    font-size:34px;
+
+}
+
+.other-sales-invoice-page .doc-header h3{
+
+    margin:8px 0;
+
+    font-size:26px;
+
+}
+
+.other-sales-invoice-page .doc-date{
+
+    text-align:right;
+
+    margin-bottom:20px;
+
+    font-size:15px;
+
+}.other-sales-invoice-page .doc-to{
+
+    margin-top:10px;
+
+    margin-bottom:20px;
+
+}
+
+.other-sales-invoice-page .doc-to h3{
+
+    margin:6px 0;
+
+}
+
+.other-sales-invoice-page .doc-to p{
+
+    margin:4px 0;
+
+}.other-sales-invoice-page .doc-description{
+
+    margin:20px 0;
+
+    line-height:28px;
+
+}.other-sales-invoice-page .doc-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.other-sales-invoice-page .doc-table td{
+
+    padding:12px;
+
+    border:1px solid #d5d5d5;
+
+}
+
+.other-sales-invoice-page .doc-table td:last-child{
+
+    width:220px;
+
+    text-align:right;
+
+}.other-sales-invoice-page .total-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:15px;
+
+}
+
+.other-sales-invoice-page .total-table td{
+
+    padding:12px;
+
+    border:1px solid #d5d5d5;
+
+}
+
+.other-sales-invoice-page .total-table td:last-child{
+
+    width:220px;
+
+    text-align:right;
+
+    font-weight:700;
+
+}.other-sales-invoice-page .transport-invoice{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}.other-sales-invoice-page .transport-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:40px;
+color:black;
+    margin-bottom:20px;
+
+}
+
+.other-sales-invoice-page .transport-header h2{
+
+    margin:10px 0;
+color:black;
+
+}
+
+.other-sales-invoice-page .transport-header h3{
+
+    margin:6px 0;
+
+}
+
+.other-sales-invoice-page .transport-header p{
+
+    margin:4px 0;
+
+}.other-sales-invoice-page .transport-body{
+
+    margin-top:20px;
+
+}.other-sales-invoice-page .transport-body{
+
+    margin-top:20px;
+
+}.other-sales-invoice-page .transport-total{
+
+    margin-top:20px;
+
+    text-align:right;
+
+}
+
+.other-sales-invoice-page .transport-total h2{
+
+    margin:0;
+
+    font-size:28px;
+
+    color:#2563eb;
+
+}.other-sales-invoice-page .amount-word{
+
+    margin-top:20px;
+
+    padding:16px;
+
+    border:1px solid #d5d5d5;
+
+    background:#fafafa;
+
+    line-height:28px;
+
+}.other-sales-invoice-page .invoice-footer{
+
+    margin-top:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px;
+
+    border:1px solid #d5d5d5;
+
+}
+.other-sales-invoice-page .invoice-view-wrapper{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding:35px 0;
+
+}
+.other-sales-invoice-page .invoice-paper{
+
+    width:210mm;
+
+    min-height:297mm;
+
+    background:#ffffff;
+
+    padding:15mm;
+
+    border-radius:8px;
+
+    box-sizing:border-box;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.20);
 
 }

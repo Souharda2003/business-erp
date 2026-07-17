@@ -6,6 +6,7 @@ import {
   updateOtherSales,
 } from "../services/otherSales";
 import BackButton from "../components/BackButton";
+import "../css/othersales.css";
 function OtherSales() {
   
   const { id } = useParams();
@@ -173,25 +174,42 @@ const handleSubmit = async (e) => {
   }
 
 };
-  return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+ return (
+  <div className="page other-sales-page">
 
-        <h1 className="page-title" style={{ margin: 0 }}>
-         Other Sales Management
+    <div className="other-sales-header">
+
+      <BackButton />
+
+      <div className="other-sales-heading">
+
+        <h1 className="page-title">
+
+          Other Sales Management
+
         </h1>
+
+        <p className="page-subtitle">
+
+          Add Document, Clearing & Transport Charges Details
+
+        </p>
+
       </div>
 
-      <form className="form-container" onSubmit={handleSubmit}>
+    </div>
+
+    <form
+      className="form-container other-sales-form-card other-sales-card"
+      onSubmit={handleSubmit}
+    >
+
+      <div className="card-glow"></div>
+
+      <div className="row">
+
         <div className="form-group">
+
           <label>Service Type</label>
 
           <select
@@ -199,238 +217,443 @@ const handleSubmit = async (e) => {
             value={form.service_type}
             onChange={handleChange}
           >
-            <option value="">Select Service</option>
-            <option value="Document Charge">Document Charge</option>
-            <option value="Clearing Charge">Clearing Charge</option>
-            <option value="Transport Charge">Transport Charge</option>
+
+            <option value="">
+
+              Select Service
+
+            </option>
+
+            <option value="Document Charge">
+
+              Document Charge
+
+            </option>
+
+            <option value="Clearing Charge">
+
+              Clearing Charge
+
+            </option>
+
+            <option value="Transport Charge">
+
+              Transport Charge
+
+            </option>
+
           </select>
+
         </div>
+
         <div className="form-group">
+
           <label>Invoice No</label>
 
           <input
+            type="text"
             name="invoice_no"
             value={form.invoice_no}
             onChange={handleChange}
+            placeholder="Enter Invoice Number"
           />
+
         </div>
 
-        {form.service_type === "Document Charge" && (
-          <>
-            <div className="form-group">
-              <label>Bill No</label>
+      </div>
 
-              <input
-                name="bill_no"
-                value={form.bill_no}
-                onChange={handleChange}
-              />
-            </div>
+      {form.service_type === "Document Charge" && (
+        <>
+        <div className="row">
 
-            <div className="form-group">
-              <label>Name</label>
+  <div className="form-group">
 
-              <input name="name" value={form.name} onChange={handleChange} />
-            </div>
+    <label>Bill No</label>
 
-            <div className="form-group">
-              <label>Date</label>
+    <input
+      type="text"
+      name="bill_no"
+      value={form.bill_no}
+      onChange={handleChange}
+      placeholder="Enter Bill Number"
+    />
 
-              <input
-                type="date"
-                name="entry_date"
-                value={form.entry_date}
-                onChange={handleChange}
-              />
-            </div>
+  </div>
 
-            <div className="form-group">
-              <label>Amount</label>
+  <div className="form-group">
 
-              <input
-                type="number"
-                name="amount"
-                value={form.amount}
-                onChange={handleChange}
-                onWheel={preventScroll}
-              />
-            </div>
+    <label>Name</label>
 
-            <div className="form-group">
-              <label>TDS</label>
+    <input
+      type="text"
+      name="name"
+      value={form.name}
+      onChange={handleChange}
+      placeholder="Enter Customer Name"
+    />
 
-              <input
-                type="number"
-                name="tds"
-                value={form.tds}
-                onChange={handleChange}
-                onWheel={preventScroll}
-              />
-            </div>
+  </div>
 
-            <div className="form-group">
-              <label>Total Amount</label>
+</div>
 
-              <input value={Number(form.total_amount).toFixed(2)} readOnly />
-            </div>
-          </>
-        )}
-        {form.service_type === "Clearing Charge" && (
-          <>
-            <div className="form-group">
-              <label>Clearing Agent Name</label>
+<div className="row">
 
-              <input name="name" value={form.name} onChange={handleChange} />
-            </div>
+  <div className="form-group">
 
-            <div className="form-group">
-              <label>Date</label>
+    <label>Date</label>
 
-              <input
-                type="date"
-                name="entry_date"
-                value={form.entry_date}
-                onChange={handleChange}
-              />
-            </div>
+    <input
+      type="date"
+      name="entry_date"
+      value={form.entry_date}
+      onChange={handleChange}
+    />
 
-            <div className="form-group">
-              <label>Amount</label>
+  </div>
 
-              <input
-                type="number"
-                name="amount"
-                value={form.amount}
-                onChange={handleChange}
-                onWheel={preventScroll}
-              />
-            </div>
+  <div className="form-group">
 
-            <div className="row">
-              <label>CGST (%)</label>
-              <input
-                type="number"
-                name="cgst_percent"
-                value={form.cgst_percent}
-                placeholder="CGST %"
-                step="0.01"
-                onChange={handleChange}
-                onWheel={preventScroll}
-              />
+    <label>Amount</label>
 
-              <input value={cgstAmount} placeholder="CGST Amount" readOnly />
-            </div>
+    <input
+      type="number"
+      name="amount"
+      value={form.amount}
+      onChange={handleChange}
+      onWheel={preventScroll}
+      placeholder="Enter Amount"
+    />
 
-            <div className="row">
-              <label>SGST (%)</label>
-              <input
-                type="number"
-                name="sgst_percent"
-                value={form.sgst_percent}
-                placeholder="SGST %"
-                step="0.01"
-                onChange={handleChange}
-                onWheel={preventScroll}
-              />
+  </div>
 
-              <input value={sgstAmount} placeholder="SGST Amount" readOnly />
-            </div>
+</div>
 
-            <div className="form-group">
-              <label>Total GST</label>
+<div className="row">
 
-              <input value={totalGST} readOnly />
-            </div>
+  <div className="form-group">
 
-            <div className="form-group">
-              <label>Total Amount</label>
-              <input value={totalAmount} readOnly />
-            </div>
-          </>
-        )}
-        {form.service_type === "Transport Charge" && (
-          <>
-            <div className="form-group">
-              <label>Challan No</label>
-              <input
-                name="challan_no"
-                value={form.challan_no}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Name</label>
+    <label>TDS</label>
 
-              <input name="name" value={form.name} onChange={handleChange} />
-            </div>
+    <input
+      type="number"
+      name="tds"
+      value={form.tds}
+      onChange={handleChange}
+      onWheel={preventScroll}
+      placeholder="Enter TDS"
+    />
 
-            <div className="form-group">
-              <label>Vehicle Number</label>
+  </div>
 
-              <input
-                name="vehicle_number"
-                value={form.vehicle_number}
-                onChange={handleChange}
-                placeholder="WB-24BS-1234"
-              />
-            </div>
+  <div className="form-group">
 
-            <div className="form-group">
-              <label>From Location</label>
+    <label>Total Amount</label>
 
-              <input
-                name="from_location"
-                value={form.from_location}
-                onChange={handleChange}
-              />
-            </div>
+    <input
+      value={Number(form.total_amount || 0).toFixed(2)}
+      readOnly
+    />
 
-            <div className="form-group">
-              <label>To Location</label>
+  </div>
 
-              <input
-                name="to_location"
-                value={form.to_location}
-                onChange={handleChange}
-              />
-            </div>
+</div>
 
-            <div className="form-group">
-              <label>Date</label>
+        </>
+      )}
+      {form.service_type === "Clearing Charge" && (
+  <>
+  <div className="row">
 
-              <input
-                type="date"
-                name="entry_date"
-                value={form.entry_date}
-                onChange={handleChange}
-              />
-            </div>
+  <div className="form-group">
 
-            <div className="form-group">
-              <label>Amount</label>
+    <label>Clearing Agent Name</label>
 
-              <input
-                type="number"
-                name="amount"
-                value={form.amount}
-                onChange={handleChange}
-                onWheel={preventScroll}
-              />
-            </div>
+    <input
+      type="text"
+      name="name"
+      value={form.name}
+      onChange={handleChange}
+      placeholder="Enter Clearing Agent Name"
+    />
 
-            <div className="form-group">
-              <label>Total Amount</label>
+  </div>
 
-              <input value={Number(form.amount || 0).toFixed(2)} readOnly />
-            </div>
-          </>
-        )}
-        <button className="primary-btn" type="submit">
-          {id ? "Update Other Sales" : "Save Other Sales"}
-        </button>
-      </form>
+  <div className="form-group">
+
+    <label>Date</label>
+
+    <input
+      type="date"
+      name="entry_date"
+      value={form.entry_date}
+      onChange={handleChange}
+    />
+
+  </div>
+
+</div>
+
+<div className="row">
+
+  <div className="form-group">
+
+    <label>Amount</label>
+
+    <input
+      type="number"
+      name="amount"
+      value={form.amount}
+      onChange={handleChange}
+      onWheel={preventScroll}
+      placeholder="Enter Amount"
+    />
+
+  </div>
+
+  <div className="form-group">
+
+    <label>CGST (%)</label>
+
+    <input
+      type="number"
+      name="cgst_percent"
+      value={form.cgst_percent}
+      onChange={handleChange}
+      onWheel={preventScroll}
+      step="0.01"
+      placeholder="Enter CGST %"
+    />
+
+  </div>
+
+</div>
+
+<div className="row">
+
+  <div className="form-group">
+
+    <label>CGST Amount</label>
+
+    <input
+      value={Number(cgstAmount).toFixed(2)}
+      readOnly
+    />
+
+  </div>
+
+  <div className="form-group">
+
+    <label>SGST (%)</label>
+
+    <input
+      type="number"
+      name="sgst_percent"
+      value={form.sgst_percent}
+      onChange={handleChange}
+      onWheel={preventScroll}
+      step="0.01"
+      placeholder="Enter SGST %"
+    />
+
+  </div>
+
+</div>
+
+<div className="row">
+
+  <div className="form-group">
+
+    <label>SGST Amount</label>
+
+    <input
+      value={Number(sgstAmount).toFixed(2)}
+      readOnly
+    />
+
+  </div>
+
+  <div className="form-group">
+
+    <label>Total GST</label>
+
+    <input
+      value={Number(totalGST).toFixed(2)}
+      readOnly
+    />
+
+  </div>
+
+</div>
+
+<div className="row">
+
+  <div className="form-group">
+
+    <label>Total Amount</label>
+
+    <input
+      value={Number(totalAmount).toFixed(2)}
+      readOnly
+    />
+
+  </div>
+
+</div>
+
+        </>
+      )}
+      {form.service_type === "Transport Charge" && (
+  <>
+
+    <div className="row">
+
+      <div className="form-group">
+
+        <label>Challan No</label>
+
+        <input
+          type="text"
+          name="challan_no"
+          value={form.challan_no}
+          onChange={handleChange}
+          placeholder="Enter Challan Number"
+        />
+
+      </div>
+
+      <div className="form-group">
+
+        <label>Name</label>
+
+        <input
+          type="text"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          placeholder="Enter Customer Name"
+        />
+
+      </div>
+
     </div>
-  );
+
+    <div className="row">
+
+      <div className="form-group">
+
+        <label>Vehicle Number</label>
+
+        <input
+          type="text"
+          name="vehicle_number"
+          value={form.vehicle_number}
+          onChange={handleChange}
+          placeholder="WB-24BS-1234"
+        />
+
+      </div>
+
+      <div className="form-group">
+
+        <label>Date</label>
+
+        <input
+          type="date"
+          name="entry_date"
+          value={form.entry_date}
+          onChange={handleChange}
+        />
+
+      </div>
+
+    </div>
+
+    <div className="row">
+
+      <div className="form-group">
+
+        <label>From Location</label>
+
+        <input
+          type="text"
+          name="from_location"
+          value={form.from_location}
+          onChange={handleChange}
+          placeholder="Enter From Location"
+        />
+
+      </div>
+
+      <div className="form-group">
+
+        <label>To Location</label>
+
+        <input
+          type="text"
+          name="to_location"
+          value={form.to_location}
+          onChange={handleChange}
+          placeholder="Enter To Location"
+        />
+
+      </div>
+
+    </div>
+
+    <div className="row">
+
+      <div className="form-group">
+
+        <label>Amount</label>
+
+        <input
+          type="number"
+          name="amount"
+          value={form.amount}
+          onChange={handleChange}
+          onWheel={preventScroll}
+          placeholder="Enter Amount"
+        />
+
+      </div>
+
+      <div className="form-group">
+
+        <label>Total Amount</label>
+
+        <input
+          value={Number(form.amount || 0).toFixed(2)}
+          readOnly
+        />
+
+      </div>
+
+    </div>
+
+  </>
+)}
+
+<div className="submit-btn-wrapper">
+
+  <button
+    className="primary-btn"
+    type="submit"
+  >
+
+    {isEdit
+      ? "Update Other Sales"
+      : "Save Other Sales"}
+
+  </button>
+
+</div>
+
+</form>
+
+</div>
+
+);
+
 }
 
 export default OtherSales;
