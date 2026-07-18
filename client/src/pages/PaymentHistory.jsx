@@ -86,149 +86,209 @@ function PaymentHistory() {
   );
 
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
+<div className="page payment-history-page">     <div className="page-content">
 
-          alignItems: "center",
+        <div className="importer-history-header">
 
-          gap: "15px",
+          <BackButton />
 
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+          <div className="history-heading">
 
-        <h1 style={{ margin: 0 }}>Payment History</h1>
-      </div>
+            <h1 className="page-title">
+              Payment History
+            </h1>
 
-      <div
-        style={{
-          display: "flex",
+            <p className="page-subtitle">
+              View, search and manage all Payment records.
+            </p>
 
-          gap: "10px",
+          </div>
 
-          flexWrap: "wrap",
-        }}
-      >
-        <select
-          value={searchType}
-          onChange={(e) => {
-            const type = e.target.value;
+        </div>
 
-            setSearchType(type);
+        <div className="purchase-form-card  history-filter-card">
 
-            setCustomYear(false);
+          <div className="history-filter-grid">
 
-            if (type === "month") {
-              setSearchValue(currentMonth);
-            } else {
-              setSearchValue(currentYear);
-            }
-          }}
-        >
-          <option value="month">Month</option>
+            <div className="form-group">
 
-          <option value="year">Year</option>
-        </select>
+              <label>Search Type</label>
 
-        {searchType === "month" ? (
-          <select
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          >
-            <option value="1">January</option>
+              <select
+                value={searchType}
+                onChange={(e) => {
 
-            <option value="2">February</option>
+                  const type = e.target.value;
 
-            <option value="3">March</option>
+                  setSearchType(type);
 
-            <option value="4">April</option>
+                  setCustomYear(false);
 
-            <option value="5">May</option>
+                  if (type === "month") {
 
-            <option value="6">June</option>
+                    setSearchValue(currentMonth);
 
-            <option value="7">July</option>
+                  } else {
 
-            <option value="8">August</option>
+                    setSearchValue(currentYear);
 
-            <option value="9">September</option>
+                  }
 
-            <option value="10">October</option>
+                }}
+              >
 
-            <option value="11">November</option>
+                <option value="month">
+                  Month
+                </option>
 
-            <option value="12">December</option>
-          </select>
-        ) : customYear ? (
-          <input
-            type="number"
-            placeholder="Enter Year"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        ) : (
-          <select
-            value={searchValue}
-            onChange={(e) => {
-              if (e.target.value === "custom") {
-                setCustomYear(true);
+                <option value="year">
+                  Year
+                </option>
 
-                setSearchValue("");
-              } else {
-                setSearchValue(e.target.value);
-              }
-            }}
-          >
-            <option value="2024">2024</option>
+              </select>
 
-            <option value="2025">2025</option>
+            </div>
 
-            <option value="2026">2026</option>
+            <div className="form-group">
 
-            <option value="2027">2027</option>
+              <label>
 
-            <option value="2028">2028</option>
+                {searchType === "month"
+                  ? "Select Month"
+                  : "Select Year"}
 
-            <option value="custom">Custom</option>
-          </select>
-        )}
+              </label>
 
-        <button className="search-btn" onClick={handleSearch}>
-          Search
-        </button>
-      </div>
+              {searchType === "month" ? (
 
-      <br />
+                <select
+                  value={searchValue}
+                  onChange={(e) =>
+                    setSearchValue(e.target.value)
+                  }
+                >
 
-      <h2
-        style={{
-          textAlign: "center",
-        }}
-      >
+                  <option value="1">January</option>
+
+                  <option value="2">February</option>
+
+                  <option value="3">March</option>
+
+                  <option value="4">April</option>
+
+                  <option value="5">May</option>
+
+                  <option value="6">June</option>
+
+                  <option value="7">July</option>
+
+                  <option value="8">August</option>
+
+                  <option value="9">September</option>
+
+                  <option value="10">October</option>
+
+                  <option value="11">November</option>
+
+                  <option value="12">December</option>
+
+                </select>
+
+              ) : customYear ? (
+
+                <input
+                  type="number"
+                  placeholder="Enter Year"
+                  value={searchValue}
+                  onChange={(e) =>
+                    setSearchValue(e.target.value)
+                  }
+                />
+
+              ) : (
+
+                <select
+                  value={searchValue}
+                  onChange={(e) => {
+
+                    if (e.target.value === "custom") {
+
+                      setCustomYear(true);
+
+                      setSearchValue("");
+
+                    } else {
+
+                      setSearchValue(e.target.value);
+
+                    }
+
+                  }}
+                >
+
+                  <option value="2024">
+                    2024
+                  </option>
+
+                  <option value="2025">
+                    2025
+                  </option>
+
+                  <option value="2026">
+                    2026
+                  </option>
+
+                  <option value="2027">
+                    2027
+                  </option>
+
+                  <option value="2028">
+                    2028
+                  </option>
+
+                  <option value="custom">
+                    Custom Year
+                  </option>
+
+                </select>
+
+              )}
+
+            </div>
+
+          </div>
+
+          <div className="history-button-row">
+
+            <button
+              className="search-btn"
+              onClick={handleSearch}
+            >
+              Search
+            </button>
+
+          </div>
+
+        </div></div>
+<h2 className="report-title">
         Payment Report
       </h2>
 
-      <br />
-
-      <p>
+      <p className="report-info">
         <b>Search By :</b>
 
         {searchType === "month" ? " Month" : " Year"}
       </p>
-
-      <br />
-
-      <p>
+     <p className="report-info">
         <b>Value :</b>
 
         {searchType === "month" ? monthNames[Number(searchValue)] : searchValue}
       </p>
+        <div className="purchase-form-card  history-table-card">
 
-      <br />
-      <table className="table">
+          <div className="history-table-wrapper">
+
+            <table className="history-table">
         <thead>
           <tr>
             <th>Invoice No</th>
@@ -289,24 +349,20 @@ function PaymentHistory() {
 
                 <td>
                   <span
-                    style={{
-                      padding: "6px 12px",
-                      borderRadius: "20px",
-                      fontWeight: "bold",
-                      background:
-                        (item.status || "SUCCESS") === "SUCCESS"
-                          ? "#dcfce7"
-                          : item.status === "PENDING"
-                            ? "#fef3c7"
-                            : "#dbeafe",
-                      color:
-                        (item.status || "SUCCESS") === "SUCCESS"
-                          ? "#15803d"
-                          : item.status === "PENDING"
-                            ? "#b45309"
-                            : "#1d4ed8",
-                    }}
-                  >
+className={`status-badge ${
+
+(item.status || "SUCCESS")==="SUCCESS"
+
+?"success"
+
+:item.status==="PENDING"
+
+?"pending"
+
+:"advance"
+
+}`}
+>
                     {item.status || "SUCCESS"}
                   </span>
                 </td>
@@ -320,17 +376,6 @@ function PaymentHistory() {
                     >
                       View
                     </button>
-                    <button
-                      className="view-btn"
-                      onClick={() =>
-                        navigate(
-                          `/payment-ledger?customer=${item.customer_name}`,
-                        )
-                      }
-                    >
-                      Ledger
-                    </button>
-
                     <button
                       className="edit-btn"
                       onClick={() => navigate(`/payment/edit/${item.id}`)}
@@ -351,90 +396,37 @@ function PaymentHistory() {
           )}
         </tbody>
       </table>
+</div></div>
+                <div className=" purchase-form-card history-total-card">
 
-      <br />
-
-      <div
-        style={{
-          background: "#ffffff",
-
-          padding: "25px",
-
-          borderRadius: "12px",
-
-          boxShadow: "0 2px 10px rgba(0,0,0,0.10)",
-
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{
-            color: "#2563eb",
-          }}
-        >
+          <h2 className="total-title">
           Total Payment Amount
         </h2>
 
-        <h1
-          style={{
-            color: "#16a34a",
-
-            fontSize: "40px",
-          }}
-        >
+          <h1 className="total-amount">
           ₹{Number(totalPayment).toFixed(2)}
         </h1>
       </div>
 
       <br />
-      <div
-        style={{
-          background: "#f8fafc",
-          padding: "20px",
-          borderRadius: "10px",
-          marginTop: "30px",
-        }}
-      >
-        <h2
-          style={{
-            color: "#2563eb",
-            marginBottom: "20px",
-          }}
-        >
+        <div className="purchase-form-card history-summary-card">
+
+          <h2 className="summary-main-title">
           Payment Summary
         </h2>
 
         <hr />
 
         {payments.length === 0 ? (
-          <p
-            style={{
-              textAlign: "center",
-              color: "red",
-              fontWeight: "bold",
-            }}
-          >
+
+            <div className="empty-summary">
             No Payment Summary Found
-          </p>
+          </div>
         ) : (
           <>
             {payments.map((item) => (
-              <div
-                key={item.id}
-                style={{
-                  background: "#ffffff",
-                  padding: "20px",
-                  marginTop: "20px",
-                  borderRadius: "10px",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                }}
-              >
-                <h3
-                  style={{
-                    color: "#16a34a",
-                    marginBottom: "15px",
-                  }}
-                >
+<div className="summary-entry">
+      <h3 className="summary-entry-title">
                   Payment Entry
                 </h3>
 
@@ -474,37 +466,17 @@ function PaymentHistory() {
 
                 <hr />
 
-                <h2
-                  style={{
-                    color: "#16a34a",
-                  }}
-                >
+<h2 className="summary-payment">
                   Payment Amount : ₹{Number(item.amount || 0).toFixed(2)}
                 </h2>
               </div>
             ))}
-
-            <div
-              style={{
-                background: "#ecfdf5",
-                padding: "20px",
-                borderRadius: "12px",
-                marginTop: "25px",
-              }}
-            >
-              <h2
-                style={{
-                  color: "#16a34a",
-                }}
-              >
+<div className="summary-footer">
+              <h2 className="summary-total">
                 Total Payment : ₹{Number(totalPayment).toFixed(2)}
               </h2>
 
-              <h3
-                style={{
-                  color: "#2563eb",
-                }}
-              >
+<h3 className="summary-record">
                 Total Records : {payments.length}
               </h3>
             </div>

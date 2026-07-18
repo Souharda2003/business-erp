@@ -200,22 +200,18 @@ const loadCompanyProfile = async () => {
 
   return (
     <div className="page">
-      <div
-        style={{
-          display: "flex",
-
-          alignItems: "center",
-
-          gap: "15px",
-
-          marginBottom: "20px",
-        }}
-      >
+ <div className="rodtep-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 style={{ margin: 0 }}>Payment Receipt</h1>
-      </div>
+<h1 className="page-title">
+Payment Invoice
+</h1>
 
+<p className="page-subtitle">
+View & Download Payment Invoice
+</p>
+</div></div>
       <div className="payment-invoice" ref={pdfRef}>
         <div className="invoice-header">
           <h1>UTSAV INTERNATIONAL</h1>
@@ -423,35 +419,25 @@ const loadCompanyProfile = async () => {
 
         <br />
 
-        <div className="signature-section">
-          <div className="signature-box">
-            <div className="signature-line"></div>
+         <div className="signature-wrapper">
+                    <div>
+                      _______________________
+                      <br />
+                      Prepared By
+                    </div>
 
-            <p>Prepared By</p>
-          </div>
-
-
-          <div className="signature-box">
-            <div className="signature-line"></div>
-
-            <p>Authorized Signatory</p>
-          </div>
-        </div>
+                    <div>
+                      _______________________
+                      <br />
+                      Authorized Signatory
+                    </div>
+                  </div>
       </div>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "25px",
-          gap: "15px",
-          flexWrap: "wrap",
-        }}
-      >
-        <button className="download-btn" onClick={downloadPDF}>
-          Download PDF
-        </button>
-      </div>
+       <div className="invoice-button-area">
+<button className="pdfButton" onClick={downloadPDF}>
+Download PDF
+</button>
+</div>
     </div>
   );
 }

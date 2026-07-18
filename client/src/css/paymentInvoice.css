@@ -1,7 +1,3 @@
-/* =========================================
-   PAYMENT INVOICE CSS
-   PART 1
-========================================= */
 
 .page {
   min-height: 100vh;
@@ -10,11 +6,6 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* =========================================
-   MAIN INVOICE
-========================================= */
-
 .payment-invoice {
   width: 210mm;
 
@@ -33,10 +24,6 @@
   border-radius: 8px;
 }
 
-/* =========================================
-   HEADER
-========================================= */
-
 .invoice-header {
   text-align: center;
 
@@ -46,14 +33,14 @@
 .invoice-header h1 {
   font-size: 32px;
 
-  color: #1e293b;
+  color:white;
 
   margin-bottom: 5px;
 
   font-weight: bold;
 }
 
-.invoice-header h2 {
+.invoice-header h1 {
   font-size: 22px;
 
   color: #2563eb;
@@ -66,10 +53,6 @@
 
   border-top: 2px solid #2563eb;
 }
-
-/* =========================================
-   TOP INFORMATION
-========================================= */
 
 .invoice-top {
   display: flex;
@@ -96,10 +79,6 @@
 .invoice-top b {
   color: #111827;
 }
-
-/* =========================================
-   PAYMENT DETAILS TABLE
-========================================= */
 
 .payment-details-table {
   width: 100%;
@@ -129,10 +108,6 @@
   background: #ffffff;
 }
 
-/* =========================================
-   AMOUNT IN WORDS
-========================================= */
-
 .amount-word-box {
   background: #f8fafc;
 
@@ -157,10 +132,6 @@
   color: #111827;
 }
 
-/* =========================================
-   PAYMENT STATUS
-========================================= */
-
 .payment-status-card {
   background: #ecfdf5;
 
@@ -184,11 +155,6 @@
 
   margin-top: 10px;
 }
-
-/* =========================================
-   SUMMARY CARD
-========================================= */
-
 .payment-summary {
   display: flex;
 
@@ -226,11 +192,6 @@
 
   color: #111827;
 }
-
-/* =========================================
-   COMMON
-========================================= */
-
 hr {
   border: none;
 
@@ -250,14 +211,6 @@ hr {
 .font-bold {
   font-weight: bold;
 }
-/* =========================================
-   PAYMENT INVOICE CSS
-   PART 2
-========================================= */
-
-/* =========================================
-   TERMS & CONDITIONS
-========================================= */
 
 .payment-terms {
   margin-top: 25px;
@@ -295,10 +248,6 @@ hr {
   line-height: 24px;
 }
 
-/* =========================================
-   TOTAL PAYMENT BOX
-========================================= */
-
 .payment-total-box {
   margin-top: 30px;
 
@@ -332,11 +281,6 @@ hr {
 
   font-weight: bold;
 }
-
-/* =========================================
-   SIGNATURE SECTION
-========================================= */
-
 .signature-section {
   display: flex;
 
@@ -370,11 +314,6 @@ hr {
 
   color: #374151;
 }
-
-/* =========================================
-   FOOTER
-========================================= */
-
 .invoice-footer {
   margin-top: 50px;
 
@@ -396,83 +335,6 @@ hr {
 
   margin-bottom: 15px;
 }
-
-/* =========================================
-   DOWNLOAD BUTTON
-========================================= */
-
-.download-btn {
-  background: #16a34a;
-
-  color: #ffffff;
-
-  border: none;
-
-  padding: 12px 30px;
-
-  border-radius: 8px;
-
-  font-size: 16px;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition: 0.3s;
-}
-
-.download-btn:hover {
-  background: #15803d;
-}
-
-/* =========================================
-   PRINT BUTTON
-========================================= */
-
-.search-btn {
-  background: #2563eb;
-
-  color: #ffffff;
-
-  border: none;
-
-  padding: 12px 30px;
-
-  border-radius: 8px;
-
-  font-size: 16px;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition: 0.3s;
-}
-
-.search-btn:hover {
-  background: #1d4ed8;
-}
-
-/* =========================================
-   BUTTON CONTAINER
-========================================= */
-
-.button-group {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 15px;
-
-  flex-wrap: wrap;
-
-  margin-top: 25px;
-}
-
-/* =========================================
-   PDF SAFE AREA
-========================================= */
-
 .payment-invoice,
 .payment-details-table,
 .payment-summary,
@@ -484,10 +346,6 @@ hr {
   break-inside: avoid;
 }
 
-/* =========================================
-   TABLE QUALITY
-========================================= */
-
 .payment-details-table {
   table-layout: fixed;
 }
@@ -495,11 +353,6 @@ hr {
 .payment-details-table td {
   word-wrap: break-word;
 }
-
-/* =========================================
-   HIGHLIGHT AMOUNT
-========================================= */
-
 .amount-highlight {
   color: #16a34a;
 
@@ -508,45 +361,11 @@ hr {
   font-weight: bold;
 }
 
-/* =========================================
-   SUCCESS BADGE
-========================================= */
-
-.success-badge {
-  display: inline-block;
-
-  padding: 8px 18px;
-
-  background: #16a34a;
-
-  color: white;
-
-  border-radius: 20px;
-
-  font-size: 14px;
-
-  font-weight: bold;
-}
-/* =========================================
-   PAYMENT INVOICE CSS
-   PART 3
-   PRINT + PDF + RESPONSIVE
-========================================= */
-
-/* =========================================
-   A4 PAGE
-========================================= */
-
 @page {
   size: A4 portrait;
 
   margin: 8mm;
 }
-
-/* =========================================
-   PDF QUALITY
-========================================= */
-
 .payment-invoice {
   position: relative;
 
@@ -566,11 +385,6 @@ hr {
 
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* =========================================
-   PAGE BREAK
-========================================= */
-
 .payment-details-table {
   page-break-inside: avoid;
 }
@@ -594,11 +408,6 @@ hr {
 .invoice-footer {
   page-break-inside: avoid;
 }
-
-/* =========================================
-   PRINT STYLE
-========================================= */
-
 @media print {
   body {
     margin: 0;
@@ -703,11 +512,6 @@ hr {
     margin-bottom: 15px;
   }
 }
-
-/* =========================================
-   SCROLLBAR
-========================================= */
-
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -721,11 +525,6 @@ hr {
 ::-webkit-scrollbar-track {
   background: #f8fafc;
 }
-
-/* =========================================
-   HOVER EFFECT
-========================================= */
-
 .summary-card {
   transition: 0.3s;
 }
@@ -743,11 +542,6 @@ hr {
 .payment-total-box:hover {
   transform: scale(1.01);
 }
-
-/* =========================================
-   OPTIONAL WATERMARK
-========================================= */
-
 .watermark {
   position: absolute;
 
@@ -766,10 +560,6 @@ hr {
   pointer-events: none;
 }
 
-/* =========================================
-   FOOTER ALIGNMENT
-========================================= */
-
 .invoice-footer {
   margin-top: 40px;
 }
@@ -777,10 +567,6 @@ hr {
 .invoice-footer p {
   line-height: 22px;
 }
-
-/* =========================================
-   UTILITY CLASSES
-========================================= */
 
 .mt10 {
   margin-top: 10px;
@@ -821,7 +607,3 @@ hr {
 .color-blue {
   color: #2563eb;
 }
-
-/* =========================================
-   END
-========================================= */

@@ -112,135 +112,232 @@ const handleSubmit = async (e) => {
   }
 
 };
-  return (
-    <div className="page">
+return (
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+<div className="page payment-page">
+<div className="importer-header">
 
-        <h1 className="page-title" style={{ margin: 0 }}>
-          Payment Management
-        </h1>
+<BackButton />
 
-      </div>
+<div className="importer-heading">
 
-      <form className="form-container" onSubmit={handleSubmit}>
+<h1 className="page-title">
 
+Payment Management
+
+</h1>
+
+<p className="page-subtitle">
+
+Manage customer payments and transaction records
+
+</p>
+
+</div>
+
+</div>
+
+  <form
+      className="form-container importer-card"
+      onSubmit={handleSubmit}
+    >
+<div className="row">
+
+<div className="form-group">
+
+<label>
+
+Invoice Date
+
+</label>
+
+<div className="input-wrapper">
+
+<input
+type="date"
+name="invoice_date"
+value={form.invoice_date}
+onChange={handleChange}
+/>
+
+</div>
+
+</div>
+
+<div className="form-group">
+
+<label>
+
+Invoice No
+
+</label>
+
+<div className="input-wrapper">
+
+<input
+type="text"
+name="invoice_no"
+placeholder="Enter Invoice Number"
+value={form.invoice_no}
+onChange={handleChange}
+/>
+
+</div>
+
+</div>
+
+</div>
+
+<div className="row">
+
+<div className="form-group">
+
+<label>
+
+Payment Date
+
+</label>
+
+<div className="input-wrapper">
+
+<input
+type="date"
+name="payment_date"
+value={form.payment_date}
+onChange={handleChange}
+/>
+
+</div>
+
+</div>
+
+<div className="form-group">
+
+<label>
+
+Customer Name
+
+</label>
+
+<div className="input-wrapper">
+
+<input
+type="text"
+name="customer_name"
+placeholder="Enter Customer Name"
+value={form.customer_name}
+onChange={handleChange}
+/>
+
+</div>
+
+</div>
+
+</div>
         <div className="row">
 
           <div className="form-group">
 
-            <label>Invoice Date</label>
+            <label>
 
-            <input
-              type="date"
-              name="invoice_date"
-              value={form.invoice_date}
-              onChange={handleChange}
-            />
+              Payment Type
 
-          </div>
+            </label>
 
-          <div className="form-group">
+            <div className="input-wrapper">
 
-            <label>Invoice No</label>
+              <select
+                name="payment_type"
+                value={form.payment_type}
+                onChange={handleChange}
+              >
 
-            <input
-              type="text"
-              name="invoice_no"
-              value={form.invoice_no}
-              placeholder="Enter Invoice No"
-              onChange={handleChange}
-            />
+                <option value="">
+                  Select Payment Type
+                </option>
 
-          </div>
+                <option value="Cash">Cash</option>
 
-        </div>
+                <option value="Bank Transfer">
+                  Bank Transfer
+                </option>
 
-        <div className="row">
+                <option value="Cheque">
+                  Cheque
+                </option>
 
-          <div className="form-group">
+                <option value="Demand Draft">
+                  Demand Draft
+                </option>
 
-            <label>Payment Date</label>
+                <option value="NEFT">
+                  NEFT
+                </option>
 
-            <input
-              type="date"
-              name="payment_date"
-              value={form.payment_date}
-              onChange={handleChange}
-            />
+                <option value="RTGS">
+                  RTGS
+                </option>
 
-          </div>
+                <option value="IMPS">
+                  IMPS
+                </option>
 
-          <div className="form-group">
+                <option value="UPI">
+                  UPI
+                </option>
 
-            <label>Customer Name</label>
+                <option value="Credit Card">
+                  Credit Card
+                </option>
 
-            <input
-              type="text"
-              name="customer_name"
-              value={form.customer_name}
-              placeholder="Customer Name"
-              onChange={handleChange}
-            />
+                <option value="Debit Card">
+                  Debit Card
+                </option>
 
-          </div>
+                <option value="Net Banking">
+                  Net Banking
+                </option>
 
-        </div>
-                <div className="row">
+                <option value="Wallet">
+                  Wallet
+                </option>
 
-          <div className="form-group">
+                <option value="Adjustment">
+                  Adjustment
+                </option>
 
-            <label>Payment Type</label>
+                <option value="Other">
+                  Other
+                </option>
 
-            <select
-  name="payment_type"
-  value={form.payment_type}
-  onChange={handleChange}
->
+              </select>
 
-<option value="">Select Payment Type</option>
-
-<option value="Cash">Cash</option>
-<option value="Bank Transfer">Bank Transfer</option>
-<option value="Cheque">Cheque</option>
-<option value="Demand Draft">Demand Draft</option>
-<option value="NEFT">NEFT</option>
-<option value="RTGS">RTGS</option>
-<option value="IMPS">IMPS</option>
-<option value="UPI">UPI</option>
-<option value="Credit Card">Credit Card</option>
-<option value="Debit Card">Debit Card</option>
-<option value="Net Banking">Net Banking</option>
-<option value="Wallet">Wallet</option>
-<option value="Adjustment">Adjustment</option>
-<option value="Other">Other</option>
-
-</select>
+            </div>
 
           </div>
 
           <div className="form-group">
 
-            <label>Amount</label>
+            <label>
 
-            <input
-              type="number"
-              name="amount"
-              value={form.amount}
-              placeholder="Enter Amount"
-              step="0.01"
-              min="0"
-              onChange={handleChange}
-              onWheel={preventScroll}
-            />
+              Amount
+
+            </label>
+
+            <div className="input-wrapper">
+
+              <input
+                type="number"
+                name="amount"
+                placeholder="Enter Amount"
+                value={form.amount}
+                onChange={handleChange}
+                onWheel={preventScroll}
+                min="0"
+                step="0.01"
+              />
+
+            </div>
 
           </div>
 
@@ -248,95 +345,161 @@ const handleSubmit = async (e) => {
 
         <div className="form-group">
 
-          <label>Remarks</label>
+          <label>
 
-          <textarea
-            name="remarks"
-            value={form.remarks}
-            placeholder="Remarks"
-            rows="4"
-            onChange={handleChange}
-          />
+            Remarks
+
+          </label>
+
+          <div className="input-wrapper">
+
+            <textarea
+              name="remarks"
+              value={form.remarks}
+              onChange={handleChange}
+              rows="5"
+              placeholder="Write Remarks..."
+            />
+
+          </div>
 
         </div>
 
-        <button className="primary-btn">
+        <div className="button-area">
 
-{id ? "Update Payment" : "Save Payment"}
+          <button
+            type="submit"
+            className="primary-btn"
+          >
 
-</button>
+            {id
+              ? "Update Payment"
+              : "Save Payment"}
+
+          </button>
+
+        </div>
+
 
       </form>
-            <br />
 
       <div className="summary-card">
 
-        <h2>Payment Summary</h2>
+        <div className="summary-header">
 
-        <hr />
+          <h2>
 
-        <h3>
-          Total Purchase :
-          <span style={{ color: "#2563eb" }}>
-            {" "}
-            ₹ {Number(summary.total_purchase || 0).toFixed(2)}
-          </span>
-        </h3>
+            Payment Summary
 
-        <h3>
-          Total Payment :
-          <span style={{ color: "#16a34a" }}>
-            {" "}
-            ₹ {Number(summary.total_payment || 0).toFixed(2)}
-          </span>
-        </h3>
+          </h2>
 
-        <h3>
-          Due Amount :
-          <span
-            style={{
-              color:
-                Number(summary.due_amount || 0) <= 0
-                  ? "#16a34a"
-                  : "#dc2626",
-            }}
-          >
-            {" "}
-            ₹ {Number(summary.due_amount || 0).toFixed(2)}
-          </span>
-        </h3>
+        </div>
 
-        <h3
-style={{
-marginTop:"20px",
-fontWeight:"bold",
-color:
-summary.status==="DONE"
-?"green"
-:summary.status==="PENDING"
-?"orange"
-:"blue"
-}}
->
+        <div className="summary-grid">
 
-{
-summary.status==="DONE"
+          <div className="summary-item">
 
-? "🟢 Payment Completed"
+            <span>
 
-:summary.status==="PENDING"
+              Total Purchase
 
-? `🟠 Payment Pending ₹ ${Number(summary.due_amount||0).toFixed(2)}`
+            </span>
 
-: `🔵 Advance Payment ₹ ${Number(summary.advance_amount||0).toFixed(2)}`
-}
+            <h3>
 
-</h3>
+              ₹ {Number(
+                summary.total_purchase || 0
+              ).toFixed(2)}
+
+            </h3>
+
+          </div>
+
+          <div className="summary-item">
+
+            <span>
+
+              Total Payment
+
+            </span>
+
+            <h3>
+
+              ₹ {Number(
+                summary.total_payment || 0
+              ).toFixed(2)}
+
+            </h3>
+
+          </div>
+
+          <div className="summary-item">
+
+            <span>
+
+              Due Amount
+
+            </span>
+
+            <h3>
+
+              ₹ {Number(
+                summary.due_amount || 0
+              ).toFixed(2)}
+
+            </h3>
+
+          </div>
+
+        </div>
+
+        <div
+          className={`status-card ${
+            summary.status === "DONE"
+              ? "status-done"
+              : summary.status === "PENDING"
+              ? "status-pending"
+              : "status-advance"
+          }`}
+        >
+
+          {summary.status === "DONE" ? (
+
+            <>
+              🟢 Payment Completed
+            </>
+
+          ) : summary.status === "PENDING" ? (
+
+            <>
+              🟠 Payment Pending
+
+              <br />
+
+              ₹ {Number(
+                summary.due_amount || 0
+              ).toFixed(2)}
+            </>
+
+          ) : (
+
+            <>
+              🔵 Advance Payment
+
+              <br />
+
+              ₹ {Number(
+                summary.advance_amount || 0
+              ).toFixed(2)}
+            </>
+
+          )}
+
+        </div>
 
       </div>
 
     </div>
-  );
-}
 
+);} 
 export default Payment;
