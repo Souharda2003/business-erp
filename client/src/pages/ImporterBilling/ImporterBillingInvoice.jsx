@@ -128,10 +128,19 @@ function ImporterBillingInvoice() {
 
   return (
     <div className="page">
-      <BackButton />
+ <div className="rodtep-header">
+        <BackButton />
+<div className="rodtep-heading">
 
-      <br />
+<h1 className="page-title">
+Importer Billing Invoice
+</h1>
 
+<p className="page-subtitle">
+View & Download Importer Billing Invoice
+</p>
+
+</div></div>
       <div ref={invoiceRef}>
         {pages.map((pageItems, pageIndex) => (
           <div key={pageIndex} className="invoice-sheet">
@@ -379,18 +388,11 @@ function ImporterBillingInvoice() {
           </div>
         ))}
       </div>
-
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: "25px",
-          marginBottom: "40px",
-        }}
-      >
-        <button className="download-pdf-btn" onClick={downloadPDF}>
-          Download PDF
-        </button>
-      </div>
+       <div className="invoice-button-area">
+<button className="pdfButton" onClick={downloadPDF}>
+Download PDF
+</button>
+</div>
     </div>
   );
 }

@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BackButton from "../../components/BackButton";
-
 import {
   saveImporterBilling,
   updateImporterBilling,
   getImporterBillingById,
 } from "../../services/importerBilling";
-
 import "../../css/importerBilling.css";
-
 function ImporterBilling() {
   const { id } = useParams();
 const preventScroll = (e) => {
@@ -17,72 +14,41 @@ const preventScroll = (e) => {
 };
   const [form, setForm] = useState({
     invoice_no: "",
-
     lc_no: "",
-
     entry_date: "",
-
     importer_name: "",
-
     lc_payment: "",
-
     extra_charge: "",
-
     item_total: 0,
-
     grand_total: 0,
   });
-
   const [currentItem, setCurrentItem] = useState({
     quantity: "",
-
     unit: "KG",
-
     bag: "",
-
     price: "",
-
     amount: 0,
   });
-
   const [items, setItems] = useState([]);
-
   const [editIndex, setEditIndex] = useState(null);
-
   const units = [
     "KG",
-
     "GM",
-
     "MG",
-
     "TON",
-
     "MT",
-
     "BAG",
-
     "PCS",
-
     "BOX",
-
     "CTN",
-
     "DOZEN",
-
     "LTR",
-
     "ML",
-
     "ROLL",
-
     "SET",
-
     "PAIR",
-
     "NOS",
   ];
-
   useEffect(() => {
     if (id) {
       loadImporterBilling();
@@ -341,180 +307,263 @@ const preventScroll = (e) => {
       }
     }
   };
-  return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+ return (
+  <div className="page importer-page">
 
-        <h1 className="page-title" style={{ margin: 0 }}>
+    <div className="importer-header">
+
+      <BackButton />
+
+      <div className="importer-heading">
+
+        <h1 className="page-title">
           Importer Billing
         </h1>
+
+        <p className="page-subtitle">
+          Create and manage importer billing information.
+        </p>
+
       </div>
 
-      <form className="form-container" onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="form-group">
-            <label>Invoice No</label>
+    </div>
 
-            <input
-              name="invoice_no"
-              value={form.invoice_no}
-              onChange={handleChange}
-            />
-          </div>
+    <form
+      className="form-container importer-card"
+      onSubmit={handleSubmit}
+    >
 
-          <div className="form-group">
-            <label>LC No</label>
+      <div className="row">
 
-            <input
-              name="lc_no"
-              value={form.lc_no}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
+        <div className="form-group">
 
-        <div className="row">
-          <div className="form-group">
-            <label>Date</label>
+          <label>Invoice No</label>
 
-            <input
-              type="date"
-              name="entry_date"
-              value={form.entry_date}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <input
+            type="text"
+            name="invoice_no"
+            value={form.invoice_no}
+            onChange={handleChange}
+            placeholder="Enter Invoice Number"
+          />
 
-          <div className="form-group">
-            <label>LC Payment</label>
-
-            <input
-              type="number"
-              name="lc_payment"
-              value={form.lc_payment}
-              onChange={handleChange}
-            />
-          </div>
         </div>
 
         <div className="form-group">
-          <label>Importer Name</label>
+
+          <label>LC No</label>
 
           <input
-            name="importer_name"
-            value={form.importer_name}
+            type="text"
+            name="lc_no"
+            value={form.lc_no}
+            onChange={handleChange}
+            placeholder="Enter LC Number"
+            required
+          />
+
+        </div>
+
+      </div>
+
+      <div className="row">
+
+        <div className="form-group">
+
+          <label>Entry Date</label>
+
+          <input
+            type="date"
+            name="entry_date"
+            value={form.entry_date}
             onChange={handleChange}
             required
           />
-        </div>
 
-        <hr />
-
-        <h3>Add Item</h3>
-        <div className="row">
-          <div className="form-group">
-            <label>Quantity</label>
-
-            <input
-              type="number"
-              name="quantity"
-              value={currentItem.quantity}
-              onChange={handleItemChange}
-              min="0"
-              step="0.01"
-              onWheel={preventScroll}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Unit</label>
-
-            <select
-              name="unit"
-              value={currentItem.unit}
-              onChange={handleItemChange}
-
-            >
-              <option value="KG">KG</option>
-              <option value="GM">GM</option>
-              <option value="MG">MG</option>
-              <option value="TON">TON</option>
-              <option value="MT">MT</option>
-              <option value="BAG">BAG</option>
-              <option value="PCS">PCS</option>
-              <option value="BOX">BOX</option>
-              <option value="CTN">CTN</option>
-              <option value="DOZEN">DOZEN</option>
-              <option value="LTR">LTR</option>
-              <option value="ML">ML</option>
-              <option value="ROLL">ROLL</option>
-              <option value="SET">SET</option>
-              <option value="PAIR">PAIR</option>
-              <option value="NOS">NOS</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="form-group">
-            <label>Bag</label>
-
-            <input
-              type="number"
-              name="bag"
-              value={currentItem.bag}
-              onChange={handleItemChange}
-              min="0"
-              step="0.01"
-              onWheel={preventScroll}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Price</label>
-
-            <input
-              type="number"
-              name="price"
-              value={currentItem.price}
-              onChange={handleItemChange}
-              min="0"
-              step="0.01"
-              onWheel={preventScroll}
-            />
-          </div>
         </div>
 
         <div className="form-group">
-          <label>Amount</label>
 
-          <input value={Number(currentItem.amount).toFixed(2)} readOnly />
+          <label>LC Payment</label>
+
+          <input
+            type="number"
+            name="lc_payment"
+            value={form.lc_payment}
+            onChange={handleChange}
+            min="0"
+            step="0.01"
+            onWheel={preventScroll}
+            placeholder="Enter LC Payment"
+          />
+
         </div>
 
-        <div className="button-row">
-          <button type="button" className="primary-btn" onClick={addItem}>
-            {editIndex !== null ? "Update Item" : "Add Item"}
-          </button>
+      </div>
+
+      <div className="form-group">
+
+        <label>Importer Name</label>
+
+        <input
+          type="text"
+          name="importer_name"
+          value={form.importer_name}
+          onChange={handleChange}
+          placeholder="Enter Importer Name"
+          required
+        />
+
+      </div>
+
+      <hr />
+
+      <h3 className="section-title">
+        Add Item Details
+      </h3>
+            <div className="row">
+
+        <div className="form-group">
+
+          <label>Quantity</label>
+
+          <input
+            type="number"
+            name="quantity"
+            value={currentItem.quantity}
+            onChange={handleItemChange}
+            min="0"
+            step="0.01"
+            onWheel={preventScroll}
+            placeholder="Enter Quantity"
+          />
+
         </div>
 
-        <hr />
+        <div className="form-group">
 
-        <h3>Item List</h3>
+          <label>Unit</label>
+
+          <select
+            name="unit"
+            value={currentItem.unit}
+            onChange={handleItemChange}
+          >
+
+            <option value="KG">KG</option>
+
+            <option value="GM">GM</option>
+
+            <option value="MG">MG</option>
+
+            <option value="TON">TON</option>
+
+            <option value="MT">MT</option>
+
+            <option value="BAG">BAG</option>
+
+            <option value="PCS">PCS</option>
+
+            <option value="BOX">BOX</option>
+
+            <option value="CTN">CTN</option>
+
+            <option value="DOZEN">DOZEN</option>
+
+            <option value="LTR">LTR</option>
+
+            <option value="ML">ML</option>
+
+            <option value="ROLL">ROLL</option>
+
+            <option value="SET">SET</option>
+
+            <option value="PAIR">PAIR</option>
+
+            <option value="NOS">NOS</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+      <div className="row">
+
+        <div className="form-group">
+
+          <label>Bag</label>
+
+          <input
+            type="number"
+            name="bag"
+            value={currentItem.bag}
+            onChange={handleItemChange}
+            min="0"
+            step="0.01"
+            onWheel={preventScroll}
+            placeholder="Enter Bag"
+          />
+
+        </div>
+
+        <div className="form-group">
+
+          <label>Price</label>
+
+          <input
+            type="number"
+            name="price"
+            value={currentItem.price}
+            onChange={handleItemChange}
+            min="0"
+            step="0.01"
+            onWheel={preventScroll}
+            placeholder="Enter Price"
+          />
+
+        </div>
+
+      </div>
+
+      <div className="form-group">
+
+        <label>Amount</label>
+
+        <input
+          value={Number(currentItem.amount).toFixed(2)}
+          readOnly
+        />
+
+      </div>
+
+      <div className="button-row">
+
+        <button
+          type="button"
+          className="primary-btn importer-btn"
+          onClick={addItem}
+        >
+          {editIndex !== null ? "Update Item" : "Add Item"}
+        </button>
+
+      </div>
+
+      <hr />
+
+      <h3 className="section-title">
+        Item List
+      </h3>
+
+      <div className="table-wrapper">
 
         <table className="item-table">
+
           <thead>
+
             <tr>
-              <th>Sl</th>
+
+              <th>SL</th>
 
               <th>Quantity</th>
 
@@ -527,27 +576,31 @@ const preventScroll = (e) => {
               <th>Amount</th>
 
               <th>Action</th>
+
             </tr>
+
           </thead>
 
           <tbody>
             {items.length === 0 ? (
+
               <tr>
+
                 <td
                   colSpan="7"
-                  style={{
-                    textAlign: "center",
-                    padding: "15px",
-                    fontWeight: "bold",
-                    color: "red",
-                  }}
+                  className="empty-row"
                 >
                   No Item Added
                 </td>
+
               </tr>
+
             ) : (
+
               items.map((item, index) => (
+
                 <tr key={index}>
+
                   <td>{index + 1}</td>
 
                   <td>{item.quantity}</td>
@@ -561,32 +614,51 @@ const preventScroll = (e) => {
                   <td>{Number(item.amount).toFixed(2)}</td>
 
                   <td>
-                    <button
-                      type="button"
-                      className="edit-btn"
-                      onClick={() => editItem(index)}
-                    >
-                      Edit
-                    </button>
 
-                    <button
-                      type="button"
-                      className="delete-btn"
-                      onClick={() => deleteItem(index)}
-                      style={{ marginLeft: "8px" }}
-                    >
-                      Delete
-                    </button>
+                    <div className="action-buttons">
+
+                      <button
+                        type="button"
+                        className="edit-btn"
+                        onClick={() => editItem(index)}
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        type="button"
+                        className="delete-btn"
+                        onClick={() => deleteItem(index)}
+                      >
+                        Delete
+                      </button>
+
+                    </div>
+
                   </td>
+
                 </tr>
+
               ))
+
             )}
+
           </tbody>
+
         </table>
 
-        <hr />
+      </div>
+
+      <hr />
+
+      <h3 className="summary-title">
+        Billing Summary
+      </h3>
+
+      <div className="summary-box">
 
         <div className="form-group">
+
           <label>Extra Charge</label>
 
           <input
@@ -596,31 +668,85 @@ const preventScroll = (e) => {
             onChange={handleChange}
             min="0"
             step="0.01"
+            placeholder="Enter Extra Charge"
+            onWheel={preventScroll}
           />
+
         </div>
 
         <div className="row">
+
           <div className="form-group">
+
             <label>Item Total</label>
 
-            <input value={Number(form.item_total).toFixed(2)} readOnly />
+            <input
+              value={Number(form.item_total).toFixed(2)}
+              readOnly
+            />
+
           </div>
 
           <div className="form-group">
+
             <label>Grand Total</label>
 
-            <input value={Number(form.grand_total).toFixed(2)} readOnly />
+            <input
+              value={Number(form.grand_total).toFixed(2)}
+              readOnly
+            />
+
           </div>
+
+        </div>
+                <div className="summary-row">
+
+          <span>Item Total</span>
+
+          <span>
+            ₹ {Number(form.item_total).toFixed(2)}
+          </span>
+
         </div>
 
-        <div className="button-row">
-          <button type="submit" className="primary-btn">
-            {id ? "Update Importer Billing" : "Save Importer Billing"}
-          </button>
+        <div className="summary-row">
+
+          <span>Extra Charge</span>
+
+          <span>
+            ₹ {Number(form.extra_charge || 0).toFixed(2)}
+          </span>
+
         </div>
-      </form>
-    </div>
-  );
+
+        <div className="summary-total">
+
+          <span>Grand Total</span>
+
+          <span>
+            ₹ {Number(form.grand_total).toFixed(2)}
+          </span>
+
+        </div>
+
+      </div>
+
+      <div className="button-row">
+
+        <button
+          type="submit"
+          className="primary-btn importer-btn"
+        >
+          {id
+            ? "Update Importer Billing"
+            : "Save Importer Billing"}
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+);
 }
-
 export default ImporterBilling;
