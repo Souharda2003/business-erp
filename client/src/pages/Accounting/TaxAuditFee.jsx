@@ -152,42 +152,41 @@ const getFinancialYear = (date) => {
   };
 
   return (
+   <div className="lc-page">
+<div className="lc-header">
+  <BackButton />
 
-    <div className="page">
+  <div>
+    <h1 className="page-title">
+      Tax Audit Fee Management
+    </h1>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
-
-        <h1 className="page-title" style={{ margin: 0 }}>
-          Tax Audit Fee Management
-        </h1>
-      </div>
+    <p className="page-subtitle">
+      Add Tax Audit Fee Details
+    </p>
+  </div>
+</div>
       <form
         className="form-container"
         onSubmit={handleSubmit}
       >
-
+<div className="form-group">
         <input
           type="date"
           name="date"
           value={form.date}
           onChange={handleChange}
-        />
-
+          />
+          </div>
+<div className="form-group">
         <input
           name="name"
           value={form.name}
           placeholder="Name"
           onChange={handleChange}
-        />
-
+          />
+          </div>
+<div className="form-group">
         <input
           type="number"
           name="amount"
@@ -197,14 +196,16 @@ const getFinancialYear = (date) => {
           step="0.01"
           onChange={handleChange}
           onWheel={preventScroll}
-        />
-
+          />
+          </div>
+<div className="form-group">
         <input
           name="financial_year"
           value={form.financial_year}
           placeholder="Financial Year"
           readOnly
-        />
+          />
+          </div>
 
         <div className="button-row">
 

@@ -200,20 +200,21 @@ const amountInWords = (num) => {
     );
   }
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+    <div className="invoice-page">
+  <div className="invoice-page-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 style={{ margin: 0 }}>Government Fee Invoice</h1>
-      </div>
+<h1 className="page-title">
+Government Fee Invoice
+</h1>
 
+<p className="page-subtitle">
+View & Download Government Fee Invoice
+</p>
+
+</div>
+ </div>
       <div className="government-invoice" ref={pdfRef}>
         <div className="invoice-top-header">
           <div className="office-left">
@@ -253,7 +254,12 @@ const amountInWords = (num) => {
 
             <p>
               <b>Total</b>
-              &nbsp;&nbsp; ₹{Number(invoice.total_amount || 0).toFixed(2)}
+              &nbsp;&nbsp;  ₹{" "}
+
+    {Number(invoice.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
             </p>
 
             <p>
@@ -366,21 +372,46 @@ const amountInWords = (num) => {
                   : invoice.fee_description}
               </td>
 
-              <td>₹{Number(invoice.amount || 0).toFixed(2)}</td>
+              <td> ₹{" "}
+
+    {Number(invoice.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
 
               <td>{Number(invoice.cgst_percent || 0).toFixed(2)}%</td>
 
-              <td>₹{Number(invoice.cgst_amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
+
+    {Number(invoice.cgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
 
               <td>{Number(invoice.sgst_percent || 0).toFixed(2)}%</td>
 
-              <td>₹{Number(invoice.sgst_amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
+
+    {Number(invoice.sgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
 
               <td>{Number(invoice.igst_percent || 0).toFixed(2)}%</td>
 
-              <td>₹{Number(invoice.igst_amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
 
-              <td>₹{Number(invoice.total_amount || 0).toFixed(2)}</td>
+    {Number(invoice.igst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
+
+              <td> ₹{" "}
+
+    {Number(invoice.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
             </tr>
 
             <tr
@@ -392,21 +423,46 @@ const amountInWords = (num) => {
             >
               <td colSpan="2">Total</td>
 
-              <td>₹{Number(invoice.amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
+
+    {Number(invoice.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
 
               <td>{Number(invoice.cgst_percent || 0).toFixed(2)}%</td>
 
-              <td>₹{Number(invoice.cgst_amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
+
+    {Number(invoice.cgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
 
               <td>{Number(invoice.sgst_percent || 0).toFixed(2)}%</td>
 
-              <td>₹{Number(invoice.sgst_amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
+
+    {Number(invoice.sgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
 
               <td>{Number(invoice.igst_percent || 0).toFixed(2)}%</td>
 
-              <td>₹{Number(invoice.igst_amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
 
-              <td>₹{Number(invoice.total_amount || 0).toFixed(2)}</td>
+    {Number(invoice.igst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
+
+              <td> ₹{" "}
+
+    {Number(invoice.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
             </tr>
           </tbody>
         </table>
@@ -421,7 +477,12 @@ const amountInWords = (num) => {
                     <b>Total Invoice Value (in figure)</b>
                   </td>
 
-                  <td>₹ {Number(invoice.total_amount || 0).toFixed(2)}</td>
+                  <td> ₹{" "}
+
+    {Number(invoice.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
                 </tr>
 
                 <tr>
@@ -492,7 +553,14 @@ const amountInWords = (num) => {
             <tr>
               <td>{invoice.invoice_no}</td>
 
-              <td>₹ {Number(invoice.total_amount || 0).toFixed(2)}</td>
+              <td>    ₹{" "}
+
+    {Number(invoice.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
+
+</td>
             </tr>
 
             <tr>
@@ -530,39 +598,25 @@ const amountInWords = (num) => {
 
         <br />
 
-        <div className="signature-section">
-          <div className="signature-box">
-            <div className="signature-line"></div>
+        <div className="signature-wrapper">
+                    <div>
+                      _______________________
+                      <br />
+                      Prepared By
+                    </div>
 
-            <p>Prepared By</p>
-          </div>
-
-          <div className="signature-box">
-            <div className="signature-line"></div>
-
-            <p>Checked By</p>
-          </div>
-
-          <div className="signature-box">
-            <div className="signature-line"></div>
-
-            <p>Authorized Signatory</p>
-          </div>
-        </div>
+                    <div>
+                      _______________________
+                      <br />
+                      Authorized Signatory
+                    </div>
+                  </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "30px",
-          gap: "15px",
-          flexWrap: "wrap",
-        }}
-      >
-        <button className="download-btn" onClick={downloadPDF}>
-          Download PDF
-        </button>
-      </div>
+       <div className="invoice-button-area">
+<button className="pdfButton" onClick={downloadPDF}>
+Download PDF
+</button>
+</div>
     </div>
   );
 }

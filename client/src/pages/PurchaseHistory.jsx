@@ -344,7 +344,13 @@ function PurchaseHistory() {
                 </div>
                 <hr />
                 <div className="summary-grand-total">
-                  Grand Total : ₹{Number(item.total_amount || 0).toFixed(2)}
+                  Grand Total : ₹{" "} {Number(totalPurchase).toLocaleString(
+                  "en-IN",
+                  {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  },
+                )}
                 </div>
               </div>
             ))}

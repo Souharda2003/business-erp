@@ -144,35 +144,30 @@ function GovernmentFeeHistory() {
   );
 
   return (
-    <div className="app">
-  <div className="main-content reports-full">
-     <Navbar
-  financialYear={financialYear}
-  setFinancialYear={setFinancialYear}
-/>
+  <div className="page lc-page">
+
+    <div className="lc-header">
+      <BackButton />
+
+      <div>
+        <h1 className="page-title">
+          Export Inspection Council History
+        </h1>
+
+        <p className="page-subtitle">
+          View & Manage Export Inspection Council Records
+        </p>
+      </div>
+    </div>
+    <div className="form-container history-filter-card">
+
+      <div className="history-filter-row">
+
+        <div className="form-group">
+
+          <label>Search Type</label>
 
 
-        <div className="page">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "15px",
-              marginBottom: "20px",
-            }}
-          >
-            <BackButton />
-
-            <h1 style={{ margin: 0 }}>Export Inspection Council History</h1>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              flexWrap: "wrap",
-              marginBottom: "20px",
-            }}
-          >
             <select
               value={searchType}
               onChange={(e) => {
@@ -193,11 +188,10 @@ function GovernmentFeeHistory() {
 
               <option value="year">Year</option>
             </select>
-
             {searchType === "month" ? (
               <select
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
               >
                 <option value="1">January</option>
 
@@ -225,25 +219,25 @@ function GovernmentFeeHistory() {
               </select>
             ) : customYear ? (
               <input
-                type="number"
-                value={searchValue}
-                placeholder="Enter Year"
-                min="2000"
-                max="2100"
-                onChange={(e) => setSearchValue(e.target.value)}
+              type="number"
+              value={searchValue}
+              placeholder="Enter Year"
+              min="2000"
+              max="2100"
+              onChange={(e) => setSearchValue(e.target.value)}
               />
             ) : (
               <select
-                value={searchValue}
-                onChange={(e) => {
-                  if (e.target.value === "custom") {
-                    setCustomYear(true);
-
-                    setSearchValue("");
-                  } else {
-                    setSearchValue(e.target.value);
-                  }
-                }}
+              value={searchValue}
+              onChange={(e) => {
+                if (e.target.value === "custom") {
+                  setCustomYear(true);
+                  
+                  setSearchValue("");
+                } else {
+                  setSearchValue(e.target.value);
+                }
+              }}
               >
                 <option value="2024">2024</option>
 
@@ -258,64 +252,31 @@ function GovernmentFeeHistory() {
                 <option value="custom">Custom</option>
               </select>
             )}
+            </div>
 
-            <button className="search-btn" onClick={handleSearch}>
-              Search
-            </button>
-            {customFinancialYear ? (
-              <input
-                type="text"
-                placeholder="Example : 2030-2031"
-                value={financialYear}
-                onChange={(e) => setFinancialYear(e.target.value)}
-              />
-            ) : (
-              <select
-                value={financialYear}
-                onChange={(e) => {
-                  if (e.target.value === "custom") {
-                    setCustomFinancialYear(true);
 
-                    setFinancialYear("");
-                  } else {
-                    setFinancialYear(e.target.value);
-                  }
-                }}
-              >
-                <option value="2024-2025">2024-2025</option>
+        <div className="form-group search-btn-group">
 
-                <option value="2025-2026">2025-2026</option>
-
-                <option value="2026-2027">2026-2027</option>
-
-                <option value="2027-2028">2027-2028</option>
-
-                <option value="2028-2029">2028-2029</option>
-
-                <option value="custom">Custom</option>
-              </select>
-            )}
-          </div>
-
-          <h2
-            style={{
-              textAlign: "center",
-              marginBottom: "20px",
-            }}
+          <button
+            type="button"
+            className="primary-btn"
+            onClick={handleSearch}
           >
+            Search Government Fee
+          </button>
+
+        </div>
+            </div></div>
+
+    <div className="history-report-title">
+
+      <h2>
             Export Inspection Council Report
           </h2>
 
           <p>
             <b>Search By :</b> {searchType === "month" ? "Month" : "Year"}
           </p>
-
-          <br />
-          <p>
-            <b>Financial Year :</b> {financialYear}
-          </p>
-
-          <br />
           <p>
             <b>Value :</b>{" "}
             {searchType === "month"
@@ -323,9 +284,23 @@ function GovernmentFeeHistory() {
               : searchValue}
           </p>
 
-          <br />
+</div>
+<div className="form-container history-table-card">
 
-          <table className="table">
+      <div className="history-table-header">
+
+        <h2>Government Fee Records</h2>
+
+        <span>
+          Total Records : {list.length}
+        </span>
+
+      </div>
+
+      <div className="history-table-wrapper">
+
+        <table className="history-table">
+
             <thead>
               <tr>
                 <th>Invoice No</th>
@@ -339,10 +314,9 @@ function GovernmentFeeHistory() {
                 <th>Fee Type</th>
 
                 <th>Total Amount</th>
-                <th>Financial Year</th>
                 <th>Date</th>
 
-                <th className="action-column">Action</th>
+                <th>Action</th>
               </tr>
             </thead>
 
@@ -351,12 +325,7 @@ function GovernmentFeeHistory() {
                 <tr>
                   <td
                     colSpan="8"
-                    style={{
-                      textAlign: "center",
-                      padding: "20px",
-                      color: "red",
-                      fontWeight: "bold",
-                    }}
+                  className="history-empty"
                   >
                     No Government Fee Record Found
                   </td>
@@ -378,8 +347,13 @@ function GovernmentFeeHistory() {
                         : item.fee_description}
                     </td>
 
-                    <td>₹{Number(item.total_amount || 0).toFixed(2)}</td>
-                    <td>{item.financial_year}</td>
+                    <td>                ₹{" "}
+
+    {Number(item.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
+</td>
                     <td>
                       {item.entry_date
                         ? new Date(item.entry_date).toLocaleDateString("en-GB")
@@ -418,88 +392,45 @@ function GovernmentFeeHistory() {
             </tbody>
           </table>
 
-          <br />
-          <div
-            style={{
-              background: "#ffffff",
+      </div>
 
-              padding: "25px",
+    </div>
+    <div className="lc-total-card">
 
-              borderRadius: "12px",
-
-              boxShadow: "0 2px 10px rgba(0,0,0,0.10)",
-
-              textAlign: "center",
-            }}
-          >
-            <h2
-              style={{
-                color: "#2563eb",
-              }}
-            >
+            <h2>
               Total Government Fee Amount
             </h2>
 
-            <h1
-              style={{
-                color: "#16a34a",
-
-                fontSize: "40px",
-              }}
-            >
-              ₹{Number(totalAmount).toFixed(2)}
-            </h1>
+            <h1 >₹{" "}{Number(totalAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h1>
           </div>
-          <div
-            style={{
-              background: "#f8fafc",
-              padding: "20px",
-              marginTop: "30px",
-              borderRadius: "10px",
-            }}
-          >
-            <h2
-              style={{
-                color: "#2563eb",
-                marginBottom: "20px",
-              }}
-            >
+          <div  className ="lc-summary-card">
+            <h2 className ="summary-title">
               Government Fee Summary
             </h2>
 
             <hr />
 
             {list.length === 0 ? (
-              <p
-                style={{
-                  textAlign: "center",
-                  color: "red",
-                  fontWeight: "bold",
-                }}
-              >
+              <div className="summary-empty">
                 No Government Fee Summary Found
-              </p>
+              </div>
             ) : (
               <>
                 {list.map((item) => (
-                  <div
-                    key={item.id}
-                    style={{
-                      background: "#ffffff",
-                      padding: "20px",
-                      marginTop: "20px",
-                      borderRadius: "10px",
-                      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        color: "#16a34a",
-                        marginBottom: "15px",
-                      }}
-                    >
+
+            <div
+              className="summary-entry-card"
+              key={item.id}
+            >
+
+              <h3>
                       Government Fee Entry
                     </h3>
+                    <div className="summary-grid">
+                      
                     <p>
                       <b>Invoice : </b> {item.invoice_no}
                     </p>
@@ -534,109 +465,100 @@ function GovernmentFeeHistory() {
                     </p>
 
                     <p>
-                      <b>Amount : </b> ₹{Number(item.amount || 0).toFixed(2)}
+                      <b>Amount : </b>                 ₹{" "}
+
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
+
                     </p>
 
                     <p>
-                      <b>CGST : </b> {Number(item.cgst_percent || 0).toFixed(2)}
-                      %
+                      <b>CGST : </b>{Number(item.cgst_percent || 0).toFixed(2)} %
                     </p>
 
                     <p>
-                      <b>CGST Amount : </b> ₹
-                      {Number(item.cgst_amount || 0).toFixed(2)}
+                      <b>CGST Amount : </b> ₹{" "}
+
+    {Number(item.cgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </p>
+
+                    <p>
+                      <b>SGST : </b>{Number(item.sgst_percent || 0).toFixed(2)} %
+                      </p>
+                    
+                    <p>
+                      <b>SGST Amount : </b> ₹{" "}
+
+    {Number(item.sgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </p>
+
+                    <p>
+                      <b>IGST : </b> {Number(item.igst_percent || 0).toFixed(2)}%
                     </p>
 
                     <p>
-                      <b>SGST : </b> {Number(item.sgst_percent || 0).toFixed(2)}
-                      %
-                    </p>
+                      <b>IGST Amount : </b>₹{" "}
 
-                    <p>
-                      <b>SGST Amount : </b> ₹
-                      {Number(item.sgst_amount || 0).toFixed(2)}
-                    </p>
-
-                    <p>
-                      <b>IGST : </b> {Number(item.igst_percent || 0).toFixed(2)}
-                      %
-                    </p>
-
-                    <p>
-                      <b>IGST Amount : </b> ₹
-                      {Number(item.igst_amount || 0).toFixed(2)}
-                    </p>
-
+    {Number(item.igst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </p></div>
                     <hr />
+<div className="summary-grand-total">
+                      Total Amount : ₹{" "}
 
-                    <h2
-                      style={{
-                        color: "#16a34a",
-                      }}
-                    >
-                      Total Amount : ₹
-                      {Number(item.total_amount || 0).toFixed(2)}
-                    </h2>
+    {Number(item.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </div>
                   </div>
                 ))}
 
-                <div
-                  style={{
-                    background: "#ecfdf5",
-                    padding: "20px",
-                    borderRadius: "12px",
-                    marginTop: "25px",
-                  }}
-                >
-                  <h2
-                    style={{
-                      color: "#16a34a",
-                    }}
-                  >
-                    Grand Total : ₹ {Number(totalAmount).toFixed(2)}
-                  </h2>
-                  <h3
-                    style={{
-                      color: "#2563eb",
-                    }}
-                  >
-                    Total Payment Amount : ₹ {Number(totalPayment).toFixed(2)}
-                  </h3>
-                  <h3
-                    style={{
-                      color: "#2563eb",
-                    }}
-                  >
-                    Total CGST : ₹ {Number(totalCGST).toFixed(2)}
-                  </h3>
+                  <div className="summary-overall-card">
+                  <h2>
+                    Grand Total :     ₹{" "}
 
-                  <h3
-                    style={{
-                      color: "#2563eb",
-                    }}
-                  >
-                    Total SGST : ₹ {Number(totalSGST).toFixed(2)}
-                  </h3>
+    {Number(totalAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h2>
+                  <h3>
+                    Total Payment Amount :     ₹{" "}
 
-                  <h3
-                    style={{
-                      color: "#2563eb",
-                    }}
-                  >
-                    Total IGST : ₹ {Number(totalIGST).toFixed(2)}
-                  </h3>
-                  <h3
-                    style={{
-                      color: "#9333ea",
-                    }}
-                  >
-                    Financial Year :{financialYear}
-                  </h3>
-                  <h3
-                    style={{
-                      color: "#dc2626",
-                    }}
-                  >
+    {Number(totalPayment).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h3>
+                  <h3>
+                    Total CGST :     ₹{" "}
+
+    {Number(totalCGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h3>
+
+                  <h3>
+                    Total SGST :     ₹{" "}
+
+    {Number(totalSGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h3>
+
+                  <h3>
+                    Total IGST :    ₹{" "}
+
+    {Number(totalIGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h3>
+                  <h3>
                     Total Records : {list.length}
                   </h3>
                 </div>
@@ -644,8 +566,6 @@ function GovernmentFeeHistory() {
             )}
           </div>
         </div>
-      </div>
-    </div>
   );
 }
 

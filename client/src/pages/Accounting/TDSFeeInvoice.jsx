@@ -149,12 +149,21 @@ function TDSFeeInvoice() {
   };
 
   return (
-    <div className="invoice-page">
-      <div className="invoice-top">
+<div className="invoice-page">
+  <div className="invoice-page-header">
         <BackButton />
+<div className="rodtep-heading">
 
-      </div>
+<h1 className="page-title">
+TDS Fee Invoice
+</h1>
 
+<p className="page-subtitle">
+View & Download TDS Fee Invoice
+</p>
+
+</div>
+ </div>
       <div className="tds-invoice" ref={invoiceRef}>
         <div className="invoice-header">
           <h1>{company.company_name}</h1>
@@ -277,7 +286,11 @@ function TDSFeeInvoice() {
           <div className="summary-row">
             <span>Gross Amount</span>
 
-            <span>₹{Number(data.gross_amount || 0).toFixed(2)}</span>
+            <span>₹
+              {Number(data.gross_amount || 0).toLocaleString("en-IN", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}</span>
           </div>
 
           <div
@@ -290,7 +303,11 @@ function TDSFeeInvoice() {
           >
             <span>TDS Payable</span>
 
-            <span>₹{Number(data.tds_payable || 0).toFixed(2)}</span>
+            <span>₹
+              {Number(data.tds_payable || 0).toLocaleString("en-IN", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}</span>
           </div>
         </div>
 
@@ -316,26 +333,29 @@ function TDSFeeInvoice() {
         </div>
 
 
-        <div className="signature-section">
-          <div className="signature-box">
-            <div className="signature-line"></div>
+         <div className="signature-wrapper">
+                    <div>
+                      _______________________
+                      <br />
+                      Prepared By
+                    </div>
 
-            <p>Prepared By</p>
-          </div>
-          <div className="signature-box">
-            <div className="signature-line"></div>
-
-            <p>Authorized Signatory</p>
-          </div>
-        </div>
+                    <div>
+                      _______________________
+                      <br />
+                      Authorized Signatory
+                    </div>
+                  </div>
 
         <div className="invoice-footer">
           <p>Computer Generated Document</p>
         </div>
       </div>
-              <button className="download-btn" onClick={downloadPDF}>
-                Download PDF
-              </button>
+      <div className="invoice-button-area">
+<button className="pdfButton" onClick={downloadPDF}>
+Download PDF
+</button>
+</div>
     </div>
   );
 }

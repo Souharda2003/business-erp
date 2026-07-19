@@ -327,20 +327,30 @@ return (
 
                 <td className="amount-cell">
 
-                  ₹{Number(item.total_amount).toLocaleString()}
+            ₹{" "}
 
+    {Number(item.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </td>
 
                 <td style={{ color: "#6fffb5", fontWeight: 700 }}>
+    ₹{" "}
 
-                  ₹{Number(item.payment_received).toLocaleString()}
-
+    {Number(item.payment_received).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </td>
 
                 <td style={{ color: "#ff7675", fontWeight: 700 }}>
+    ₹{" "}
 
-                  ₹{pending.toLocaleString()}
-
+    {Number(pending).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </td>
 
                 <td>
@@ -517,26 +527,32 @@ return (
 
               <p>
 
-                <b>Total Amount :</b>{" "}
+                <b>Total Amount :</b>    ₹{" "}
 
-                ₹{Number(item.total_amount).toFixed(2)}
-
+    {Number(item.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </p>
 
               <p>
 
-                <b>Received :</b>{" "}
+                <b>Received :</b>    ₹{" "}
 
-                ₹{Number(item.payment_received).toFixed(2)}
-
+    {Number(item.payment_received).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </p>
 
               <p>
 
-                <b>Pending :</b>{" "}
+                <b>Pending :</b>    ₹{" "}
 
-                ₹{pending.toFixed(2)}
-
+    {Number(pending).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </p>
 
             </div>
@@ -545,10 +561,12 @@ return (
 
             <div className="summary-grand-total">
 
-              Grand Total : ₹
+              Grand Total :  ₹{" "}
 
-              {Number(item.total_amount).toFixed(2)}
-
+    {Number(totalSales).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
             </div>
 
           </div>

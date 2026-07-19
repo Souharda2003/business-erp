@@ -83,9 +83,6 @@ payment_received: Number(
   };
   const handleSubmit = async (e) => {
   e.preventDefault();
-
-  // Validation
-
   if (form.lc_number.trim() === "") {
     alert("LC Number Required");
     return;

@@ -34,10 +34,6 @@ function IncomeTaxFeeInvoice() {
 
     address: "",
 
-    gstin: "",
-
-    iec_code: "",
-
     phone: "",
 
     email: "",
@@ -140,9 +136,6 @@ avoid:[
 
       .save();
   };
-
-  // -------- Amount In Words --------
-
   const numberToWords = (num) => {
     const formatter = new Intl.NumberFormat("en-IN", {
       minimumFractionDigits: 2,
@@ -220,38 +213,27 @@ avoid:[
   }
 
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-
-          alignItems: "center",
-
-          gap: "15px",
-
-          marginBottom: "20px",
-        }}
-      >
+   <div className="invoice-page">
+  <div className="invoice-page-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 style={{ margin: 0 }}>Income Tax Fee Invoice</h1>
+<h1 className="page-title">
+Income Tax Fee Invoice
+</h1>
 
-      </div>
+<p className="page-subtitle">
+View & Download Income Tax Fee Invoice
+</p>
 
+</div>
+ </div>
       <div className="income-tax-invoice" ref={pdfRef}>
         <div className="invoice-header">
           <div className="company-left">
             <h1>{company.company_name}</h1>
 
             <h3>INCOME TAX FEE INVOICE</h3>
-
-            <p>
-              <b>GSTIN :</b> {company.gstin}
-            </p>
-
-            <p>
-              <b>IEC :</b> {company.iec_code}
-            </p>
 
             <p>
               <b>Address :</b> {company.address}
@@ -317,19 +299,6 @@ avoid:[
 
               {company.company_name}
             </p>
-
-            <p>
-              <b>GSTIN :</b>
-
-              {company.gstin}
-            </p>
-
-            <p>
-              <b>IEC :</b>
-
-              {company.iec_code}
-            </p>
-
             <p>
               <b>State :</b>
 
@@ -423,7 +392,16 @@ avoid:[
           <div className="summary-row">
             <span>Income Tax Fee Amount</span>
 
-            <span>₹{Number(invoice.amount || 0).toFixed(2)}</span>
+            <span>₹
+                  {Number(invoice.amount || 0).toLocaleString(
+                    "en-IN",
+
+                    {
+                      minimumFractionDigits: 2,
+
+                      maximumFractionDigits: 2,
+                    },
+                  )}</span>
           </div>
 
           <div
@@ -436,7 +414,16 @@ avoid:[
           >
             <span>Total Payable</span>
 
-            <span>₹{Number(invoice.amount || 0).toFixed(2)}</span>
+            <span>₹
+                  {Number(invoice.amount || 0).toLocaleString(
+                    "en-IN",
+
+                    {
+                      minimumFractionDigits: 2,
+
+                      maximumFractionDigits: 2,
+                    },
+                  )}</span>
           </div>
         </div>
 
@@ -468,30 +455,27 @@ avoid:[
           </p>
         </div>
 
-        <div className="signature-section">
-          <div className="signature-card">
-            <div className="signature-line"></div>
+       <div className="signature-wrapper">
+                    <div>
+                      _______________________
+                      <br />
+                      Prepared By
+                    </div>
 
-            <p>Prepared By</p>
-          </div>
-          <div className="signature-card">
-            <div className="signature-line"></div>
-
-            <p>Authorized Signatory</p>
-          </div>
-        </div>
-          <strong>***** Computer Generated Document *****</strong>
+                    <div>
+                      _______________________
+                      <br />
+                      Authorized Signatory
+                    </div>
+                  </div>
+          <strong> **Computer Generated Document** </strong>
 
       </div>
-        <button
-          className="download-btn"
-          onClick={downloadPDF}
-          style={{
-            marginLeft: "auto",
-          }}
-        >
-          Download PDF
-        </button>
+       <div className="invoice-button-area">
+<button className="pdfButton" onClick={downloadPDF}>
+Download PDF
+</button>
+</div>
     </div>
   );
 }

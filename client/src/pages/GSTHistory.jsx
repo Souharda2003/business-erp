@@ -408,6 +408,7 @@ function GSTHistory() {
                   <b>Total GST :</b> ₹{Number(item.total_gst || 0).toFixed(2)}
                 </p>
             </div>
+            <hr/>
                 <div className="summary-grand-total">
                   GST Payable : ₹{Number(item.total_gst || 0).toFixed(2)}
                 </div>

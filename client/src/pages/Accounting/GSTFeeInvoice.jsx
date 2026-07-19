@@ -33,11 +33,6 @@ function GSTFeeInvoice() {
     company_name: "",
 
     address: "",
-
-    gstin: "",
-
-    iec_code: "",
-
     phone: "",
 
     email: "",
@@ -182,19 +177,20 @@ const amountInWords = (num) => {
     );
   }
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+    <div className="invoice-page">
+  <div className="invoice-page-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 style={{ margin: 0 }}>GST Fee Invoice</h1>
-      </div>
+<h1 className="page-title">
+GST Fee Invoice
+</h1>
+
+<p className="page-subtitle">
+View & Download GST Fee Invoice
+</p>
+
+</div></div>
 
       <div className="gstfee-invoice" ref={pdfRef}>
         <div className="invoice-header">
@@ -267,19 +263,6 @@ const amountInWords = (num) => {
 
               {company.company_name}
             </p>
-
-            <p>
-              <b>GSTIN :</b>
-
-              {company.gstin}
-            </p>
-
-            <p>
-              <b>IEC :</b>
-
-              {company.iec_code}
-            </p>
-
             <p>
               <b>State :</b>
 
@@ -352,7 +335,16 @@ const amountInWords = (num) => {
                   <b>Total Amount</b>
                 </td>
 
-                <td>₹{Number(invoice.amount || 0).toFixed(2)}</td>
+                <td> ₹
+            {Number(invoice.amount || 0).toLocaleString(
+              "en-IN",
+
+              {
+                minimumFractionDigits: 2,
+
+                maximumFractionDigits: 2,
+              },
+            )}</td>
               </tr>
 
               <tr>
@@ -381,7 +373,16 @@ const amountInWords = (num) => {
           <div className="summary-row">
             <span>GST Fee Amount</span>
 
-            <span>₹{Number(invoice.amount || 0).toFixed(2)}</span>
+            <span> ₹
+            {Number(invoice.amount || 0).toLocaleString(
+              "en-IN",
+
+              {
+                minimumFractionDigits: 2,
+
+                maximumFractionDigits: 2,
+              },
+            )}</span>
           </div>
 
           <div
@@ -394,7 +395,16 @@ const amountInWords = (num) => {
           >
             <span>Total Payable</span>
 
-            <span>₹{Number(invoice.amount || 0).toFixed(2)}</span>
+            <span> ₹
+            {Number(invoice.amount || 0).toLocaleString(
+              "en-IN",
+
+              {
+                minimumFractionDigits: 2,
+
+                maximumFractionDigits: 2,
+              },
+            )}</span>
           </div>
         </div>
 
@@ -436,19 +446,19 @@ const amountInWords = (num) => {
         </div>
 
 
-        <div className="signature-section">
-          <div className="signature-box">
-            <div className="signature-line"></div>
+        <div className="signature-wrapper">
+                    <div>
+                      _______________________
+                      <br />
+                      Prepared By
+                    </div>
 
-            <p>Prepared By</p>
-          </div>
-
-          <div className="signature-box">
-            <div className="signature-line"></div>
-
-            <p>Authorized Signatory</p>
-          </div>
-        </div>
+                    <div>
+                      _______________________
+                      <br />
+                      Authorized Signatory
+                    </div>
+                  </div>
 
         <div className="company-footer">
           <div>
@@ -465,16 +475,14 @@ const amountInWords = (num) => {
             fontSize: "13px",
           }}
         >
-          <p>********** COMPUTER GENERATED GST FEE INVOICE **********</p>
+          <p>COMPUTER GENERATED GST FEE INVOICE</p>
         </div>
       </div>
-      <button
-        className="download-btn"
-        onClick={downloadPDF}
-        style={{ marginLeft: "auto" }}
-      >
-        Download PDF
-      </button>
+    <div className="invoice-button-area">
+<button className="pdfButton" onClick={downloadPDF}>
+Download PDF
+</button>
+</div>
     </div>
   );
 }

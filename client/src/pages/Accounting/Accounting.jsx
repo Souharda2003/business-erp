@@ -1,39 +1,23 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import BackButton from "../../components/BackButton";
-
 import { getAccountingSummary } from "../../services/dashboard";
-
-import "../../css/dashboard.css";
-
+import "../../css/accounting.css";
 function Accounting() {
-
   const navigate = useNavigate();
-
   const [summary, setSummary] = useState({
-
     government_fee: 0,
-
     gst_fee: 0,
-
     income_tax_fee: 0,
-
     tax_audit_fee: 0,
-
     tds_fee: 0,
-
   });
 const getCurrentFinancialYear = () => {
-
   const today = new Date();
-
   const year = today.getFullYear();
-
   const month = today.getMonth() + 1;
-
   return month >= 4
     ? `${year}-${year + 1}`
     : `${year - 1}-${year}`;
@@ -86,35 +70,25 @@ const [financialYear, setFinancialYear] = useState(
     Number(summary.tds_fee || 0);
 
   return (
+ <div className="page accounting-page">
 
-    <div className="app">
-  <div className="main-content reports-full">
-     <Navbar
-  financialYear={financialYear}
-  setFinancialYear={setFinancialYear}
-/>
+    <div className="rodtep-header">
 
+      <BackButton />
 
-        <div className="page">
+      <div className="rodtep-heading">
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "15px",
-              marginBottom: "20px",
-            }}
-          >
+        <h1 className="page-title">
+          Accounting Charges
+        </h1>
 
-            <BackButton />
+        <p className="page-subtitle">
+          View & Manage Accounting Credit Records
+        </p>
 
-            <h1 style={{ margin: 0 }}>
+      </div>
 
-              Accounting Charges
-
-            </h1>
-
-          </div>
+    </div>
 
           <div className="card-container">
 
@@ -130,8 +104,12 @@ const [financialYear, setFinancialYear] = useState(
 
               <h2>
 
-                ₹{Number(summary.government_fee||0).toFixed(2)}
+    ₹{" "}
 
+    {Number(summary.government_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h2>
 
               <p>View History</p>
@@ -149,9 +127,12 @@ const [financialYear, setFinancialYear] = useState(
               <h3>GST Fee</h3>
 
               <h2>
+    ₹{" "}
 
-                ₹{Number(summary.gst_fee||0).toFixed(2)}
-
+    {Number(summary.gst_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h2>
 
               <p>View History</p>
@@ -170,8 +151,12 @@ const [financialYear, setFinancialYear] = useState(
 
               <h2>
 
-                ₹{Number(summary.income_tax_fee||0).toFixed(2)}
+    ₹{" "}
 
+    {Number(summary.income_tax_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h2>
 
               <p>View History</p>
@@ -188,9 +173,12 @@ const [financialYear, setFinancialYear] = useState(
               <h3>Tax Audit Fee</h3>
 
               <h2>
+    ₹{" "}
 
-                ₹{Number(summary.tax_audit_fee||0).toFixed(2)}
-
+    {Number(summary.tax_audit_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h2>
 
               <p>View History</p>
@@ -209,8 +197,12 @@ const [financialYear, setFinancialYear] = useState(
 
               <h2>
 
-                ₹{Number(summary.tds_fee||0).toFixed(2)}
+    ₹{" "}
 
+    {Number(summary.tds_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h2>
 
               <p>View History</p>
@@ -219,65 +211,30 @@ const [financialYear, setFinancialYear] = useState(
 
           </div>
 
-          <br />
-
-          <div
-            style={{
-
-              background: "#ffffff",
-
-              padding: "25px",
-
-              borderRadius: "12px",
-
-              boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-
-              textAlign: "center",
-
-            }}
-          >
-
-            <h2
-              style={{
-                color: "#2563eb",
-                marginBottom: "15px",
-              }}
-            >
+   <div className="lc-total-card ">
+            <h2>
 
               Total Accounting Charges
 
             </h2>
 
-            <h1
-              style={{
-                color: "#16a34a",
-                fontSize: "40px",
-              }}
-            >
+            <h1>
 
-              ₹{Number(totalAccountingCharge).toFixed(2)}
+    ₹{" "}
 
+    {Number(totalAccountingCharge).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
             </h1>
 
           </div>
+    <div className="lc-summary-card">
 
-          <br />
-
-          <div
-            style={{
-
-              background: "#f8fafc",
-
-              padding: "20px",
-
-              borderRadius: "10px",
-
-            }}
-          >
-
-            <h3>Accounting Summary</h3>
+            <h3 className="summary-title">Accounting Summary</h3>
 
             <hr />
+ <div className="summary-grid">
 
             <p>
 
@@ -285,8 +242,12 @@ const [financialYear, setFinancialYear] = useState(
 
               <b>
 
-                ₹{Number(summary.government_fee||0).toFixed(2)}
+    ₹{" "}
 
+    {Number(summary.government_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </b>
 
             </p>
@@ -297,8 +258,12 @@ const [financialYear, setFinancialYear] = useState(
 
               <b>
 
-                ₹{Number(summary.gst_fee||0).toFixed(2)}
+    ₹{" "}
 
+    {Number(summary.gst_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </b>
 
             </p>
@@ -308,9 +273,12 @@ const [financialYear, setFinancialYear] = useState(
               Income Tax Fee :
 
               <b>
+    ₹{" "}
 
-                ₹{Number(summary.income_tax_fee||0).toFixed(2)}
-
+    {Number(summary.income_tax_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </b>
 
             </p>
@@ -320,9 +288,12 @@ const [financialYear, setFinancialYear] = useState(
               Tax Audit Fee :
 
               <b>
+    ₹{" "}
 
-                ₹{Number(summary.tax_audit_fee||0).toFixed(2)}
-
+    {Number(summary.tax_audit_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </b>
 
             </p>
@@ -332,57 +303,28 @@ const [financialYear, setFinancialYear] = useState(
               TDS Fee :
 
               <b>
+    ₹{" "}
 
-                ₹{Number(summary.tds_fee||0).toFixed(2)}
-
+    {Number(summary.tds_fee).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </b>
 
             </p>
+              </div>
+              <hr/>
+<div className="summary-grand-total">
 
-            <hr />
+              Total :    ₹{" "}
 
-            <h2
-              style={{
-                color: "#16a34a",
-              }}
-            >
-
-              Total :
-
-              ₹{Number(totalAccountingCharge).toFixed(2)}
-
-            </h2>
-
+    {Number(totalAccountingCharge).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
+  </div>
           </div>
-          {/* <div
-                  style={{
-                    background: "#ecfdf5",
-                    padding: "20px",
-                    borderRadius: "12px",
-                    marginTop: "25px",
-                  }}
-                >
-                  <h2
-                    style={{
-                      color: "#16a34a",
-                    }}
-                  >
-                     Total Charges : ₹{Number(totalAccountingCharge).toFixed(2)}
-                  </h2>
-          <h3
-                    style={{
-                      color: "#dc2626",
-                    }}
-                  >
-                    Total Records : {list.length}
-                  </h3>
-                </div> */}
-
         </div>
-
-      </div>
-
-    </div>
 
   );
 

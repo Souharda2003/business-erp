@@ -127,22 +127,21 @@ setForm({
   calculate(updated);
 };
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+     <div className="lc-page">
+<div className="lc-header">
+  <BackButton />
 
-        <h1 className="page-title" style={{ margin: 0 }}>
-          Export Inspection Council
-        </h1>
-      </div>
-      <form className="form-container" onSubmit={handleSubmit}>
+  <div>
+    <h1 className="page-title">
+      Export Inspection Council
+    </h1>
+
+    <p className="page-subtitle">
+      Add Export Inspection Council Details
+    </p>
+  </div>
+</div>
+      <form className="form-container lc-card" onSubmit={handleSubmit}>
         <div className="row">
           <div className="form-group">
             <label>Invoice No</label>

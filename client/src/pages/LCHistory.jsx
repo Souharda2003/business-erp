@@ -499,7 +499,7 @@ return (
                 </p>
 
               </div>
-
+<hr/>
               <div className="summary-grand-total">
 
                 LC Amount : $

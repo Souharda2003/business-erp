@@ -124,35 +124,30 @@ function IncomeTaxFeeHistory() {
   );
 
   return (
-    <div className="app">
-  <div className="main-content reports-full">
-     <Navbar
-  financialYear={financialYear}
-  setFinancialYear={setFinancialYear}
-/>
+  <div className="page lc-page">
 
-        <div className="page">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "15px",
-              marginBottom: "20px",
-            }}
-          >
-            <BackButton />
+    <div className="lc-header">
+      <BackButton />
 
-            <h1 style={{ margin: 0 }}>Income Tax Fee History</h1>
-          </div>
+      <div>
+        <h1 className="page-title">
+          Income Tax Fee History
+        </h1>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              flexWrap: "wrap",
-              marginBottom: "20px",
-            }}
-          >
+        <p className="page-subtitle">
+          View & Manage Income Tax Fee Records
+        </p>
+      </div>
+    </div>
+<div className="form-container history-filter-card">
+
+      <div className="history-filter-row">
+
+        <div className="form-group">
+
+          <label>Search Type</label>
+
+
             <select
               value={searchType}
               onChange={(e) => {
@@ -237,74 +232,52 @@ function IncomeTaxFeeHistory() {
                 <option value="custom">Custom</option>
               </select>
             )}
+</div>
+            <div className="form-group search-btn-group">
 
-            <button className="search-btn" onClick={handleSearch}>
-              Search
-            </button>
-            {customFinancialYear ? (
-              <input
-                type="text"
-                placeholder="2029-2030"
-                value={financialYear}
-                onChange={(e) => setFinancialYear(e.target.value)}
-              />
-            ) : (
-              <select
-                value={financialYear}
-                onChange={(e) => {
-                  if (e.target.value === "custom") {
-                    setCustomFinancialYear(true);
+          <button
+            type="button"
+            className="primary-btn"
+            onClick={handleSearch}
+          >
+            Search Income Tax Fee
+          </button>
 
-                    setFinancialYear("");
-                  } else {
-                    setFinancialYear(e.target.value);
-                  }
-                }}
-              >
-                <option value="2024-2025">2024-2025</option>
-
-                <option value="2025-2026">2025-2026</option>
-
-                <option value="2026-2027">2026-2027</option>
-
-                <option value="2027-2028">2027-2028</option>
-
-                <option value="2028-2029">2028-2029</option>
-
-                <option value="custom">Custom</option>
-              </select>
-            )}
+        </div></div>
           </div>
 
-          <h2
-            style={{
-              textAlign: "center",
-              marginBottom: "20px",
-            }}
-          >
+ <div className="history-report-title">
+
+      <h2>
             Income Tax Fee Report
           </h2>
 
           <p>
             <b>Search By :</b> {searchType === "month" ? "Month" : "Year"}
           </p>
-
-          <br />
-          <p>
-            <b>Financial Year :</b> {financialYear}
-          </p>
-
-          <br />
           <p>
             <b>Value :</b>{" "}
             {searchType === "month"
               ? monthNames[Number(searchValue)]
               : searchValue}
           </p>
+</div>
+<div className="form-container history-table-card">
 
-          <br />
+      <div className="history-table-header">
 
-          <table className="table">
+        <h2>Income Tax Fee Records</h2>
+
+        <span>
+          Total Records : {list.length}
+        </span>
+
+      </div>
+
+      <div className="history-table-wrapper">
+
+        <table className="history-table">
+
             <thead>
               <tr>
                 <th>Date</th>
@@ -315,7 +288,7 @@ function IncomeTaxFeeHistory() {
 
                 <th>Financial Year</th>
 
-                <th className="action-column">Action</th>
+                <th>Action</th>
               </tr>
             </thead>
 
@@ -324,12 +297,7 @@ function IncomeTaxFeeHistory() {
                 <tr>
                   <td
                     colSpan="5"
-                    style={{
-                      textAlign: "center",
-                      padding: "20px",
-                      color: "red",
-                      fontWeight: "bold",
-                    }}
+                    className="history-empty"
                   >
                     No Income Tax Fee Record Found
                   </td>
@@ -345,7 +313,12 @@ function IncomeTaxFeeHistory() {
 
                     <td>{item.applicant_name}</td>
 
-                    <td>₹{Number(item.amount || 0).toFixed(2)}</td>
+                    <td>    ₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
+</td>
 
                     <td>{item.financial_year}</td>
 
@@ -380,85 +353,42 @@ function IncomeTaxFeeHistory() {
               )}
             </tbody>
           </table>
+</div></div>
+    <div className="lc-total-card">
 
-          <br />
-
-          <div
-            style={{
-              background: "#ffffff",
-              padding: "25px",
-              borderRadius: "12px",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.10)",
-              textAlign: "center",
-            }}
-          >
-            <h2
-              style={{
-                color: "#2563eb",
-              }}
-            >
+            <h2>
               Total Income Tax Fee Amount
             </h2>
 
-            <h1
-              style={{
-                color: "#16a34a",
-                fontSize: "40px",
-              }}
-            >
-              ₹{Number(totalAmount).toFixed(2)}
-            </h1>
+            <h1 >₹{" "}
+    {Number(totalAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h1>
           </div>
-          <div
-            style={{
-              background: "#f8fafc",
-              padding: "20px",
-              marginTop: "30px",
-              borderRadius: "10px",
-            }}
-          >
-            <h2
-              style={{
-                color: "#2563eb",
-                marginBottom: "20px",
-              }}
-            >
+          <div  className ="lc-summary-card">
+            <h2 className ="summary-title">
               Income Tax Fee Summary
             </h2>
 
             <hr />
 
             {list.length === 0 ? (
-              <p
-                style={{
-                  textAlign: "center",
-                  color: "red",
-                  fontWeight: "bold",
-                }}
-              >
+              <div className="summary-empty">
                 No Income Tax Fee Summary Found
-              </p>
+              </div>
             ) : (
               <>
                 {list.map((item) => (
-                  <div
-                    key={item.id}
-                    style={{
-                      background: "#ffffff",
-                      padding: "20px",
-                      marginTop: "20px",
-                      borderRadius: "10px",
-                      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        color: "#16a34a",
-                        marginBottom: "15px",
-                      }}
-                    >
+                   <div
+              className="summary-entry-card"
+              key={item.id}
+            >
+
+              <h3>
                       Income Tax Fee Entry
                     </h3>
+<div className="summary-grid">
 
                     <p>
                       <b>Entry Date : </b>{" "}
@@ -472,53 +402,39 @@ function IncomeTaxFeeHistory() {
                     </p>
 
                     <p>
-                      <b>Amount : </b> ₹{Number(item.amount || 0).toFixed(2)}
-                    </p>
+                      <b>Amount : </b>₹{" "}{Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</p>
 
                     <p>
                       <b>Financial Year : </b> {item.financial_year}
                     </p>
 
+                    </div>
                     <hr />
-
-                    <h2
-                      style={{
-                        color: "#16a34a",
-                      }}
-                    >
-                      Total Amount : ₹ {Number(item.amount || 0).toFixed(2)}
-                    </h2>
+<div className="summary-grand-total">
+                      Total Amount : ₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </div>
                   </div>
                 ))}
 
-                <div
-                  style={{
-                    background: "#ecfdf5",
-                    padding: "20px",
-                    borderRadius: "12px",
-                    marginTop: "25px",
-                  }}
-                >
-                  <h2
-                    style={{
-                      color: "#16a34a",
-                    }}
-                  >
-                    Grand Total : ₹ {Number(totalAmount).toFixed(2)}
-                  </h2>
 
-                  <h3
-                    style={{
-                      color: "#9333ea",
-                    }}
-                  >
+                  <div className="summary-overall-card">
+                  <h2>
+                    Grand Total :     ₹{" "}
+
+    {Number(totalAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h2>
+                  <h3>
                     Financial Year :{financialYear}
                   </h3>
-                  <h3
-                    style={{
-                      color: "#dc2626",
-                    }}
-                  >
+                  <h3>
                     Total Records : {list.length}
                   </h3>
                 </div>
@@ -526,8 +442,6 @@ function IncomeTaxFeeHistory() {
             )}
           </div>
         </div>
-      </div>
-    </div>
   );
 }
 

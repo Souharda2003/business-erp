@@ -181,42 +181,43 @@ const preventScroll = (e) => {
 
 };
   return (
+   <div className="lc-page">
+<div className="lc-header">
+  <BackButton />
 
-    <div className="page">
+  <div>
+    <h1 className="page-title">
+     Income Tax Fee Management
+    </h1>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
-
-        <h1 className="page-title" style={{ margin: 0 }}>
-          Income Tax Fee Management
-        </h1>
-      </div>
-
+    <p className="page-subtitle">
+      Add Income Tax Fee Details
+    </p>
+  </div>
+</div>
       <form
-        className="form-container"
+        className="form-container lc-card"
         onSubmit={handleSubmit}
       >
+<div className="form-group">
 
         <input
           type="date"
           name="entry_date"
           value={form.entry_date}
           onChange={handleChange}
-        />
+          />
+          </div>
+<div className="form-group">
 
         <input
           name="applicant_name"
           value={form.applicant_name}
           placeholder="Applicant Name"
           onChange={handleChange}
-        />
+          />
+          </div>
+<div className="form-group">
 
         <input
           type="number"
@@ -227,7 +228,9 @@ const preventScroll = (e) => {
           step="0.01"
           onChange={handleChange}
           onWheel={preventScroll}
-        />
+          />
+          </div>
+<div className="form-group">
 
         <input
           type="text"
@@ -235,7 +238,8 @@ const preventScroll = (e) => {
           value={form.financial_year}
           placeholder="Financial Year"
           readOnly
-        />
+          />
+          </div>
 
         <div className="button-row">
 

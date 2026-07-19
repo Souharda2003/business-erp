@@ -405,19 +405,19 @@ View & Download GST Invoice
             </p>
           </div>
 
-          <div className="signature-section">
-            <div className="signature-box">
-              <div className="signature-line"></div>
+          <div className="signature-wrapper">
+                    <div>
+                      _______________________
+                      <br />
+                      Prepared By
+                    </div>
 
-              <p>Prepared By</p>
-            </div>
-
-            <div className="signature-box">
-              <div className="signature-line"></div>
-
-              <p>Authorized Signatory</p>
-            </div>
-          </div>
+                    <div>
+                      _______________________
+                      <br />
+                      Authorized Signatory
+                    </div>
+                  </div>
         </div>
       </div>
   <div className="invoice-button-area">

@@ -183,35 +183,21 @@ const amountInWords = (num) => {
   };
 
   return (
-
-    <div className="page">
-
-      <div
-
-        style={{
-
-          display: "flex",
-
-          alignItems: "center",
-
-          gap: "15px",
-
-          marginBottom: "20px"
-
-        }}
-
-      >
-
+   <div className="invoice-page">
+  <div className="invoice-page-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 style={{ margin: 0 }}>
+<h1 className="page-title">
+Tax Audit Fee Invoice
+</h1>
 
-          Tax Audit Fee Invoice
+<p className="page-subtitle">
+View & Download Tax Audit Fee Invoice
+</p>
 
-        </h1>
-
-      </div>
-
+</div>
+ </div>
       <div
 
         className="taxaudit-invoice"
@@ -251,23 +237,6 @@ const amountInWords = (num) => {
               {company.address}
 
             </p>
-
-            <p>
-
-              <b>GSTIN :</b>
-
-              {company.gstin}
-
-            </p>
-
-            <p>
-
-              <b>PAN :</b>
-
-              {company.pan}
-
-            </p>
-
             <p>
 
               <b>Email :</b>
@@ -428,7 +397,11 @@ const amountInWords = (num) => {
           <div className="summary-row">
             <span>Tax Audit Fee Amount</span>
 
-            <span>₹{Number(fee.amount || 0).toFixed(2)}</span>
+            <span> ₹
+            {Number(fee.amount || 0).toLocaleString("en-IN", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}</span>
           </div>
 
           <div
@@ -441,10 +414,14 @@ const amountInWords = (num) => {
           >
             <span>Total Payable</span>
 
-            <span>₹{Number(fee.amount || 0).toFixed(2)}</span>
+            <span> ₹
+            {Number(fee.amount || 0).toLocaleString("en-IN", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}</span>
           </div>
         </div>
-<br/>
+<br/><br/>
 <div className="total-box">
           <h2>Total Tax Audit Fee</h2>
 
@@ -484,26 +461,19 @@ const amountInWords = (num) => {
         </div>
 
         <br />
-                <div className="signature-section">
+           <div className="signature-wrapper">
+                    <div>
+                      _______________________
+                      <br />
+                      Prepared By
+                    </div>
 
-          <div className="signature-card">
-
-            <div className="signature-line"></div>
-
-            <p>Prepared By</p>
-
-          </div>
-
-          <div className="signature-card">
-
-            <div className="signature-line"></div>
-
-            <p>Authorized Signatory</p>
-
-          </div>
-
-        </div>
-
+                    <div>
+                      _______________________
+                      <br />
+                      Authorized Signatory
+                    </div>
+                  </div>
         <br />
 
         <div className="invoice-footer">
@@ -517,39 +487,11 @@ const amountInWords = (num) => {
 
       </div>
 
-      <div
-
-        style={{
-
-          display: "flex",
-
-          justifyContent: "center",
-
-          gap: "15px",
-
-          marginTop: "25px",
-
-          marginBottom: "30px",
-
-          flexWrap: "wrap"
-
-        }}
-
-      >
-
-        <button
-
-          className="download-btn"
-
-          onClick={downloadPDF}
-
-        >
-
-          Download PDF
-
-        </button>
-
-      </div>
+       <div className="invoice-button-area">
+<button className="pdfButton" onClick={downloadPDF}>
+Download PDF
+</button>
+</div>
 
     </div>
 

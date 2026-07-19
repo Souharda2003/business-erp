@@ -187,81 +187,91 @@ financial_year:currentFinancialYear,
 
   };
 
-  return (
+  return (    <div className="lc-page">
+<div className="lc-header">
+  <BackButton />
 
-    <div className="page">
+  <div>
+    <h1 className="page-title">
+     TDS Fee Management
+    </h1>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
-
-        <h1 className="page-title" style={{ margin: 0 }}>
-          TDS Fee Management
-        </h1>
-      </div>
-
+    <p className="page-subtitle">
+      Add TDS Fee Details
+    </p>
+  </div>
+</div>
       <form
         className="form-container"
         onSubmit={handleSubmit}
       >
+<div className="form-group">
 
         <input
           name="name_of_party"
           value={form.name_of_party}
           placeholder="Name Of Party"
           onChange={handleChange}
-        />
+          />
+          </div>
+<div className="form-group">
 
         <input
           type="date"
           name="invoice_date"
           value={form.invoice_date}
           onChange={handleChange}
-        />
+          />
+          </div>
+<div className="form-group">
 
         <input
           name="invoice_no"
           value={form.invoice_no}
           placeholder="Invoice No"
           onChange={handleChange}
-        />
+          />
+          </div>
+<div className="form-group">
 
         <input
           name="code"
           value={form.code}
           placeholder="Code"
           onChange={handleChange}
-        />
+          />
+          </div>
+<div className="form-group">
 
         <input
           name="sec"
           value={form.sec}
           placeholder="SEC"
           onChange={handleChange}
-        />
+          />
+          </div>
+<div className="form-group">
 
         <input
           name="sec_p"
           value={form.sec_p}
           placeholder="SEC(P)"
           onChange={handleChange}
-        /><input
-          type="number"
+          />
+          </div>
+          <div className="form-group">
+          <input
           name="tds_percentage"
           value={form.tds_percentage}
           placeholder="TDS %"
           min="0"
           step="0.01"
           onChange={handleChange}
+          type="number"
           onWheel={preventScroll}
-        />
-
+          />
+          </div>
+<div className="form-group">
         <input
           type="number"
           name="gross_amount"
@@ -271,31 +281,35 @@ financial_year:currentFinancialYear,
           step="0.01"
           onChange={handleChange}
           onWheel={preventScroll}
-        />
-
+          />
+          </div>
+<div className="form-group">
         <input
           type="number"
           name="tds_amount"
           value={form.tds_amount}
           placeholder="TDS Amount"
           readOnly
-        />
-
+          />
+          </div>
+<div className="form-group">
         <input
           type="number"
           name="net_amount"
           value={form.net_amount}
           placeholder="Net Amount"
           readOnly
-        />
-
+          />
+          </div>
+<div className="form-group">
         <input
           type="number"
           name="tds_payable"
           value={form.tds_payable}
           placeholder="TDS Payable"
           readOnly
-        />
+          />
+          </div>
 
         <div className="button-row">
 

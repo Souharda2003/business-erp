@@ -634,8 +634,6 @@ const [financialYear, setFinancialYear] = useState("");
 
               </p>
 
-              <hr />
-
               <h2>
 
                 Total Amount : ₹
@@ -709,9 +707,6 @@ const [financialYear, setFinancialYear] = useState("");
                 ₹{Number(item.total_gst || 0).toFixed(2)}
 
               </p>
-
-              <hr />
-
               <h2>
 
                 Total Amount : ₹
