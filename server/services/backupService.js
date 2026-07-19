@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const archiver = require("archiver");
+const { ZipArchive } = require("archiver");
 const mysqldump = require("mysqldump");
 const db = require("../config/db");
 const BACKUP_DIR = path.join(__dirname, "..", "backups");
@@ -68,11 +68,11 @@ async function createBackup(user = "System") {
     await new Promise((resolve, reject) => {
       const output = fs.createWriteStream(zipPath);
 
-      const archive = archiver("zip", {
-        zlib: {
-          level: 9,
-        },
-      });
+      const archive = new ZipArchive({
+    zlib: {
+        level: 9,
+    },
+});
 
       output.on("close", () => {
         resolve();
