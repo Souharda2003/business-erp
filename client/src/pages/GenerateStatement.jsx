@@ -8,7 +8,7 @@ import StatementExcel from "../components/StatementExcel";
 import StatementPrint from "../components/StatementPrint";
 import StatementPDF from "../components/StatementPDF";
 import "../css/statement.css";
-
+import BackButton from "../components/BackButton";
 function GenerateStatement() {
   const [module, setModule] = useState("Purchase");
   const [search, setSearch] = useState("");
@@ -251,23 +251,21 @@ useEffect(() => {
     );
   };
   return (
-        <div className="statement-page">
-          <div className="statement-header">
-            <div className="statement-title">
-              <button className="back-btn" onClick={() => navigate(-1)}>
-               Back
-              </button>
+    <div className="lc-page">
+<div className="lc-header">
+      <BackButton />
+
 
               <div>
-                <h1>Generate Statement</h1>
+            <h1 className="page-title">
+                Generate Statement</h1>
 
-                <p>
+                <p className="page-subtitle">
                   Generate Professional PDF, & Excel   Ready Business
                   Statement
                 </p>
               </div>
             </div>
-          </div>
 
           <div className="statement-card">
             <div className="statement-grid">

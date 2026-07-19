@@ -6,7 +6,23 @@ align-items:center;
 
 gap:8px;
 
-background:#374151;
+   font-size:15px;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(
+    180deg,
+    #071321,
+    #08192c,
+    #0a2037);
+
+    border:1px solid rgba(212,175,55,.45);
+
+    transition:.35s;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
 
 color:white;
 
@@ -18,16 +34,15 @@ border-radius:8px;
 
 cursor:pointer;
 
-font-size:15px;
-
-font-weight:600;
-
-transition:0.3s;
 
 }
 
 .back-btn:hover{
+   transform:translateY(-4px);
 
-background:#1f2937;
+    border-color:#d4af37;
+
+    box-shadow:
+    0 20px 40px rgba(212,175,55,.35);
 
 }
