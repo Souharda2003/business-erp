@@ -77,7 +77,7 @@ View & Download Drawback Invoice
       <div className="invoice-action">
 
       </div>
-      <div className="drawback-container" ref={invoiceRef}>
+      <div className="invoice" ref={invoiceRef}>
 
         <div className="custom-header">
 
