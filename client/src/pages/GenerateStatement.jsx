@@ -251,13 +251,6 @@ useEffect(() => {
     );
   };
   return (
-    <div className="app">
-       <div className="main-content reports-full">
-     
-        <Navbar
-    financialYear={financialYear}
-    setFinancialYear={setFinancialYear}
-/>
         <div className="statement-page">
           <div className="statement-header">
             <div className="statement-title">
@@ -567,8 +560,6 @@ useEffect(() => {
             )}
           </div>
         </div>
-      </div>
-    </div>
   );
 }
 export default GenerateStatement;
