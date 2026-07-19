@@ -378,7 +378,9 @@ const getCurrentFinancialYear = () => {
             {backupHistory.length === 0 ? (
               <div className="backup-empty">No Backup Available</div>
             ) : (
-              <table className="backup-table">
+              <div className="history-table-wrapper">
+
+        <table className="history-table">
                 <thead>
                   <tr>
                     <th>Backup Name</th>
@@ -441,6 +443,7 @@ const getCurrentFinancialYear = () => {
                   ))}
                 </tbody>
               </table>
+              </div>
             )}
           </div>
 

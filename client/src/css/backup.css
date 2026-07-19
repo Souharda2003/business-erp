@@ -269,7 +269,7 @@ box-shadow:
 }
 
 .backup-table thead {
-  background: #2563eb;
+  background: #eb25e8;
 
   color: black;
 }
@@ -292,6 +292,21 @@ box-shadow:
 
 .backup-table tbody tr {
   transition: 0.3s;
+  
+    background:
+    linear-gradient(
+    180deg,
+    #071321,
+    #08192c,
+    #0a2037);
+
+    border:1px solid rgba(212,175,55,.45);
+
+    transition:.35s;
+color: whitesmoke;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
+
 }
 
 .backup-table tbody tr:hover {
@@ -332,33 +347,126 @@ box-shadow:
 }
 
 .download-btn {
-  background: #2563eb;
+  width:58px;
 
-  color: white;
+    height:58px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(
+    180deg,
+    #071321,
+    #08192c,
+    #0a2037);
+
+    border:1.8px solid rgba(212, 175, 55, 0.664);
+
+    transition:.35s;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
+
 }
 
 .download-btn:hover {
-  background: #1d4ed8;
+  transform:translateY(-4px);
+
+    border-color:#d4af37;
+background-color: #071321;
+    box-shadow:
+    0 20px 40px rgba(212,175,55,.35);
+
 }
 
 .restore-btn {
-  background: #16a34a;
+   margin-top: 25px;
 
-  color: white;
+  padding: 14px;
+
+ 
+ background:
+    linear-gradient(
+    180deg,
+    #071321,
+    #08192c,
+    #0a2037);
+
+    border:2px solid rgba(212, 175, 55, 0.75);
+
+
+
+  color:yellowgreen;
+  border-radius: 22px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  width: 220px;
+
+  transition: 0.3s;
+
 }
 
 .restore-btn:hover {
-  background: #15803d;
+  transform:translateY(-4px);
+
+    border-color:#d4af37;
+
+    box-shadow:
+    0 20px 40px rgba(134, 38, 224, 0.753);
 }
 
 .delete-btn {
-  background: #dc2626;
+   margin-top: 25px;
 
-  color: white;
+  padding: 14px;
+
+ 
+ background:
+    linear-gradient(
+    180deg,
+    #071321,
+    #08192c,
+    #0a2037);
+
+    border:2px solid rgba(212, 175, 55, 0.75);
+  color: #e53935;
+
+  border-radius: 22px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  width: 220px;
+
+  transition: 0.3s;
+
 }
 
 .delete-btn:hover {
-  background: #b91c1c;
+  transform:translateY(-4px);
+
+    border-color:#d4af37;
+background-color: #071321;
+    box-shadow:
+    0 20px 40px rgba(231, 76, 19, 0.654);
+
+
 }
 .backup-status-success {
 
@@ -369,13 +477,13 @@ box-shadow:
     #08192c,
     #0a2037);
 
-    border:1px solid rgba(212,175,55,.45);
+    border:1.2px solid rgba(209, 171, 44, 0.45);
 
     transition:.35s;
 
     box-shadow:
     0 10px 30px rgba(0,0,0,.35);
-  color: #166534;
+  color: wheat;
 
   padding: 6px 12px;
 
