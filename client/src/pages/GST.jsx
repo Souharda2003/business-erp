@@ -88,22 +88,15 @@ const preventScroll = (e) => {
   };
 
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+    <div className="page GST-page">
+      <div className="GST-header">
         <BackButton />
-
-        <h1 className="page-title" style={{ margin: 0 }}>
-          GST Management
-        </h1>
+        <div className="GST-heading">
+          <h1 className="page-title">GST Management</h1>
+          <p className="page-subtitle">Add GST Details</p>
+        </div>
       </div>
-      <form className="form-container" onSubmit={handleSubmit}>
+      <form className="form-container GST-card" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Invoice No</label>
 

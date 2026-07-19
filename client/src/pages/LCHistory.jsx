@@ -103,11 +103,6 @@ return (
         </p>
       </div>
     </div>
-
-    {/* ===========================
-        SEARCH FILTER
-    =========================== */}
-
     <div className="form-container history-filter-card">
 
       <div className="history-filter-row">
@@ -386,10 +381,6 @@ return (
       </div>
 
     </div>
-    
-    {/* ===========================
-        TOTAL CARD
-    =========================== */}
 
     <div className="lc-total-card">
 
@@ -406,21 +397,16 @@ return (
       </h1>
 
     </div>
-
-    {/* ===========================
-        SUMMARY
-    =========================== */}
-
     <div className="lc-summary-card">
 
       <h2 className="summary-title">
         LC Summary
       </h2>
-
+<hr/>
       {lcList.length === 0 ? (
 
         <div className="summary-empty">
-          No Summary Found
+          No LC Summary Found
         </div>
 
       ) : (

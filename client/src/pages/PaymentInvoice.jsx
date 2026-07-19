@@ -200,7 +200,7 @@ const loadCompanyProfile = async () => {
 
   return (
     <div className="page">
- <div className="rodtep-header">
+ <div className="invoice-page-header">
         <BackButton />
 <div className="rodtep-heading">
 

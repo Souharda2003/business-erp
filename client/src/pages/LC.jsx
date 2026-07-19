@@ -133,9 +133,6 @@ payment_received: Number(
     alert("Expiry Date cannot be before Issue Date");
     return;
   }
-
-  // Auto Pending
-
   const pendingAmount =
     Number(form.dollar_amount || 0) -
     Number(form.payment_received || 0);
@@ -167,9 +164,6 @@ payment_received: Number(
       alert(
         res.data.message || "LC Saved Successfully",
       );
-
-      // Reset Form
-
       setForm({
         lc_number: "",
         bank_name: "",

@@ -16,6 +16,8 @@ function GSTHistory() {
 
   const [searchType, setSearchType] = useState("month");
 
+  const [gstList, setgstList] = useState([]);
+
   const [searchValue, setSearchValue] = useState(currentMonth);
 
   const [customYear, setCustomYear] = useState(false);
@@ -113,27 +115,28 @@ function GSTHistory() {
   );
   const totalInvoice = totalTaxable + totalGST;
   return (
-    <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <BackButton />
+  <div className="page GST-page">
 
-        <h1 style={{ margin: 0 }}>GST History</h1>
+    <div className="GST-header">
+      <BackButton />
+
+      <div>
+        <h1 className="page-title">
+          GST History
+        </h1>
+
+        <p className="page-subtitle">
+          View & Manage GST Records
+        </p>
       </div>
+    </div>
+    <div className="form-container history-filter-card">
+      <div className="history-filter-row">
 
-      <div
-        style={{
-          display: "flex",
-          gap: "10px",
-          flexWrap: "wrap",
-        }}
-      >
+        <div className="form-group">
+
+          <label>Search Type</label>
+
         <select
           value={searchType}
           onChange={(e) => {
@@ -142,7 +145,7 @@ function GSTHistory() {
             setSearchType(type);
 
             setCustomYear(false);
-
+            
             if (type === "month") {
               setSearchValue(currentMonth);
             } else {
@@ -186,10 +189,10 @@ function GSTHistory() {
           </select>
         ) : customYear ? (
           <input
-            type="number"
-            placeholder="Enter Year"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+          type="number"
+          placeholder="Enter Year"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
           />
         ) : (
           <select
@@ -218,39 +221,52 @@ function GSTHistory() {
           </select>
         )}
 
-        <button className="search-btn" onClick={handleSearch}>
-          Search
-        </button>
+      <div className="form-group search-btn-group">
+
+          <button
+            type="button"
+            className="primary-btn"
+            onClick={handleSearch}
+          >
+            Search LC
+          </button>
+
+        </div>
+        </div>
       </div>
+      </div>
+          <div className="history-report-title">
 
-      <br />
-
-      <h2
-        style={{
-          textAlign: "center",
-        }}
-      >
+      <h2>
         GST Report
       </h2>
-
-      <br />
-
       <p>
         <b>Search By :</b>
 
         {searchType === "month" ? " Month" : " Year"}
       </p>
 
-      <br />
-
       <p>
         <b>Value :</b>
 
         {searchType === "month" ? monthNames[Number(searchValue)] : searchValue}
       </p>
+          </div>
+             <div className="form-container history-table-card">
 
-      <br />
-      <table className="table">
+      <div className="history-table-header">
+
+        <h2>GST Records</h2>
+
+        <span>
+          Total Records : {gstList.length}
+        </span>
+
+      </div>
+
+      <div className="history-table-wrapper">
+
+        <table className="history-table">
         <thead>
           <tr>
             <th>Invoice No</th>
@@ -275,13 +291,7 @@ function GSTHistory() {
             <tr>
               <td
                 colSpan="8"
-                style={{
-                  textAlign: "center",
-                  padding: "20px",
-                  color: "red",
-                  fontWeight: "bold",
-                }}
-              >
+                className="history-empty">
                 No GST Record Found
               </td>
             </tr>
@@ -299,11 +309,7 @@ function GSTHistory() {
                 <td>₹{Number(item.cgst_amount || 0).toFixed(2)}</td>
                 <td>₹{Number(item.sgst_amount || 0).toFixed(2)}</td>
                 <td
-                  style={{
-                    color: "#16a34a",
-                    fontWeight: "bold",
-                  }}
-                >
+                  className="amount-cell">
                   ₹{Number(item.total_gst || 0).toFixed(2)}
                 </td>
                 <td className="action-column">
@@ -335,21 +341,10 @@ function GSTHistory() {
           )}
         </tbody>
       </table>
-      <br />
-      <div
-        style={{
-          background: "#ffffff",
-          padding: "25px",
-          borderRadius: "12px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.10)",
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{
-            color: "#2563eb",
-          }}
-        >
+      </div>
+      </div>
+   <div className="lc-total-card">
+        <h2>
           Total GST Amount
         </h2>
         <h1
@@ -361,55 +356,30 @@ function GSTHistory() {
           ₹{Number(totalGST).toFixed(2)}
         </h1>
       </div>
-      <br />
-      <div
-        style={{
-          background: "#f8fafc",
-          padding: "20px",
-          borderRadius: "10px",
-          marginTop: "30px",
-        }}
-      >
-        <h2
-          style={{
-            color: "#2563eb",
-            marginBottom: "20px",
-          }}
-        >
+    <div className="lc-summary-card">
+
+      <h2 className="summary-title">
           GST Summary
         </h2>
         <hr />
         {gst.length === 0 ? (
-          <p
-            style={{
-              textAlign: "center",
-              color: "red",
-              fontWeight: "bold",
-            }}
-          >
-            No GST Summary Found
-          </p>
+   <div className="summary-empty">
+          No GST Summary Found
+        </div>
+
         ) : (
           <>
             {gst.map((item, index) => (
-              <div
-                key={item.id || index}
-                style={{
-                  background: "#ffffff",
-                  padding: "20px",
-                  marginTop: "20px",
-                  borderRadius: "10px",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                }}
-              >
-                <h3
-                  style={{
-                    color: "#16a34a",
-                    marginBottom: "15px",
-                  }}
-                >
+            <div
+              className="summary-entry-card"
+              key={item.id}
+            >
+
+                <h3>
                   GST Entry
                 </h3>
+                 <div className="summary-grid">
+
                 <p>
                   <b>Invoice No :</b> {item.invoice_no}
                 </p>
@@ -437,57 +407,29 @@ function GSTHistory() {
                 <p>
                   <b>Total GST :</b> ₹{Number(item.total_gst || 0).toFixed(2)}
                 </p>
-                <hr />
-                <h2
-                  style={{
-                    color: "#16a34a",
-                  }}
-                >
+            </div>
+                <div className="summary-grand-total">
                   GST Payable : ₹{Number(item.total_gst || 0).toFixed(2)}
-                </h2>
+                </div>
               </div>
             ))}
-            <div
-              style={{
-                background: "#ecfdf5",
-                padding: "20px",
-                borderRadius: "12px",
-                marginTop: "25px",
-              }}
-            >
-              <h2
-                style={{
-                  color: "#16a34a",
-                }}
-              >
+
+          <div className="summary-overall-card">
+
+            
+              <h2>
                 Total GST : ₹{Number(totalGST).toFixed(2)}
               </h2>
-              <h3
-                style={{
-                  color: "#2563eb",
-                }}
-              >
+              <h3>
                 Total Taxable Amount : ₹{Number(totalTaxable).toFixed(2)}
               </h3>
-              <h3
-                style={{
-                  color: "#ea580c",
-                }}
-              >
+              <h3>
                 Total CGST : ₹{Number(totalCGST).toFixed(2)}
               </h3>
-              <h3
-                style={{
-                  color: "#dc2626",
-                }}
-              >
+              <h3>
                 Total SGST : ₹{Number(totalSGST).toFixed(2)}
               </h3>
-              <h3
-                style={{
-                  color: "#2563eb",
-                }}
-              >
+              <h3>
                 Total Invoice Value : ₹{Number(totalInvoice).toFixed(2)}
               </h3>
 

@@ -170,19 +170,18 @@ function GSTInvoice() {
 
   return (
     <div className="page">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
+ <div className="invoice-page-header">
         <BackButton />
+<div className="rodtep-heading">
 
-        <h1 style={{ margin: 0 }}>GST Invoice</h1>
-      </div>
+<h1 className="page-title">
+GST Invoice
+</h1>
 
+<p className="page-subtitle">
+View & Download GST Invoice
+</p>
+</div></div>
       <div className="gst-invoice" ref={pdfRef}>
         <div className="gst-header">
           <h1>UTSAV INTERNATIONAL</h1>
@@ -421,24 +420,11 @@ function GSTInvoice() {
           </div>
         </div>
       </div>
-
-      <div
-        style={{
-          display: "flex",
-
-          justifyContent: "center",
-
-          gap: "15px",
-
-          marginTop: "25px",
-
-          flexWrap: "wrap",
-        }}
-      >
-        <button className="download-btn" onClick={downloadPDF}>
-          Download PDF
-        </button>
-      </div>
+  <div className="invoice-button-area">
+<button className="pdfButton" onClick={downloadPDF}>
+Download PDF
+</button>
+</div>
     </div>
   );
 }

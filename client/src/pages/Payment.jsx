@@ -129,7 +129,7 @@ Payment Management
 
 <p className="page-subtitle">
 
-Manage customer payments and transaction records
+Add customer payments and transaction records
 
 </p>
 
