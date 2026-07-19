@@ -17,10 +17,15 @@ function ActivityLog() {
 
   return (
     <div className="page">
-      <BackButton />
+<div className="lc-header">
+  <BackButton />
 
-      <h1 className="page-title">Activity Log</h1>
-
+  <div>
+    <h1 className="page-title">
+      Activity Log
+    </h1>
+  </div>
+</div>
       <div className="activity-card">
         {logs.length === 0 ? (
           <div className="emptyActivity">No Activity Found</div>

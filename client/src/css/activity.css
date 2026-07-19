@@ -22,13 +22,14 @@ margin-bottom:30px;
 
 .activity-card{
 
-background:white;
+background:rgba(13, 121, 216, 0.384);
 
 border-radius:22px;
+width:100%;
+max-width: 1200px;
+border:1px solid #d18306;
 
-border:1px solid #eadcc5;
-
-box-shadow:0 10px 30px rgba(0,0,0,.05);
+box-shadow:0 10px 30px rgba(10, 214, 122, 0.794);
 
 overflow:hidden;
 
@@ -44,7 +45,7 @@ align-items:center;
 
 padding:24px;
 
-border-bottom:1px solid #f0ece4;
+border-bottom:1.5px solid #c4870e;
 
 transition:.3s;
 
@@ -60,7 +61,8 @@ border:none;
 
 .activity-row:hover{
 
-background:#fcfaf7;
+
+background:rgba(39, 42, 26, 0.503);
 
 }
 
@@ -82,8 +84,9 @@ height:55px;
 
 border-radius:16px;
 
-background:#f8f4ec;
+background:#071321;
 
+    border:2px solid rgba(212, 175, 55, 0.704);
 display:flex;
 
 justify-content:center;
@@ -95,7 +98,15 @@ font-size:24px;
 flex-shrink:0;
 
 }
+.activity-icon:hover{
+  transform:translateY(-4px);
 
+    border-color:#d4af37;
+
+    box-shadow:
+    0 20px 40px rgba(212, 175, 55, 0.588);
+
+}
 .activity-user{
 
 font-size:20px;
@@ -128,7 +139,7 @@ letter-spacing:1px;
 
 font-size:15px;
 
-color:#666;
+color:#0beee7;
 
 line-height:24px;
 
@@ -142,10 +153,10 @@ margin-top:12px;
 
 padding:7px 14px;
 
-background:#f8f4ec;
+background:#071321;
 
 color:#c79a3b;
-
+ border:2px solid rgba(212, 175, 55, 0.699);
 border-radius:50px;
 
 font-size:13px;
@@ -153,14 +164,22 @@ font-size:13px;
 font-weight:600;
 
 }
+.activity-badge:hover{
+  
+    transform:translateY(-4px);
 
+    border-color:#d4af37;
+
+    box-shadow:
+    0 20px 40px rgba(212, 175, 55, 0.718);
+}
 .activity-time{
 
 text-align:right;
 
 font-size:14px;
 
-color:#777;
+color:rgb(10, 10, 10);
 
 min-width:170px;
 
@@ -174,7 +193,7 @@ text-align:center;
 
 font-size:22px;
 
-color:#888;
+color:black;
 
 }
 

@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
 import BackButton from "../components/BackButton";
 
 import {
@@ -64,9 +62,6 @@ const getCurrentFinancialYear = () => {
 
     return () => clearInterval(interval);
   }, [financialYear]);
-  // ===================================
-  // Load Backup History
-  // ===================================
 
   const loadBackupHistory = async () => {
     try {
@@ -93,10 +88,6 @@ const getCurrentFinancialYear = () => {
     }
   };
 
-  // ===================================
-  // Backup Status
-  // ===================================
-
   const loadBackupStatus = async () => {
     try {
       const res = await api.get("/backup/status");
@@ -110,11 +101,6 @@ const getCurrentFinancialYear = () => {
       setBackupStatus("Server Error");
     }
   };
-
-  // ===================================
-  // Manual Backup
-  // ===================================
-
   const handleManualBackup = async () => {
     try {
       setLoading(true);
@@ -146,10 +132,6 @@ const getCurrentFinancialYear = () => {
       setLoading(false);
     }
   };
-  // =========================================
-  // Download Backup
-  // =========================================
-
   const handleDownload = async (fileName) => {
     try {
       window.open(
@@ -163,11 +145,6 @@ const getCurrentFinancialYear = () => {
       setErrorMessage("Download Failed");
     }
   };
-
-  // =========================================
-  // Delete Backup
-  // =========================================
-
   const handleDelete = async (fileName) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this backup ?",
@@ -207,11 +184,6 @@ const getCurrentFinancialYear = () => {
       setLoading(false);
     }
   };
-
-  // =========================================
-  // Restore Backup
-  // =========================================
-
   const handleRestore = async (fileName) => {
     const confirmRestore = window.confirm(
       "Restore this backup ? Current database will be overwritten.",
@@ -250,9 +222,6 @@ const getCurrentFinancialYear = () => {
     }
   };
 
-  // =========================================
-  // File Change
-  // =========================================
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -263,11 +232,6 @@ const getCurrentFinancialYear = () => {
 
     setSelectedFile(file);
   };
-
-  // =========================================
-  // Auto Hide Success & Error Message
-  // =========================================
-
   useEffect(() => {
     if (!successMessage && !errorMessage) {
       return;
@@ -281,11 +245,6 @@ const getCurrentFinancialYear = () => {
 
     return () => clearTimeout(timer);
   }, [successMessage, errorMessage]);
-
-  // =========================================
-  // Format Date
-  // =========================================
-
   const formatDate = (date) => {
     if (!date) {
       return "--";
@@ -316,13 +275,6 @@ const getCurrentFinancialYear = () => {
     return size;
   };
   return (
-    <div className="app">
- 
-    <div className="main-content company-full">
-        <Navbar
-    financialYear={financialYear}
-    setFinancialYear={setFinancialYear}
-/>
         <div className="page">
           <BackButton />
 
@@ -404,10 +356,6 @@ const getCurrentFinancialYear = () => {
               </div>
             )}
           </div>
-          {/* ===========================================
-    Backup History
-=========================================== */}
-
           <div className="backup-history-container">
             <div className="backup-history-header">
               <h2>
@@ -504,10 +452,6 @@ const getCurrentFinancialYear = () => {
               <p>Please wait...</p>
             </div>
           )}
-          {/* ===========================================
-    Backup Information Panel
-=========================================== */}
-
           <div className="backup-info-section">
             <div className="backup-info-card">
               <h3>Backup Information</h3>
@@ -574,9 +518,6 @@ const getCurrentFinancialYear = () => {
             <p>Database • Activity Log • Auto Backup • Manual Backup</p>
           </div>
         </div>
-      </div>
-    </div>
   );
 }
-
 export default Backup;

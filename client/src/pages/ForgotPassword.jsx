@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaArrowLeft, FaMobileAlt, FaPaperPlane } from "react-icons/fa";
 import { sendOTP } from "../services/auth";
+
 import "../css/login.css";
 
 function ForgotPassword() {

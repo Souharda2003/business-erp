@@ -1,7 +1,4 @@
 import { useState, useEffect } from "react";
-
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
 import BackButton from "../components/BackButton";
 
 import {
@@ -155,14 +152,6 @@ const getCurrentFinancialYear = () => {
   };
   if (!editMode && companyId) {
     return (
-      <div className="app">
- 
-    <div className="main-content company-full">
-        <Navbar
-    financialYear={financialYear}
-    setFinancialYear={setFinancialYear}
-/>
-
           <div className="settings-page">
             <BackButton />
 
@@ -256,18 +245,9 @@ const getCurrentFinancialYear = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
     );
   }
   return (
-    <div className="app">
-
-    <div className="main-content company-full">
-        <Navbar
-    financialYear={financialYear}
-    setFinancialYear={setFinancialYear}
-/>
 
         <div className="settings-page">
           <BackButton />
@@ -418,8 +398,6 @@ const getCurrentFinancialYear = () => {
             </div>
           </form>
         </div>
-      </div>
-    </div>
   );
 }
 export default CompanyProfile;

@@ -144,13 +144,6 @@ const getCurrentFinancialYear = () => {
   }
 
   return (
-    <div className="app">
-      <div className="main-content company-full">
-        <Navbar
-          financialYear={financialYear}
-          setFinancialYear={setFinancialYear}
-        />
-
         <div className="profile-page">
           <BackButton />
 
@@ -361,8 +354,6 @@ const getCurrentFinancialYear = () => {
             </form>
           )}
         </div>
-      </div>
-    </div>
   );
 }
 

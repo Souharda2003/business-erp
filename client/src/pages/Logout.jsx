@@ -31,12 +31,9 @@ function Logout() {
           <div className="logout-card">
             <div className="logout-icon">🔒</div>
 
-            <button
-              className="sidebar-item"
-              onClick={() => navigate("/logout")}
-            >
-              Logout
-            </button>
+            <h2 className="logout-title">
+    Logout
+</h2>
 
             <p>Are you sure you want to logout from Business ERP?</p>
 

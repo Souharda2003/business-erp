@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { changePassword } from "../services/auth";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import BackButton from "../components/BackButton";
 import "../css/settings.css";
 
 function ChangePassword() {
@@ -96,22 +95,10 @@ const getCurrentFinancialYear = () => {
   const strength = getStrength();
 
   return (
-    <div className="app">
 
-      <div className="main-content company-full">
-        <Navbar
-          financialYear={financialYear}
-          setFinancialYear={setFinancialYear}
-        />
         <div className="settings-page">
+<BackButton/>
           <div className="settings-title">
-           
- <button
-        className="back-btn"
-        onClick={handleBack}
-    >
-         Back
-    </button>
             <h1> Change Password</h1>
 
             <p>
@@ -215,8 +202,6 @@ const getCurrentFinancialYear = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
   {
     successModal && (
