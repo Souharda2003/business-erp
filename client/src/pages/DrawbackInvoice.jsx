@@ -300,8 +300,6 @@ View & Download Drawback Invoice
         </div>
         <div className="document-footer">
           <h3>Generated : {new Date().toLocaleString("en-GB")}</h3>
-
-          
         </div>
       </div>
                   <div className="invoice-button-area">

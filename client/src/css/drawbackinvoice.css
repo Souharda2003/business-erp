@@ -1,35 +1,35 @@
-.drawback-page{
+.invoice-page{
 
-background:#eef3f7;
+    min-height:100vh;
 
-min-height:100vh;
+    padding:20px;
 
-padding:30px;
+    background:#081425;
 
-display:flex;
+    overflow-x:auto;
 
-justify-content:center;
+    overflow-y:auto;
+
+    -webkit-overflow-scrolling:touch;
 
 }
-.drawback-container{
+.invoice{
 
-width:210mm;
+    width:210mm;
 
-min-height:297mm;
+    min-height:297mm;
 
-background:#ffffff;
+    margin:auto;
 
-padding:20px;
+    background:#fff;
 
-border:2px solid #000;
+    padding:20mm;
 
-position:relative;
+    box-sizing:border-box;
 
-box-sizing:border-box;
+    border:2px solid #000;
 
-font-family:Arial,Helvetica,sans-serif;
-
-box-shadow:0 5px 20px rgba(0,0,0,.08);
+    position:relative;
 
 }
 .custom-header{
@@ -204,16 +204,54 @@ border:1px solid #888;
 padding:15px;
 
 }
-
 .declaration-right{
 
-flex:1;
+    flex:1;
 
-border:1px solid #888;
+    border:1px solid #888;
 
-padding:40px;
+    display:flex;
 
-text-align:center;
+    align-items:flex-end;
+
+    justify-content:center;
+
+    padding:15px;
+
+    min-height:130px;
+
+    text-align:center;
+
+}.signature-box{
+
+    width:100%;
+
+}
+
+.signature-box p{
+
+    margin:0;
+
+    font-size:16px;
+
+    font-weight:700;
+
+}.invoice{
+
+    page-break-inside:avoid;
+
+    break-inside:avoid;
+
+}.custom-header,
+.party-section,
+.item-table,
+.value-table,
+.declaration-section,
+.document-footer{
+
+    page-break-inside:avoid;
+
+    break-inside:avoid;
 
 }
 @media(max-width:900px){
@@ -235,7 +273,25 @@ min-width:900px;
 }
 
 }
+@media (max-width:768px){
 
+.invoice{
+
+    width:900px;
+
+    min-width:900px;
+
+}
+
+.invoice-page{
+
+    overflow-x:auto;
+
+    overflow-y:auto;
+
+}
+
+}
 .invoice-page-header {
   display: flex;
   align-items: center;
