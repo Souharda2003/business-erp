@@ -59,7 +59,7 @@ const handlePrint = useReactToPrint({
       .save();
   };
   return (
-    <div className="drawback-page">
+    <div className="invoice-page">
   <div className="invoice-page-header">
         <BackButton />
 <div className="rodtep-heading">
