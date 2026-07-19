@@ -414,7 +414,10 @@ return (
                   <td>{item.licence_no}</td>
 
                   <td>
-                    {Number(item.total_credit || 0).toFixed(2)}
+    {Number(item.total_credit).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                   </td>
 
                   <td>{item.hsn}</td>
@@ -440,9 +443,11 @@ return (
                   </td>
 
                   <td className="amount-cell">
-
-                    ₹
-                    {Number(item.amount || 0).toFixed(2)}
+₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
                   </td>
 
@@ -565,7 +570,10 @@ return (
 
                 <p>
                   <b>Total Credit :</b>{" "}
-                  {Number(item.total_credit || 0).toFixed(2)}
+    {Number(item.total_credit).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </p>
 
                 <p>

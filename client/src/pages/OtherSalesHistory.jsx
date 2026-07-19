@@ -416,7 +416,11 @@ const [financialYear, setFinancialYear] = useState("");
 
               <td>
 
-                ₹{Number(item.total_amount || 0).toFixed(2)}
+                ₹{" "}
+    {Number(item.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
               </td>
 
@@ -498,7 +502,11 @@ const [financialYear, setFinancialYear] = useState("");
 
   <h1>
 
-    ₹{Number(totalAmount).toFixed(2)}
+    ₹{" "}
+    {Number(totalAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
   </h1>
 
@@ -628,19 +636,21 @@ const [financialYear, setFinancialYear] = useState("");
 
                   Amount :
 
-                </strong>{" "}
-
-                ₹{Number(item.amount || 0).toFixed(2)}
+                </strong>₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
               </p>
 
               <h2>
 
-                Total Amount : ₹
-
-                {Number(
-                  item.total_amount || 0
-                ).toFixed(2)}
+                Total Amount : ₹{" "}
+    {Number(item.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
               </h2>
 
@@ -654,9 +664,11 @@ const [financialYear, setFinancialYear] = useState("");
               <>
                           <p>
 
-                <strong>Amount :</strong>{" "}
-
-                ₹{Number(item.amount || 0).toFixed(2)}
+                <strong>Amount :</strong>₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
               </p>
 
@@ -702,16 +714,20 @@ const [financialYear, setFinancialYear] = useState("");
 
               <p>
 
-                <strong>Total GST :</strong>{" "}
-
-                ₹{Number(item.total_gst || 0).toFixed(2)}
+                <strong>Total GST :</strong>₹{" "}
+    {Number(item.total_gst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
               </p>
               <h2>
 
-                Total Amount : ₹
-
-                {Number(item.total_amount || 0).toFixed(2)}
+                Total Amount : ₹{" "}
+    {Number(item.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
               </h2>
 
@@ -734,17 +750,21 @@ const [financialYear, setFinancialYear] = useState("");
 
               <p>
 
-                <strong>Amount :</strong>{" "}
-
-                ₹{Number(item.amount || 0).toFixed(2)}
+                <strong>Amount :</strong>₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
               </p>
 
               <p>
 
-                <strong>TDS :</strong>{" "}
-
-                ₹{Number(item.tds || 0).toFixed(2)}
+                <strong>TDS :</strong>₹{" "}
+    {Number(item.tds).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
               </p>
 
@@ -754,9 +774,11 @@ const [financialYear, setFinancialYear] = useState("");
 
               <div className="summary-grand-total">
 
-                Total Amount : ₹
-
-                {Number(item.total_amount || 0).toFixed(2)}
+                Total Amount : ₹{" "}
+    {Number(item.total_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
 
                 </div>
@@ -771,9 +793,11 @@ const [financialYear, setFinancialYear] = useState("");
 
         <h2>
 
-          Total Other Sales Amount : ₹
-
-          {Number(totalAmount).toFixed(2)}
+          Total Other Sales Amount : ₹{" "}
+    {Number(totalAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
 
         </h2>
 

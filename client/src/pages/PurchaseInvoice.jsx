@@ -138,9 +138,18 @@ View & Download Purchase Invoice
               <td>{purchase.product_name}</td>
               <td>{purchase.quantity}</td>
               <td>{purchase.unit}</td>
-              <td>₹{Number(purchase.unit_price || 0).toFixed(2)}</td>
-              <td>₹{taxableAmount.toFixed(2)}</td>
-              <td>₹{grandTotal.toFixed(2)}</td>
+              <td>₹{Number(purchase.unit_price).toLocaleString("en-IN", {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 2,
+    })} </td>
+              <td>₹{Number(taxableAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 2,
+    })} </td>
+              <td>₹{Number(grandTotal).toLocaleString("en-IN", {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 2,
+    })} </td>
             </tr>
           </tbody>
         </table>
@@ -148,27 +157,45 @@ View & Download Purchase Invoice
           <tbody>
             <tr>
               <td>Taxable Amount</td>
-              <td>₹{taxableAmount.toFixed(2)}</td>
+              <td>₹{Number(taxableAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
             </tr>
             <tr>
               <td>CGST</td>
-              <td>₹{cgst.toFixed(2)}</td>
+              <td>₹{Number(cgst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
             </tr>
             <tr>
               <td>SGST</td>
-              <td>₹{sgst.toFixed(2)}</td>
+              <td>₹{Number(sgst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
             </tr>
             <tr>
               <td>Total GST</td>
-              <td>₹{totalGST.toFixed(2)}</td>
+              <td>₹{Number(totalGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
             </tr>
             <tr>
               <td>Round Off</td>
-              <td>₹{roundOff.toFixed(2)}</td>
+              <td>{Number(roundOff).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
             </tr>
             <tr>
               <th>Grand Total</th>
-              <th>₹{grandTotal.toFixed(2)}</th>
+              <th>₹{Number(grandTotal).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </th>
             </tr>
           </tbody>
         </table>

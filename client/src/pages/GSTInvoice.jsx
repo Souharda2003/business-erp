@@ -286,13 +286,21 @@ View & Download GST Invoice
             <tr>
               <td>CGST</td>
 
-              <td>₹{Number(gst.cgst_amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
+    {Number(gst.cgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</td>
             </tr>
 
             <tr>
               <td>SGST</td>
 
-              <td>₹{Number(gst.sgst_amount || 0).toFixed(2)}</td>
+              <td>₹{" "}
+    {Number(gst.sgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</td>
             </tr>
 
             <tr>
@@ -342,7 +350,11 @@ View & Download GST Invoice
             <div className="summary-row">
               <span>Taxable Amount</span>
 
-              <span>₹{Number(gst.taxable_amount || 0).toFixed(2)}</span>
+              <span>₹{" "}
+    {Number(gst.taxable_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</span>
             </div>
 
             <div className="summary-row">
@@ -354,7 +366,11 @@ View & Download GST Invoice
             <div className="summary-row">
               <span>GST Amount</span>
 
-              <span>₹{Number(gst.gst_amount || 0).toFixed(2)}</span>
+              <span>₹{" "}
+    {Number(gst.gst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</span>
             </div>
 
             <hr />
@@ -369,7 +385,11 @@ View & Download GST Invoice
             >
               <span>Total Amount</span>
 
-              <span>₹{Number(totalAmount || 0).toFixed(2)}</span>
+              <span>₹{" "}
+    {Number(totalAmount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</span>
             </div>
           </div>
           <br />

@@ -345,7 +345,11 @@ function PaymentHistory() {
 
                 <td>{item.payment_type}</td>
 
-                <td>₹{Number(item.amount || 0).toFixed(2)}</td>
+                <td>₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</td>
 
                 <td>
                   <span
@@ -404,7 +408,11 @@ className={`status-badge ${
         </h2>
 
           <h1 className="total-amount">
-          ₹{Number(totalPayment).toFixed(2)}
+          ₹{" "}
+    {Number(totalPayment).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
         </h1>
       </div>
 
@@ -457,7 +465,11 @@ className={`status-badge ${
                 </p>
 
                 <p>
-                  <b>Amount :</b> ₹{Number(item.amount || 0).toFixed(2)}
+                  <b>Amount :</b> ₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </p>
 
                 <p>
@@ -467,13 +479,21 @@ className={`status-badge ${
                 <hr />
 
 <h2 className="summary-payment">
-                  Payment Amount : ₹{Number(item.amount || 0).toFixed(2)}
+                  Payment Amount : ₹{" "}
+    {Number(item.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </h2>
               </div>
             ))}
 <div className="summary-footer">
               <h2 className="summary-total">
-                Total Payment : ₹{Number(totalPayment).toFixed(2)}
+                Total Payment : ₹{" "}
+    {Number(totalPayment).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h2>
 
 <h3 className="summary-record">

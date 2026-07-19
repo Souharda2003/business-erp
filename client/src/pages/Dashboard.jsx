@@ -106,7 +106,10 @@ function Dashboard() {
                 </h2>
                 <p>
                   ₹{" "}
-                  {Number(dashboardData.purchase_amount || 0).toLocaleString()}
+    {Number(dashboardData.purchase_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </p>
                 <div className="card-glow"></div>
               </div>
@@ -115,7 +118,11 @@ function Dashboard() {
                 onClick={() => navigate("/sales-history")}
               >
                 <h3>Total Sales</h3>
-                <h2>₹{Number(dashboardData.sales || 0).toLocaleString()}</h2>
+                <h2>₹{" "}
+    {Number(dashboardData.sales).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h2>
                 <p>Business Sales Overview</p>
                 <div className="card-glow"></div>
               </div>
@@ -133,7 +140,11 @@ function Dashboard() {
                 onClick={() => navigate("/payment-history")}
               >
                 <h3>Total Payment</h3>
-                <h2>₹{Number(dashboardData.payment || 0).toLocaleString()}</h2>
+                <h2>₹{" "}
+    {Number(dashboardData.payment).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h2>
                 <small
                   style={{
                     color:
@@ -153,7 +164,11 @@ function Dashboard() {
                 onClick={() => navigate("/drawback-history")}
               >
                 <h3>Total Drawback</h3>
-                <h2>₹{Number(dashboardData.drawback || 0).toLocaleString()}</h2>
+                <h2>₹{" "}
+    {Number(dashboardData.drawback).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h2>
                 <p>Export Incentive</p>
                 <div className="card-glow"></div>
               </div>
@@ -162,7 +177,11 @@ function Dashboard() {
                 onClick={() => navigate("/rodtep-history")}
               >
                 <h3>Total RODTEP</h3>
-                <h2>₹{Number(dashboardData.rodtep || 0).toLocaleString()}</h2>
+                <h2>₹{" "}
+    {Number(dashboardData.rodtep).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h2>
                 <p>Duty Remission</p>
                 <div className="card-glow"></div>
               </div>
@@ -171,7 +190,11 @@ function Dashboard() {
                 onClick={() => navigate("/gst-history")}
               >
                 <h3>Total GST</h3>
-                <h2>₹{Number(dashboardData.gst || 0).toLocaleString()}</h2>
+                <h2>₹{" "}
+    {Number(dashboardData.gst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h2>
                 <p>GST Collection</p>
                 <div className="card-glow"></div>
               </div>
@@ -181,7 +204,11 @@ function Dashboard() {
               >
                 <h3>Other Sales</h3>
                 <h2>
-                  ₹{Number(dashboardData.other_sales || 0).toLocaleString()}
+                 ₹{" "}
+    {Number(dashboardData.other_sales).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </h2>
                 <p>Additional Revenue</p>
                 <div className="card-glow"></div>
@@ -192,10 +219,11 @@ function Dashboard() {
               >
                 <h3>Accounting Charges</h3>
                 <h2>
-                  ₹
-                  {Number(
-                    dashboardData.accounting_charge || 0,
-                  ).toLocaleString()}
+                  ₹{" "}
+    {Number(dashboardData.accounting_charge).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </h2>
                 <p>Total Expenses</p>
                 <div className="card-glow"></div>
@@ -205,7 +233,11 @@ function Dashboard() {
                 onClick={() => navigate("/profit-history")}
               >
                 <h3>Net Profit</h3>
-                <h2>₹{Number(dashboardData.profit || 0).toLocaleString()}</h2>
+                <h2>₹{" "}
+    {Number(dashboardData.profit).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</h2>
                 <p>Business Performance</p>
                 <div className="card-glow"></div>
               </div>
@@ -265,8 +297,16 @@ function Dashboard() {
               <h3>Purchase vs Sales</h3>
               <p>Compare yearly purchase and sales performance.</p>
               <div className="bottom-value">
-                ₹{Number(dashboardData.purchase_amount || 0).toLocaleString()}
-                {" | "}₹{Number(dashboardData.sales || 0).toLocaleString()}
+                ₹{" "}
+    {Number(dashboardData.purchase_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
+            {" | "}₹{" "}
+    {Number(dashboardData.sales).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </div>
             </div>
             <div
@@ -276,7 +316,11 @@ function Dashboard() {
               <h3>Profit Growth</h3>
               <p>Business yearly profit analysis.</p>
               <div className="bottom-value">
-                ₹{Number(dashboardData.profit || 0).toLocaleString()}
+                ₹{" "}
+    {Number(dashboardData.profit).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </div>
             </div>
             <div

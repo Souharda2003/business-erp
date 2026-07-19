@@ -312,34 +312,50 @@ function PurchaseHistory() {
                     {item.quantity} {item.unit}
                   </p>
                   <p>
-                    <b>Unit Price :</b>₹
-                    {Number(item.unit_price || 0).toFixed(2)}
-                  </p>
+                    <b>Unit Price :</b>₹{" "}
+    {Number(item.unit_price).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </p>
                   <p>
-                    <b>Taxable :</b>₹
-                    {Number(item.taxable_amount || 0).toFixed(2)}
-                  </p>
+                    <b>Taxable :</b>₹{" "}
+    {Number(item.taxable_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </p>
                   <p>
                     <b>CGST :</b>
                     {item.cgst_percent} %
                   </p>
                   <p>
-                    <b>CGST Amount :</b>₹
-                    {Number(item.cgst_amount || 0).toFixed(2)}
-                  </p>
+                    <b>CGST Amount :</b>₹{" "}
+    {Number(item.cgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </p>
                   <p>
                     <b>SGST :</b>
                     {item.sgst_percent} %
                   </p>
                   <p>
-                    <b>SGST Amount :</b>₹
-                    {Number(item.sgst_amount || 0).toFixed(2)}
+                    <b>SGST Amount :</b>₹{" "}
+    {Number(item.sgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </p>
+                  <p>
+                    <b>Total GST :</b>₹{" "}
+    {Number(item.total_gst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
                   </p>
                   <p>
-                    <b>Total GST :</b>₹{Number(item.total_gst || 0).toFixed(2)}
-                  </p>
-                  <p>
-                    <b>Round Off :</b>₹{Number(item.round_off || 0).toFixed(2)}
+                    <b>Round Off :</b>₹{" "}
+    {Number(item.round_off).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
                   </p>
                 </div>
                 <hr />
@@ -365,9 +381,21 @@ function PurchaseHistory() {
                   },
                 )}
               </h2>
-              <h3>Total Taxable : ₹{Number(totalTaxable).toFixed(2)}</h3>
-              <h3>Total GST : ₹{Number(totalGST).toFixed(2)}</h3>
-              <h3>Total Round Off : ₹{Number(totalRoundOff).toFixed(2)}</h3>
+              <h3>Total Taxable : ₹{" "}
+    {Number(totalTaxable).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h3>
+              <h3>Total GST : ₹{" "}
+    {Number(totalGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h3>
+              <h3>Total Round Off : ₹{" "}
+    {Number(totalRoundOff).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h3>
             </div>
           </>
         )}

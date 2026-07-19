@@ -407,7 +407,7 @@ repeat(auto-fit,minmax(240px,1fr));
 }
 
 .dashboard-card h2 {
-  font-size: 24px;
+  font-size: 18px;
 
   font-weight: 600;
 
@@ -810,7 +810,7 @@ repeat(auto-fit,minmax(240px,1fr));
   margin-bottom: 22px;
 }
 .bottom-value {
-  font-size: 38px;
+  font-size: 28px;
 
   font-weight: 700;
 

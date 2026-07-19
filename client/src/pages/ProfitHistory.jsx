@@ -342,42 +342,66 @@ return (
                                 <tr>
                   <td>Total Sales</td>
                   <td className="amount-cell">
-                    ₹ {Number(summary.sales || 0).toFixed(2)}
+                    ₹{" "}
+    {Number(summary.sales).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                   </td>
                 </tr>
 
                 <tr>
                   <td>Total Drawback</td>
                   <td className="amount-cell">
-                    ₹ {Number(summary.drawback || 0).toFixed(2)}
+                    ₹{" "}
+    {Number(summary.drawback).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                   </td>
                 </tr>
 
                 <tr>
                   <td>Total RODTEP</td>
                   <td className="amount-cell">
-                    ₹ {Number(summary.rodtep || 0).toFixed(2)}
+                    ₹{" "}
+    {Number(summary.rodtep).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                   </td>
                 </tr>
 
                 <tr>
                   <td>Total GST</td>
                   <td className="amount-cell">
-                    ₹ {Number(summary.gst || 0).toFixed(2)}
+                    ₹{" "}
+    {Number(summary.gst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                   </td>
                 </tr>
 
                 <tr>
                   <td>Other Sales</td>
                   <td className="amount-cell">
-                    ₹ {Number(summary.otherSales || 0).toFixed(2)}
+                    ₹{" "}
+    {Number(summary.otherSales).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                   </td>
                 </tr>
 
                 <tr>
                   <td>Total Purchase</td>
                   <td className="amount-cell">
-                    ₹ {Number(summary.purchase || 0).toFixed(2)}
+                    ₹{" "}
+    {Number(summary.purchase).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                   </td>
                 </tr>
 
@@ -398,7 +422,11 @@ return (
             </h3>
 
             <h2>
-              ₹ {Number(totalIncome || 0).toFixed(2)}
+              ₹{" "}
+    {Number(totalIncome).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
             </h2>
 
             <p className="summary-label">
@@ -415,7 +443,11 @@ return (
             </h3>
 
             <h2>
-              ₹ {Number(totalExpense || 0).toFixed(2)}
+              ₹{" "}
+    {Number(totalExpense).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
             </h2>
 
             <p className="summary-label">
@@ -438,7 +470,11 @@ return (
             </h3>
 
             <h2>
-              ₹ {Number(netProfit || 0).toFixed(2)}
+              ₹{" "}
+    {Number(netProfit).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
             </h2>
 
             <p className="summary-label">

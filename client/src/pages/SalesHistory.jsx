@@ -612,7 +612,11 @@ return (
 
         <h3>
 
-          Total Quantity : {totalQuantity}
+          Total Quantity : {" "}
+    {Number(totalQuantity).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
 
         </h3>
 

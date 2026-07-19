@@ -305,12 +305,28 @@ function GSTHistory() {
                     : ""}
                 </td>
                 <td>{item.supplier}</td>
-                <td>₹{Number(item.taxable_amount || 0).toFixed(2)}</td>
-                <td>₹{Number(item.cgst_amount || 0).toFixed(2)}</td>
-                <td>₹{Number(item.sgst_amount || 0).toFixed(2)}</td>
+                <td>₹{" "}
+    {Number(item.taxable_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</td>
+                <td>₹{" "}
+    {Number(item.cgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</td>
+                <td>₹{" "}
+    {Number(item.sgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</td>
                 <td
                   className="amount-cell">
-                  ₹{Number(item.total_gst || 0).toFixed(2)}
+                 ₹{" "}
+    {Number(item.total_gst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </td>
                 <td className="action-column">
                   <div className="action-buttons">
@@ -353,7 +369,11 @@ function GSTHistory() {
             fontSize: "40px",
           }}
         >
-          ₹{Number(totalGST).toFixed(2)}
+          ₹{" "}
+    {Number(totalGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
         </h1>
       </div>
     <div className="lc-summary-card">
@@ -393,24 +413,41 @@ function GSTHistory() {
                   <b>Supplier :</b> {item.supplier}
                 </p>
                 <p>
-                  <b>Taxable Amount :</b> ₹
-                  {Number(item.taxable_amount || 0).toFixed(2)}
+                  <b>Taxable Amount :</b> ₹{" "}
+    {Number(item.taxable_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </p>
                 <p>
-                  <b>CGST Amount :</b> ₹
-                  {Number(item.cgst_amount || 0).toFixed(2)}
+                  <b>CGST Amount :</b> ₹{" "}
+    {Number(item.cgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </p>
                 <p>
-                  <b>SGST Amount :</b> ₹
-                  {Number(item.sgst_amount || 0).toFixed(2)}
+                  <b>SGST Amount :</b>₹{" "}
+    {Number(item.sgst_amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </p>
                 <p>
-                  <b>Total GST :</b> ₹{Number(item.total_gst || 0).toFixed(2)}
+                  <b>Total GST :</b> ₹{" "}
+    {Number(item.total_gst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </p>
             </div>
             <hr/>
                 <div className="summary-grand-total">
-                  GST Payable : ₹{Number(item.total_gst || 0).toFixed(2)}
+                  GST Payable : ₹{" "}
+    {Number(item.total_gst).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
                 </div>
               </div>
             ))}
@@ -419,19 +456,39 @@ function GSTHistory() {
 
             
               <h2>
-                Total GST : ₹{Number(totalGST).toFixed(2)}
+                Total GST : ₹{" "}
+    {Number(totalGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h2>
               <h3>
-                Total Taxable Amount : ₹{Number(totalTaxable).toFixed(2)}
+                Total Taxable Amount : ₹{" "}
+    {Number(totalTaxable).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h3>
               <h3>
-                Total CGST : ₹{Number(totalCGST).toFixed(2)}
+                Total CGST : ₹{" "}
+    {Number(totalCGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h3>
               <h3>
-                Total SGST : ₹{Number(totalSGST).toFixed(2)}
+                Total SGST : ₹{" "}
+    {Number(totalSGST).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h3>
               <h3>
-                Total Invoice Value : ₹{Number(totalInvoice).toFixed(2)}
+                Total Invoice Value : ₹{" "}
+    {Number(totalInvoice).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
               </h3>
 
               <h3>Total Records :{gst.length}</h3>

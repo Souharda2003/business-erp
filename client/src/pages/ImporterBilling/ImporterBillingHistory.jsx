@@ -409,11 +409,15 @@ return (
                       </td>
 
                       <td className="amount-cell">
+    ₹{" "}
 
-                        ₹
-                        {Number(
-                          item.grand_total || 0
-                        ).toFixed(2)}
+    {Number(item.grand_total).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
+
+
+ 
 
                       </td>
 
@@ -484,7 +488,11 @@ return (
           </h2>
 
           <h1 className="total-amount">
-            ₹{Number(totalGrand).toFixed(2)}
+                ₹{" "}
+    {Number(totalGrand).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
           </h1>
 
         </div>
@@ -591,14 +599,12 @@ return (
                       LC Payment
                     </label>
 
-                    <p>
+                    <p>    ₹{" "}
 
-                      ₹
-                      {Number(
-                        item.lc_payment || 0
-                      ).toFixed(2)}
-
-                    </p>
+    {Number(item.lc_payment).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</p>
 
                   </div>
 
@@ -608,15 +614,12 @@ return (
                       Item Total
                     </label>
 
-                    <p>
-
-                      ₹
-                      {Number(
-                        item.item_total || 0
-                      ).toFixed(2)}
-
-                    </p>
-
+                    <p>    ₹{" "}
+    {Number(item.item_total).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
+</p>
                   </div>
 
                   <div className="summary-item">
@@ -625,16 +628,12 @@ return (
                       Extra Charge
                     </label>
 
-                    <p>
-
-                      ₹
-                      {Number(
-                        item.extra_charge || 0
-                      ).toFixed(2)}
-
-                    </p>
-
-                  </div>
+                    <p>    ₹{" "}
+    {Number(item.extra_charge).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</p>
+    </div>
 
                   <div className="summary-item grand-box">
 
@@ -642,18 +641,13 @@ return (
                       Grand Total
                     </label>
 
-                    <p>
-
-                      ₹
-                      {Number(
-                        item.grand_total || 0
-                      ).toFixed(2)}
-
-                    </p>
-
-                  </div>
-
-                </div>
+                    <p>    ₹{" "}
+    {Number(item.grand_total).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
+</p>
+</div></div>
 
                 <hr className="summary-divider" />
 
@@ -704,23 +698,16 @@ return (
                                 {product.bag}
                               </td>
 
-                              <td>
-
-                                ₹
-                                {Number(
-                                  product.price || 0
-                                ).toFixed(2)}
-
-                              </td>
-
-                              <td>
-
-                                ₹
-                                {Number(
-                                  product.amount || 0
-                                ).toFixed(2)}
-
-                              </td>
+                              <td>    ₹{" "}
+    {Number(product.price).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}
+</td><td>    ₹{" "}
+    {Number(product.amount).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </td>
 
                             </tr>
 
@@ -753,13 +740,11 @@ return (
                   Grand Total
 
                   <span>
-
-                    ₹
-                    {Number(
-                      item.grand_total || 0
-                    ).toFixed(2)}
-
-                  </span>
+    ₹{" "}
+    {Number(item.grand_total).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}</span>
 
                 </div>
 
@@ -786,13 +771,11 @@ return (
               </span>
 
               <h3>
-
-                ₹
-                {Number(
-                  totalLCPayment
-                ).toFixed(2)}
-
-              </h3>
+               ₹{" "}
+    {Number(totalLCPayment).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h3>
 
             </div>
 
@@ -802,14 +785,11 @@ return (
                 Total Item Amount
               </span>
 
-              <h3>
-
-                ₹
-                {Number(
-                  totalItem
-                ).toFixed(2)}
-
-              </h3>
+              <h3>    ₹{" "}
+    {Number(totalItem).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h3>
 
             </div>
 
@@ -819,13 +799,11 @@ return (
                 Total Extra Charge
               </span>
 
-              <h3>
-
-                ₹
-                {Number(
-                  totalExtraCharge
-                ).toFixed(2)}
-
+              <h3>₹{" "}
+    {Number(totalExtraCharge).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} 
               </h3>
 
             </div>
@@ -836,14 +814,11 @@ return (
                 Total Grand Amount
               </span>
 
-              <h2>
-
-                ₹
-                {Number(
-                  totalGrand
-                ).toFixed(2)}
-
-              </h2>
+              <h2>₹{" "}
+    {Number(totalGrand).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })} </h2>
 
             </div>
 
