@@ -126,9 +126,20 @@ const getCurrentFinancialYear = () => {
 
         loadBackupStatus();
       }
-    } catch (error) {
-      setErrorMessage(error.response?.data?.message || "Backup Failed");
-    } finally {
+    }catch (error) {
+
+    console.log("Backup Error :", error);
+
+    console.log("Response :", error.response);
+
+    console.log("Data :", error.response?.data);
+
+    setErrorMessage(
+        error.response?.data?.message ||
+        error.message ||
+        "Backup Failed"
+    );
+}finally {
       setLoading(false);
     }
   };
