@@ -141,10 +141,8 @@ function Drawback() {
     }
   };
 return (
-  <div className="drawback-page">
-
-    <div className="drawback-header">
-
+    <div className="lc-page">
+<div className="lc-header">
       <BackButton />
 
       <div>
@@ -160,12 +158,9 @@ return (
     </div>
 
     <form
-      className="form-container drawback-form-card"
+      className="form-container lc-card"
       onSubmit={handleSubmit}
     >
-
-      <div className="card-glow"></div>
-
       <div className="form-group">
 
         <label>Shipping Bill</label>

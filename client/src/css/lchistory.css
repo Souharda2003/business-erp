@@ -490,6 +490,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
 @media (max-width: 992px) {
   .table {
     display: block;
@@ -776,15 +777,7 @@ color:#fff;
 margin-bottom:20px;
 
 }
-.drawback-page .history-table th{
 
-    min-width:120px;
-
-}.drawback-page .history-table td{
-
-    min-width:120px;
-
-}
 .summary-empty{
 
 padding:35px;
@@ -898,103 +891,5 @@ margin-bottom:18px;
 color:#dbe7ff;
 
 margin:12px 0;
-
-}
-.drawback-page .history-table-wrapper{
-
-    width:100%;
-
-    max-width:100%;
-
-    overflow-x:auto;
-
-    overflow-y:hidden;
-
-    -webkit-overflow-scrolling:touch;
-
-    display:block;
-
-}.drawback-page .history-table{
-
-    min-width:900px;
-
-    width:max-content;
-
-    border-collapse:collapse;
-
-}.drawback-page{
-
-    width:100%;
-
-    max-width:100%;
-
-}.drawback-page .history-table-card{
-
-    width:95%;
-
-    max-width:900px;
-
-    margin:30px auto;
-
-    padding:16px !important;
-
-    overflow:hidden;
-
-    border-radius:22px;
-
-}.drawback-page .summary-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
-
-    gap:15px;
-
-}@media (max-width:768px){
-
-.drawback-page{
-
-    padding:12px;
-
-}
-
-.drawback-page .summary-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.drawback-page .summary-entry-card{
-
-    padding:18px;
-
-}
-
-.drawback-page .summary-overall-card{
-
-    padding:18px;
-
-}
-
-}@media (max-width:480px){
-
-.drawback-page .history-table{
-
-    min-width:1200px;
-
-}
-
-.drawback-page .summary-title{
-
-    font-size:24px;
-
-}
-
-.drawback-page .summary-grand-total{
-
-    font-size:22px;
-
-}
 
 }

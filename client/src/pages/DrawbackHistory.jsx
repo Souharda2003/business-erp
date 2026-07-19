@@ -97,13 +97,13 @@ function DrawbackHistory() {
     0,
   );
 return (
-  <div className="page drawback-page">
+  <div className="page lc-page">
 
-    <div className="drawback-header">
+    <div className="lc-header">
 
       <BackButton />
 
-      <div className="drawback-heading">
+      <div>
 
         <h1 className="page-title">
           Drawback History
