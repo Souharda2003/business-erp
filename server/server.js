@@ -13,13 +13,6 @@ app.get("/", (req, res) => {
 });
 const PORT = 5000;
 
-const { startAutoBackup } = require("./cron/autoBackup");
-
-app.listen(PORT, () => {
-  console.log(`Server Running on ${PORT}`);
-
-  startAutoBackup();
-});
 const loginRoutes = require("./routes/loginRoutes");
 app.use("/api/login", loginRoutes);
 const registerRoutes = require("./routes/registerRoutes");
@@ -34,9 +27,6 @@ const reportRoutes = require("./routes/reportRoutes");
 app.use("/api/report", reportRoutes);
 const otpRoutes = require("./routes/otpRoutes");
 app.use("/api/otp", otpRoutes);
-const uploadRoutes = require("./routes/uploadRoutes");
-app.use("/api/upload", uploadRoutes);
-app.use("/uploads", express.static("uploads"));
 const gstRoutes = require("./routes/gstRoutes");
 app.use("/api/gst", gstRoutes);
 const profitRoutes = require("./routes/profileRoutes");
@@ -63,8 +53,6 @@ const companyRoutes = require("./routes/companyRoutes");
 app.use("/api/company", companyRoutes);
 const profileRoutes = require("./routes/profileRoutes");
 app.use("/api/profile", profileRoutes);
-const backupRoutes = require("./routes/backupRoutes");
-app.use("/api/backup", backupRoutes);
 const statementRoutes = require("./routes/statementRoutes");
 app.use("/api/statement", statementRoutes);
 

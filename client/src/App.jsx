@@ -62,7 +62,6 @@ import ImporterBillingInvoice from "./pages/ImporterBilling/ImporterBillingInvoi
 import Accounting from "./pages/Accounting/Accounting";
 import CompanyProfile from "./pages/CompanyProfile";
 import ActivityLog from "./pages/ActivityLog";
-import Backup from "./pages/Backup";
 import ChangePassword from "./pages/ChangePassword";
 import Logout from "./pages/Logout";
 function App() {
@@ -668,15 +667,6 @@ function App() {
         element={
           <ProtectedRoute>
             <CompanyProfile />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/backup"
-        element={
-          <ProtectedRoute>
-            <Backup />
           </ProtectedRoute>
         }
       />

@@ -422,8 +422,6 @@ function Sidebar({ sidebarOpen, toggleSidebar }) {
             <div className="sidebar-child">
               <div className="sidebar-subchild">
                 <NavLink to="/company-profile">Company Profile</NavLink>
-
-                <NavLink to="/backup">Backup</NavLink>
               </div>
             </div>
           )}

@@ -46,8 +46,6 @@ const date = new Date(item.created_at.replace(" ", "T") + "Z");
                       ? "🔵"
                       : item.action === "PROFILE"
                         ? "👤"
-                        : item.action === "BACKUP"
-                          ? "💾"
                           : item.action === "FINANCIAL YEAR"
                             ? "📅"
                             : "📋";
