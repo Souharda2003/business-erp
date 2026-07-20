@@ -56,7 +56,12 @@ const loadAnalytics = async () => {
    const res = await getBusinessAnalytics(financialYear);
 
 console.log("Selected FY:", financialYear);
-console.log("Response:", res.data);
+console.log("========== FULL RESPONSE ==========");
+console.log(JSON.stringify(res.data, null, 2));
+
+console.log("Line Chart:", res.data.lineChart);
+console.log("Bar Chart:", res.data.purchaseSalesChart);
+console.log("Pie Chart:", res.data.incomeDistribution);
     setSummary({
       totalIncome: Number(res.data.summary.totalIncome || 0),
       totalPurchase: Number(res.data.summary.totalPurchase || 0),
