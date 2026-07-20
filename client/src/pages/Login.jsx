@@ -168,28 +168,26 @@ onSubmit={handleLogin}
           <div className="input-box">
             <FaMobileAlt className="input-icon" />
 
-            <input
-              type="text"
-              name="mobile"
-              placeholder="Mobile Number"
-              value={form.mobile}
-              onChange={handleChange}
-            />
+           <input
+  type="text"
+  name="mobile"
+  autoComplete="username"
+  placeholder="Mobile Number"
+  value={form.mobile}
+  onChange={handleChange}
+/>
           </div>
           <div className="input-box">
             <FaLock className="input-icon" />
 
-            <input
-              type={
-                showPassword
-                  ? "text"
-                  : "password"
-              }
-              name="password"
-              placeholder="Password"
-              value={form.password}
-              onChange={handleChange}
-            />
+           <input
+  type={showPassword ? "text" : "password"}
+  name="password"
+  autoComplete="current-password"
+  placeholder="Password"
+  value={form.password}
+  onChange={handleChange}
+/>
 
             <button
               type="button"

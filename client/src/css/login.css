@@ -514,7 +514,7 @@ body,
 }
 
 .input-box input::placeholder {
-  color: #bdbdbd;
+  color: #c26969;
 }
 .input-icon {
   position: absolute;
@@ -845,4 +845,26 @@ body,
 .login-btn:disabled {
   opacity: 0.65;
   cursor: not-allowed;
+}
+/* ===== Fix Chrome Autofill ===== */
+
+.input-box input:-webkit-autofill,
+.input-box input:-webkit-autofill:hover,
+.input-box input:-webkit-autofill:focus,
+.input-box input:-webkit-autofill:active{
+
+    -webkit-text-fill-color: #e12a2a !important;
+
+    caret-color: #f3d1d1 !important;
+
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255,0.03) inset !important;
+
+    box-shadow: 0 0 0px 1000px rgba(255,255,255,0.03) inset !important;
+
+    border: none !important;
+
+    background-clip: content-box !important;
+
+    transition: background-color 5000s ease-in-out 0s;
+
 }

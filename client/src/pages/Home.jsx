@@ -18,9 +18,6 @@ function Home() {
       <div className="glass-shine"></div>
 
       <div className="home-content">
-
-        {/* ================= LEFT ================= */}
-
         <div className="home-left">
 
           <h1>
